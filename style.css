@@ -1,6 +1,7 @@
 :root {
   color-scheme: light dark;
   --fg: #1f2328;
+  --bg: #fff;
   --muted: #59636e;
   --border: #d1d9e0;
   --bg-alt: #f6f8fa;
@@ -9,6 +10,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --fg: #e6edf3;
+    --bg: #0d1117;
     --muted: #9198a1;
     --border: #3d444d;
     --bg-alt: #151b23;
@@ -18,6 +20,7 @@
 body {
   font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--fg);
+  background: var(--bg);
   max-width: 1400px;
   margin: 0 auto;
   padding: 1rem 1.5rem 3rem;
@@ -28,11 +31,13 @@ h2 { margin-top: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom:
 a { color: #4493f8; }
 .links, .note, #meta { color: var(--muted); }
 
-.scroll { overflow-x: auto; }
+.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
-table { border-collapse: collapse; font-size: 13px; white-space: nowrap; }
-th, td { border: 1px solid var(--border); padding: 4px 8px; text-align: left; }
-th { background: var(--bg-alt); }
+table { border-collapse: separate; border-spacing: 0; font-size: 13px; white-space: nowrap; }
+th, td { border: 1px solid var(--border); border-width: 0 1px 1px 0; padding: 4px 8px; text-align: left; }
+tr:first-child th { border-top-width: 1px; }
+th:first-child, td:first-child { border-left-width: 1px; position: sticky; left: 0; z-index: 1; }
+th, td:first-child { background: var(--bg-alt); }
 td.num { text-align: right; font-variant-numeric: tabular-nums; }
 td.best { font-weight: 700; }
 code { font-size: 12px; }
@@ -47,11 +52,18 @@ code { font-size: 12px; }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
   gap: 1.5rem;
 }
 
-.chart { position: relative; }
+.chart { position: relative; min-width: 0; }
 .chart h3 { font-size: 14px; margin: 0 0 0.25rem; }
 .chart h3 span { color: var(--muted); font-weight: 400; }
-.history { height: 420px; margin-top: 0.75rem; }
+
+@media (max-width: 600px) {
+  body { padding: 0.5rem 0.75rem 2rem; font-size: 14px; }
+  h1 { font-size: 1.5rem; }
+  h2 { margin-top: 1.75rem; }
+  table { font-size: 12px; }
+  th, td { padding: 3px 6px; }
+}

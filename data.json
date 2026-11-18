@@ -1,7 +1,12 @@
 {
- "generated_at": "2026-11-18T20:16:45.338981+00:00",
- "sample_count": 8,
- "run_count": 4,
+ "generated_at": "2026-11-18T20:26:36.005009+00:00",
+ "sample_count": 2,
+ "runs": [
+  {
+   "run_id": "44390329653",
+   "url": "https://github.com/daniellockyer/runners/actions/runs/44390329653"
+  }
+ ],
  "metrics": [
   {
    "key": "queue",
@@ -67,181 +72,33 @@
  "runners": [
   {
    "provider": "github",
-   "label": "ubuntu-24.04-arm",
-   "arch": "arm64",
-   "price_per_minute": 0.005,
+   "label": "ubuntu-24.04",
+   "arch": "x64",
+   "price_per_minute": 0.006,
    "cpu_models": [
-    "Neoverse-N2"
+    "AMD EPYC 9V74 80-Core Processor"
    ],
    "vcpus": 4,
    "memory_gib": 15.6,
    "disk_gb": 155,
    "virtualization": "microsoft",
-   "location": "San Jose, US",
+   "location": "Cheyenne, US",
    "network": "AS8075 Microsoft Corporation",
    "medians": {
-    "queue": 4.0,
-    "apt_install": 15.812805335999997,
-    "cpu_single": 3957.55,
-    "cpu_multi": 15744.29,
-    "memory": 27816.76,
-    "seq_read": 413.413808,
-    "seq_write": 348.294446,
-    "rand_read": 19575.813953,
-    "rand_write": 19577.12305,
-    "download": 136.459902,
-    "redis_build": 47.53834214599999,
-    "redis_cost": 0.003961528512166666
-   },
-   "samples": [
-    {
-     "started_at": "2026-11-18T19:54:48.895930+00:00",
-     "run_id": "44385345804",
-     "cpu_model": "Neoverse-N2",
-     "values": {
-      "queue": 4.0,
-      "apt_install": 15.812805335999997,
-      "cpu_single": 3957.05,
-      "cpu_multi": 15752.04,
-      "memory": 27816.76,
-      "seq_read": 413.462044,
-      "seq_write": 320.649885,
-      "rand_read": 19617.492167,
-      "rand_write": 19577.12305,
-      "download": 186.762986,
-      "redis_build": 47.53834214599999,
-      "redis_cost": 0.003961528512166666
-     }
-    },
-    {
-     "started_at": "2026-11-18T19:59:12.822966+00:00",
-     "run_id": "44386121576",
-     "cpu_model": "Neoverse-N2",
-     "values": {
-      "queue": 4.0,
-      "apt_install": 14.326412249999976,
-      "cpu_single": 3960.07,
-      "cpu_multi": 15688.36,
-      "memory": 27806.54,
-      "seq_read": 413.329238,
-      "seq_write": 350.895929,
-      "rand_read": 19575.813953,
-      "rand_write": 19569.163113,
-      "download": 0.56616,
-      "redis_build": 44.42118312399998,
-      "redis_cost": 0.003701765260333332
-     }
-    },
-    {
-     "started_at": "2026-11-18T20:12:04.020765+00:00",
-     "run_id": "44388396172",
-     "cpu_model": "Neoverse-N2",
-     "values": {
-      "queue": 5.0,
-      "apt_install": 25.279814996000027,
-      "cpu_single": 3957.55,
-      "cpu_multi": 15744.29,
-      "memory": 27820.19,
-      "seq_read": 413.413808,
-      "seq_write": 348.294446,
-      "rand_read": 19512.360898,
-      "rand_write": 19605.852553,
-      "download": 136.459902,
-      "redis_build": 63.586232091000056,
-      "redis_cost": 0.005298852674250005
-     }
-    }
-   ]
-  },
-  {
-   "provider": "github",
-   "label": "ubuntu-24.04",
-   "arch": "x64",
-   "price_per_minute": 0.006,
-   "cpu_models": [
-    "AMD EPYC 9V74 80-Core Processor",
-    "INTEL(R) XEON(R) PLATINUM 8573C",
-    "Intel(R) Xeon(R) 6975P-C"
-   ],
-   "vcpus": 4,
-   "memory_gib": 15.3,
-   "disk_gb": 155,
-   "virtualization": "amazon",
-   "location": "Ashburn, US",
-   "network": "AS14618 Amazon.com, Inc.",
-   "medians": {
     "queue": 2.0,
-    "apt_install": 28.93010582299999,
-    "cpu_single": 3314.04,
-    "cpu_multi": 6962.64,
-    "memory": 31975.57,
-    "seq_read": 413.65266,
-    "seq_write": 226.087018,
-    "rand_read": 19532.823412,
-    "rand_write": 19157.645647,
-    "download": 205.153454,
-    "redis_build": 63.848807074999996,
-    "redis_cost": 0.0063848807074999995
+    "apt_install": 12.826964580999999,
+    "cpu_single": 3507.6,
+    "cpu_multi": 7393.99,
+    "memory": 24914.31,
+    "seq_read": 413.651395,
+    "seq_write": 413.615461,
+    "rand_read": 19582.027865,
+    "rand_write": 19571.571371,
+    "download": 94.922951,
+    "redis_build": 65.83841532400004,
+    "redis_cost": 0.006583841532400004
    },
-   "samples": [
-    {
-     "started_at": "2026-11-18T19:54:50.144528+00:00",
-     "run_id": "44385345804",
-     "cpu_model": "AMD EPYC 9V74 80-Core Processor",
-     "values": {
-      "queue": 2.0,
-      "apt_install": 28.93010582299999,
-      "cpu_single": 4532.15,
-      "cpu_multi": 9533.01,
-      "memory": 31975.57,
-      "seq_read": 413.65266,
-      "seq_write": 226.647512,
-      "rand_read": 19532.823412,
-      "rand_write": 19157.645647,
-      "download": 205.153454,
-      "redis_build": 63.848807074999996,
-      "redis_cost": 0.0063848807074999995
-     }
-    },
-    {
-     "started_at": "2026-11-18T19:59:13.111065+00:00",
-     "run_id": "44386121576",
-     "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
-     "values": {
-      "queue": 2.0,
-      "apt_install": 12.932107686999998,
-      "cpu_single": 2635.11,
-      "cpu_multi": 5414.23,
-      "memory": 26715.72,
-      "seq_read": 239.167235,
-      "seq_write": 192.739117,
-      "rand_read": 17348.643424,
-      "rand_write": 18653.889741,
-      "download": 195.257583,
-      "redis_build": 69.695178483,
-      "redis_cost": 0.0069695178483
-     }
-    },
-    {
-     "started_at": "2026-11-18T20:12:05.491205+00:00",
-     "run_id": "44388396172",
-     "cpu_model": "Intel(R) Xeon(R) 6975P-C",
-     "values": {
-      "queue": 3.0,
-      "apt_install": 66.74509720599998,
-      "cpu_single": 3314.04,
-      "cpu_multi": 6962.64,
-      "memory": 41054.43,
-      "seq_read": 472.452207,
-      "seq_write": 226.087018,
-      "rand_read": 68711.885874,
-      "rand_write": 33545.763616,
-      "download": 238.120184,
-      "redis_build": 63.512462341,
-      "redis_cost": 0.0063512462341
-     }
-    }
-   ]
+   "sample_count": 1
   },
   {
    "provider": "luxor",
@@ -258,59 +115,20 @@
    "location": "Seattle, US",
    "network": "AS19538 Luxor",
    "medians": {
-    "queue": 13.5,
-    "apt_install": 8.011218187499999,
-    "cpu_single": 6949.92,
-    "cpu_multi": 13649.955,
-    "memory": 42639.155,
-    "seq_read": 17701.369275999998,
-    "seq_write": 15056.337888499998,
-    "rand_read": 112403.17312200001,
-    "rand_write": 118998.60009300002,
-    "download": 212.803066,
-    "redis_build": 44.13827998299999,
-    "redis_cost": 0.002942551998866666
+    "queue": 11.0,
+    "apt_install": 7.34144908,
+    "cpu_single": 6976.26,
+    "cpu_multi": 13683.52,
+    "memory": 43202.97,
+    "seq_read": 19538.841265,
+    "seq_write": 12463.73975,
+    "rand_read": 136311.712552,
+    "rand_write": 147879.141391,
+    "download": 173.43286,
+    "redis_build": 45.01037206799998,
+    "redis_cost": 0.0030006914711999985
    },
-   "samples": [
-    {
-     "started_at": "2026-11-18T20:05:17.384891+00:00",
-     "run_id": "44387187498",
-     "cpu_model": "AMD Ryzen 9 9950X 16-Core Processor",
-     "values": {
-      "queue": 15.0,
-      "apt_install": 8.609877551,
-      "cpu_single": 6946.66,
-      "cpu_multi": 13674.6,
-      "memory": 42367.93,
-      "seq_read": 17384.720434,
-      "seq_write": 14979.517342,
-      "rand_read": 125773.481768,
-      "rand_write": 137919.472035,
-      "download": 241.850836,
-      "redis_build": 45.06350152499999,
-      "redis_cost": 0.0030042334349999994
-     }
-    },
-    {
-     "started_at": "2026-11-18T20:12:09.359535+00:00",
-     "run_id": "44388396172",
-     "cpu_model": "AMD Ryzen 9 9950X 16-Core Processor",
-     "values": {
-      "queue": 12.0,
-      "apt_install": 7.4125588239999995,
-      "cpu_single": 6953.18,
-      "cpu_multi": 13625.31,
-      "memory": 42910.38,
-      "seq_read": 18018.018118,
-      "seq_write": 15133.158435,
-      "rand_read": 99032.864476,
-      "rand_write": 100077.728151,
-      "download": 183.755296,
-      "redis_build": 43.21305844099999,
-      "redis_cost": 0.0028808705627333324
-     }
-    }
-   ]
+   "sample_count": 1
   }
  ],
  "errors": []

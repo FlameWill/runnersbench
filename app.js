@@ -37,12 +37,12 @@ function renderTables(data, color) {
   const { runners, metrics } = data;
   table(
     document.getElementById("runners"),
-    ["Provider", "Label", "Arch", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Virtualization", "Location", "Network", "Samples"],
+    ["Label", "Provider", "Arch", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Virtualization", "Location", "Network", "Samples"],
     runners.map((r) => [
-      textCell(r.provider), runnerCell(r, color), textCell(r.arch), textCell(r.cpu_models.join(", ")),
+      runnerCell(r, color), textCell(r.provider), textCell(r.arch), textCell(r.cpu_models.join(", ")),
       textCell(r.vcpus, "num"), textCell(r.memory_gib, "num"), textCell(r.disk_gb, "num"),
       textCell(r.price_per_minute === null ? null : `$${r.price_per_minute}`, "num"), textCell(r.virtualization),
-      textCell(r.location), textCell(r.network), textCell(r.samples.length, "num"),
+      textCell(r.location), textCell(r.network), textCell(r.sample_count, "num"),
     ]),
   );
 
@@ -92,50 +92,6 @@ function renderBarCharts(data, color) {
   }
 }
 
-function renderHistory(data, color) {
-  const select = document.getElementById("history-metric");
-  for (const metric of data.metrics) select.append(el("option", { value: metric.key, textContent: metric.label }));
-  select.value = "redis_build";
-
-  const chart = new Chart(document.getElementById("history"), {
-    type: "line",
-    data: { datasets: [] },
-    options: {
-      maintainAspectRatio: false,
-      interaction: { mode: "nearest", intersect: false },
-      scales: {
-        x: { type: "linear", ticks: { callback: (v) => new Date(v).toLocaleString([], { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }) } },
-        y: { beginAtZero: true },
-      },
-      plugins: {
-        tooltip: {
-          callbacks: {
-            title: (items) => new Date(items[0].parsed.x).toLocaleString(),
-            label: (ctx) => `${ctx.dataset.label}: ${fmt(ctx.parsed.y, ctx.chart.$metric)}`,
-          },
-        },
-      },
-    },
-  });
-
-  const update = () => {
-    const metric = data.metrics.find((m) => m.key === select.value);
-    chart.$metric = metric;
-    chart.data.datasets = data.runners.map((r) => ({
-      label: r.label,
-      data: r.samples
-        .filter((s) => s.values[metric.key] !== null)
-        .map((s) => ({ x: Date.parse(s.started_at), y: s.values[metric.key] })),
-      borderColor: color(r.provider),
-      backgroundColor: color(r.provider),
-      borderDash: r.arch === "arm64" ? [6, 4] : [],
-    }));
-    chart.update();
-  };
-  select.addEventListener("change", update);
-  update();
-}
-
 function renderErrors(data) {
   if (!data.errors.length) return;
   document.getElementById("errors-section").hidden = false;
@@ -148,11 +104,13 @@ async function main() {
   const providers = [...new Set(data.runners.map((r) => r.provider))].sort();
   const color = (provider) => COLORS[providers.indexOf(provider) % COLORS.length];
 
-  document.getElementById("meta").textContent =
-    `${data.sample_count} samples from ${data.run_count} workflow runs, last updated ${new Date(data.generated_at).toLocaleString()}.`;
+  document.getElementById("meta").append(
+    `Results from ${new Date(data.generated_at).toLocaleString()}, `,
+    ...data.runs.flatMap((run, i) => [i ? ", " : "", el("a", { href: run.url, textContent: `workflow run ${run.run_id}` })]),
+    ".",
+  );
   renderTables(data, color);
   renderBarCharts(data, color);
-  renderHistory(data, color);
   renderErrors(data);
 }
 
