@@ -63,7 +63,9 @@ python analyze/analyze.py combined
    }
    ```
 
-   `label` is the `runs-on` value. `price_per_minute` may be `null` if unknown.
+   `label` is the `runs-on` value. Pick the provider's 4 vCPU size so every
+   runner is compared at the same core count. `price_per_minute` may be `null`
+   if unknown.
    Set `enabled: false` to stop running a runner without losing its entry.
 
 ## Caveats
@@ -72,7 +74,8 @@ python analyze/analyze.py combined
   delays the report. Disable runners you lose access to.
 - All runners run at the same time, so results reflect one moment of each
   provider's capacity. Use repetitions and the weekly schedule to smooth that out.
-- GitHub's standard runners have 4 vCPUs on public repos and 2 on private ones;
-  the report shows the vCPUs actually seen.
+- GitHub's standard `ubuntu-24.04` runner has 4 vCPUs only because this repo is
+  public (private repos get 2). Its price is GitHub's 4-core larger runner rate,
+  since the public-repo runner is free.
 - Prices in `providers.json` are list prices at the time of writing; check them
   against each provider's pricing page.

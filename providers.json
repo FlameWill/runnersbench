@@ -4,23 +4,23 @@
       "provider": "github",
       "label": "ubuntu-24.04",
       "arch": "x64",
-      "vcpu": 2,
-      "memory_gb": 7,
-      "price_per_minute": 0.006,
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.012,
       "enabled": true,
-      "notes": "Baseline. 4 vCPU / 16 GB and free on public repos.",
+      "notes": "Baseline. 4 vCPU / 16 GB on public repos, where it's free; priced at GitHub's 4-core larger runner rate, the paid equivalent.",
       "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing"
     },
     {
       "provider": "luxor",
-      "label": "luxor-ubuntu-small-2c-4g",
+      "label": "luxor-ubuntu-medium-4c-8g",
       "arch": "x64",
-      "vcpu": 2,
-      "memory_gb": 4,
-      "price_per_minute": 0.004,
+      "vcpu": 4,
+      "memory_gb": 8,
+      "price_per_minute": 0.008,
       "enabled": true,
       "notes": "luxor.ai (formerly Tenki). $0.002 per vCPU-minute.",
-      "pricing_source": "https://tenki.cloud/docs/pricing"
+      "pricing_source": "https://luxor.ai/docs/pricing"
     }
   ]
 }
