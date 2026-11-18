@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CI runner benchmarks</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.6.1/dist/chart.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>CI runner benchmarks</h1>
+    <p>
+      GitHub Actions runner providers on the same workloads.
+      <span id="meta"></span>
+    </p>
+    <p class="links">
+      <a href="https://github.com/daniellockyer/runners">Source and methodology</a> ·
+      <a href="report.md">Markdown report</a> ·
+      <a href="data.json">data.json</a> ·
+      <a href="https://github.com/daniellockyer/runners/tree/gh-pages/runs">Raw results</a>
+    </p>
+  </header>
+  <main>
+    <section>
+      <h2>Runners</h2>
+      <div class="scroll"><table id="runners"></table></div>
+    </section>
+    <section>
+      <h2>Benchmarks</h2>
+      <p class="note">Medians across all samples. The best value in each column is bold.</p>
+      <div class="scroll"><table id="benchmarks"></table></div>
+    </section>
+    <section>
+      <h2>Charts</h2>
+      <div id="charts" class="grid"></div>
+    </section>
+    <section>
+      <h2>History</h2>
+      <label>Metric <select id="history-metric"></select></label>
+      <div class="chart history"><canvas id="history"></canvas></div>
+    </section>
+    <section id="errors-section" hidden>
+      <h2>Errors</h2>
+      <ul id="errors"></ul>
+    </section>
+  </main>
+</body>
+</html>

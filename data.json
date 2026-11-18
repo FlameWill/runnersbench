@@ -1,0 +1,259 @@
+{
+ "generated_at": "2026-11-18T20:10:53.308054+00:00",
+ "sample_count": 5,
+ "run_count": 3,
+ "metrics": [
+  {
+   "key": "queue",
+   "label": "Queue (s)",
+   "higher_is_better": false
+  },
+  {
+   "key": "apt_install",
+   "label": "apt install (s)",
+   "higher_is_better": false
+  },
+  {
+   "key": "cpu_single",
+   "label": "CPU 1 thread (events/s)",
+   "higher_is_better": true
+  },
+  {
+   "key": "cpu_multi",
+   "label": "CPU all threads (events/s)",
+   "higher_is_better": true
+  },
+  {
+   "key": "memory",
+   "label": "Memory (MiB/s)",
+   "higher_is_better": true
+  },
+  {
+   "key": "seq_read",
+   "label": "Seq read (MB/s)",
+   "higher_is_better": true
+  },
+  {
+   "key": "seq_write",
+   "label": "Seq write (MB/s)",
+   "higher_is_better": true
+  },
+  {
+   "key": "rand_read",
+   "label": "4k rand read (IOPS)",
+   "higher_is_better": true
+  },
+  {
+   "key": "rand_write",
+   "label": "4k rand write (IOPS)",
+   "higher_is_better": true
+  },
+  {
+   "key": "download",
+   "label": "Download (MB/s)",
+   "higher_is_better": true
+  },
+  {
+   "key": "redis_build",
+   "label": "Redis build (s)",
+   "higher_is_better": false
+  },
+  {
+   "key": "redis_cost",
+   "label": "$ per Redis build",
+   "higher_is_better": false
+  }
+ ],
+ "runners": [
+  {
+   "provider": "github",
+   "label": "ubuntu-24.04-arm",
+   "arch": "arm64",
+   "price_per_minute": 0.005,
+   "cpu_models": [
+    "Neoverse-N2"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.6,
+   "disk_gb": 155,
+   "virtualization": "microsoft",
+   "location": "Chicago, US",
+   "network": "AS8075 Microsoft Corporation",
+   "medians": {
+    "queue": 4.0,
+    "apt_install": 15.069608792999986,
+    "cpu_single": 3958.5600000000004,
+    "cpu_multi": 15720.2,
+    "memory": 27811.65,
+    "seq_read": 413.39564099999996,
+    "seq_write": 335.77290700000003,
+    "rand_read": 19596.65306,
+    "rand_write": 19573.1430815,
+    "download": 93.664573,
+    "redis_build": 45.979762634999986,
+    "redis_cost": 0.003831646886249999
+   },
+   "samples": [
+    {
+     "started_at": "2026-11-18T19:54:48.895930+00:00",
+     "run_id": "44385345804",
+     "cpu_model": "Neoverse-N2",
+     "values": {
+      "queue": 4.0,
+      "apt_install": 15.812805335999997,
+      "cpu_single": 3957.05,
+      "cpu_multi": 15752.04,
+      "memory": 27816.76,
+      "seq_read": 413.462044,
+      "seq_write": 320.649885,
+      "rand_read": 19617.492167,
+      "rand_write": 19577.12305,
+      "download": 186.762986,
+      "redis_build": 47.53834214599999,
+      "redis_cost": 0.003961528512166666
+     }
+    },
+    {
+     "started_at": "2026-11-18T19:59:12.822966+00:00",
+     "run_id": "44386121576",
+     "cpu_model": "Neoverse-N2",
+     "values": {
+      "queue": 4.0,
+      "apt_install": 14.326412249999976,
+      "cpu_single": 3960.07,
+      "cpu_multi": 15688.36,
+      "memory": 27806.54,
+      "seq_read": 413.329238,
+      "seq_write": 350.895929,
+      "rand_read": 19575.813953,
+      "rand_write": 19569.163113,
+      "download": 0.56616,
+      "redis_build": 44.42118312399998,
+      "redis_cost": 0.003701765260333332
+     }
+    }
+   ]
+  },
+  {
+   "provider": "github",
+   "label": "ubuntu-24.04",
+   "arch": "x64",
+   "price_per_minute": 0.006,
+   "cpu_models": [
+    "AMD EPYC 9V74 80-Core Processor",
+    "INTEL(R) XEON(R) PLATINUM 8573C"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.6,
+   "disk_gb": 155,
+   "virtualization": "microsoft",
+   "location": "Moses Lake, US",
+   "network": "AS8075 Microsoft Corporation",
+   "medians": {
+    "queue": 2.0,
+    "apt_install": 20.931106754999995,
+    "cpu_single": 3583.63,
+    "cpu_multi": 7473.62,
+    "memory": 29345.645,
+    "seq_read": 326.40994750000004,
+    "seq_write": 209.69331449999999,
+    "rand_read": 18440.733418000003,
+    "rand_write": 18905.767694000002,
+    "download": 200.2055185,
+    "redis_build": 66.771992779,
+    "redis_cost": 0.0066771992779
+   },
+   "samples": [
+    {
+     "started_at": "2026-11-18T19:54:50.144528+00:00",
+     "run_id": "44385345804",
+     "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+     "values": {
+      "queue": 2.0,
+      "apt_install": 28.93010582299999,
+      "cpu_single": 4532.15,
+      "cpu_multi": 9533.01,
+      "memory": 31975.57,
+      "seq_read": 413.65266,
+      "seq_write": 226.647512,
+      "rand_read": 19532.823412,
+      "rand_write": 19157.645647,
+      "download": 205.153454,
+      "redis_build": 63.848807074999996,
+      "redis_cost": 0.0063848807074999995
+     }
+    },
+    {
+     "started_at": "2026-11-18T19:59:13.111065+00:00",
+     "run_id": "44386121576",
+     "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+     "values": {
+      "queue": 2.0,
+      "apt_install": 12.932107686999998,
+      "cpu_single": 2635.11,
+      "cpu_multi": 5414.23,
+      "memory": 26715.72,
+      "seq_read": 239.167235,
+      "seq_write": 192.739117,
+      "rand_read": 17348.643424,
+      "rand_write": 18653.889741,
+      "download": 195.257583,
+      "redis_build": 69.695178483,
+      "redis_cost": 0.0069695178483
+     }
+    }
+   ]
+  },
+  {
+   "provider": "luxor",
+   "label": "luxor-ubuntu-small-2c-4g",
+   "arch": "x64",
+   "price_per_minute": 0.004,
+   "cpu_models": [
+    "AMD Ryzen 9 9950X 16-Core Processor"
+   ],
+   "vcpus": 2,
+   "memory_gib": 3.8,
+   "disk_gb": 89,
+   "virtualization": "kvm",
+   "location": "Seattle, US",
+   "network": "AS19538 Luxor",
+   "medians": {
+    "queue": 15.0,
+    "apt_install": 8.609877551,
+    "cpu_single": 6946.66,
+    "cpu_multi": 13674.6,
+    "memory": 42367.93,
+    "seq_read": 17384.720434,
+    "seq_write": 14979.517342,
+    "rand_read": 125773.481768,
+    "rand_write": 137919.472035,
+    "download": 241.850836,
+    "redis_build": 45.06350152499999,
+    "redis_cost": 0.0030042334349999994
+   },
+   "samples": [
+    {
+     "started_at": "2026-11-18T20:05:17.384891+00:00",
+     "run_id": "44387187498",
+     "cpu_model": "AMD Ryzen 9 9950X 16-Core Processor",
+     "values": {
+      "queue": 15.0,
+      "apt_install": 8.609877551,
+      "cpu_single": 6946.66,
+      "cpu_multi": 13674.6,
+      "memory": 42367.93,
+      "seq_read": 17384.720434,
+      "seq_write": 14979.517342,
+      "rand_read": 125773.481768,
+      "rand_write": 137919.472035,
+      "download": 241.850836,
+      "redis_build": 45.06350152499999,
+      "redis_cost": 0.0030042334349999994
+     }
+    }
+   ]
+  }
+ ],
+ "errors": []
+}
