@@ -12,57 +12,6 @@
       "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing"
     },
     {
-      "provider": "github",
-      "label": "ubuntu-24.04-arm",
-      "arch": "arm64",
-      "vcpu": 2,
-      "memory_gb": 7,
-      "price_per_minute": 0.005,
-      "enabled": true,
-      "notes": "4 vCPU / 16 GB and free on public repos.",
-      "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing"
-    },
-    {
-      "provider": "blacksmith",
-      "label": "blacksmith-4vcpu-ubuntu-2404",
-      "arch": "x64",
-      "vcpu": 4,
-      "memory_gb": 16,
-      "price_per_minute": 0.008,
-      "enabled": true,
-      "pricing_source": "https://docs.blacksmith.sh/github-actions-runners/pricing"
-    },
-    {
-      "provider": "blacksmith",
-      "label": "blacksmith-4vcpu-ubuntu-2404-arm",
-      "arch": "arm64",
-      "vcpu": 4,
-      "memory_gb": 12,
-      "price_per_minute": null,
-      "enabled": true,
-      "pricing_source": "https://docs.blacksmith.sh/github-actions-runners/pricing"
-    },
-    {
-      "provider": "depot",
-      "label": "depot-ubuntu-24.04-4",
-      "arch": "x64",
-      "vcpu": 4,
-      "memory_gb": 16,
-      "price_per_minute": 0.012,
-      "enabled": true,
-      "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
-    },
-    {
-      "provider": "depot",
-      "label": "depot-ubuntu-24.04-arm-4",
-      "arch": "arm64",
-      "vcpu": 4,
-      "memory_gb": 16,
-      "price_per_minute": 0.012,
-      "enabled": true,
-      "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
-    },
-    {
       "provider": "luxor",
       "label": "luxor-ubuntu-small-2c-4g",
       "arch": "x64",
