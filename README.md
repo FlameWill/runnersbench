@@ -1,7 +1,7 @@
 # CI runner benchmarks
 
 Benchmarks GitHub Actions runner providers (GitHub-hosted, Blacksmith, Depot,
-Tenki/luxor.ai, ...) side by side on the same workloads.
+luxor.ai, ...) side by side on the same workloads.
 
 ## How it works
 
@@ -30,7 +30,7 @@ Tenki/luxor.ai, ...) side by side on the same workloads.
 
 ## Running
 
-Run **Benchmark** from the Actions tab. Set `providers` (e.g. `depot,tenki`) to
+Run **Benchmark** from the Actions tab. Set `providers` (e.g. `depot,luxor`) to
 only run some providers, and `repetitions` to collect several samples per
 runner; the report uses the median.
 

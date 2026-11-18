@@ -63,14 +63,14 @@
       "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
     },
     {
-      "provider": "tenki",
-      "label": "tenki-standard-medium-4c-8g",
+      "provider": "luxor",
+      "label": "luxor-ubuntu-small-2c-4g",
       "arch": "x64",
-      "vcpu": 4,
-      "memory_gb": 8,
-      "price_per_minute": 0.008,
+      "vcpu": 2,
+      "memory_gb": 4,
+      "price_per_minute": 0.004,
       "enabled": true,
-      "notes": "luxor.ai / Tenki. $0.002 per vCPU-minute.",
+      "notes": "luxor.ai (formerly Tenki). $0.002 per vCPU-minute.",
       "pricing_source": "https://tenki.cloud/docs/pricing"
     }
   ]
