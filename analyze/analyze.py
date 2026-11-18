@@ -111,7 +111,7 @@ def table(headers, rows):
 
 
 def summarise(results):
-    """One entry per runner label, with hardware details, per-sample values and medians."""
+    """One entry per runner label, with hardware details and medians across its samples."""
     by_label = defaultdict(list)
     for r in results:
         by_label[(r["spec"].get("provider"), r["spec"].get("label"))].append(r)
@@ -140,15 +140,7 @@ def summarise(results):
             "location": ", ".join(filter(None, [net.get("city"), net.get("country")])) or None,
             "network": net.get("org"),
             "medians": medians,
-            "samples": [
-                {
-                    "started_at": r["started_at"],
-                    "run_id": r["github"]["run_id"],
-                    "cpu_model": get(r, "system", "cpu", "model"),
-                    "values": {key: extract(r) for key, _, extract, _ in METRICS},
-                }
-                for r in samples
-            ],
+            "sample_count": len(samples),
         })
     runners.sort(key=lambda x: (x["arch"] or "", x["provider"] or "", x["label"] or ""))
 
@@ -160,7 +152,10 @@ def summarise(results):
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "sample_count": len(results),
-        "run_count": len({r["github"]["run_id"] for r in results}),
+        "runs": [
+            {"run_id": run_id, "url": f"https://github.com/{repo}/actions/runs/{run_id}"}
+            for repo, run_id in sorted({(r["github"]["repository"], r["github"]["run_id"]) for r in results})
+        ],
         "metrics": [{"key": k, "label": h, "higher_is_better": hib} for k, h, _, hib in METRICS],
         "runners": runners,
         "errors": errors,
@@ -172,7 +167,7 @@ def report(summary):
     info_rows = [
         [x["provider"], f"`{x['label']}`", "<br>".join(x["cpu_models"]), x["vcpus"] or "–",
          x["memory_gib"] or "–", x["disk_gb"] or "–", x["virtualization"] or "–", x["location"] or "–",
-         x["network"] or "–", len(x["samples"])]
+         x["network"] or "–", x["sample_count"]]
         for x in runners
     ]
 
@@ -189,7 +184,7 @@ def report(summary):
 
     sections = [
         "# Runner benchmark report",
-        f"{summary['sample_count']} samples from {summary['run_count']} workflow run(s). "
+        f"{summary['sample_count']} samples from {len(summary['runs'])} workflow run(s). "
         "Benchmark values are medians across samples; the best value in each column is bold.",
         "## Runners",
         table(["Provider", "Label", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "Virtualization", "Location",

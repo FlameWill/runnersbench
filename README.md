@@ -13,8 +13,8 @@ luxor.ai, ...) side by side on the same workloads.
    `result.json` as an artifact.
 3. **analyze** merges every result, adds queue times from the GitHub API, writes
    a report to the job summary, and uploads `combined-results` (the report and
-   all results as JSON). On `main` it also adds the run's results to the
-   `gh-pages` branch and rebuilds the site from every run so far.
+   all results as JSON). On `main` it also replaces the site on the
+   `gh-pages` branch with this run's results.
 
 Results are published at <https://daniellockyer.github.io/runners/>. The page
 itself lives in `site/`; `analyze.py --summary` produces the `data.json` it reads.
@@ -38,10 +38,11 @@ Run **Benchmark** from the Actions tab. Set `providers` (e.g. `luxor`) to
 only run some providers, and `repetitions` to collect several samples per
 runner; the report uses the median.
 
-To analyse every past run locally:
+To rebuild the report for a run locally:
 
 ```sh
-mise run analyze            # or: LIMIT=200 scripts/fetch-history.sh
+gh run download <run id> --name combined-results --dir combined
+python analyze/analyze.py combined
 ```
 
 ## Adding a provider
