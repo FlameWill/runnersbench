@@ -1,0 +1,6 @@
+[tools]
+python = "3.12"
+
+[tasks.analyze]
+description = "Download past benchmark runs into history/ and print a report"
+run = "scripts/fetch-history.sh"
