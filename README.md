@@ -13,7 +13,11 @@ luxor.ai, ...) side by side on the same workloads.
    `result.json` as an artifact.
 3. **analyze** merges every result, adds queue times from the GitHub API, writes
    a report to the job summary, and uploads `combined-results` (the report and
-   all results as JSON).
+   all results as JSON). On `main` it also adds the run's results to the
+   `gh-pages` branch and rebuilds the site from every run so far.
+
+Results are published at <https://daniellockyer.github.io/runners/>. The page
+itself lives in `site/`; `analyze.py --summary` produces the `data.json` it reads.
 
 ### What gets collected
 

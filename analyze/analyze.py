@@ -12,7 +12,7 @@ import os
 import statistics
 import subprocess
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 def load(paths):
@@ -77,20 +77,20 @@ def cost_per_build(r):
     return price * seconds / 60 if price is not None and seconds is not None else None
 
 
-# (column header, extractor, higher_is_better)
+# (key, column header, extractor, higher_is_better)
 METRICS = [
-    ("Queue (s)", lambda r: get(r, "timing", "queue_seconds"), False),
-    ("apt install (s)", lambda r: get(r, "benchmarks", "apt_install", "seconds"), False),
-    ("CPU 1 thread (events/s)", lambda r: get(r, "benchmarks", "cpu_single", "events_per_second"), True),
-    ("CPU all threads (events/s)", lambda r: get(r, "benchmarks", "cpu_multi", "events_per_second"), True),
-    ("Memory (MiB/s)", lambda r: get(r, "benchmarks", "memory", "mib_per_second"), True),
-    ("Seq read (MB/s)", lambda r: get(r, "benchmarks", "disk", "seq_read", "mb_per_second"), True),
-    ("Seq write (MB/s)", lambda r: get(r, "benchmarks", "disk", "seq_write", "mb_per_second"), True),
-    ("4k rand read (IOPS)", lambda r: get(r, "benchmarks", "disk", "rand_read", "iops"), True),
-    ("4k rand write (IOPS)", lambda r: get(r, "benchmarks", "disk", "rand_write", "iops"), True),
-    ("Download (MB/s)", lambda r: get(r, "benchmarks", "download_cloudflare", "mb_per_second"), True),
-    ("Redis build (s)", lambda r: get(r, "benchmarks", "compile_redis", "seconds"), False),
-    ("$ per Redis build", cost_per_build, False),
+    ("queue", "Queue (s)", lambda r: get(r, "timing", "queue_seconds"), False),
+    ("apt_install", "apt install (s)", lambda r: get(r, "benchmarks", "apt_install", "seconds"), False),
+    ("cpu_single", "CPU 1 thread (events/s)", lambda r: get(r, "benchmarks", "cpu_single", "events_per_second"), True),
+    ("cpu_multi", "CPU all threads (events/s)", lambda r: get(r, "benchmarks", "cpu_multi", "events_per_second"), True),
+    ("memory", "Memory (MiB/s)", lambda r: get(r, "benchmarks", "memory", "mib_per_second"), True),
+    ("seq_read", "Seq read (MB/s)", lambda r: get(r, "benchmarks", "disk", "seq_read", "mb_per_second"), True),
+    ("seq_write", "Seq write (MB/s)", lambda r: get(r, "benchmarks", "disk", "seq_write", "mb_per_second"), True),
+    ("rand_read", "4k rand read (IOPS)", lambda r: get(r, "benchmarks", "disk", "rand_read", "iops"), True),
+    ("rand_write", "4k rand write (IOPS)", lambda r: get(r, "benchmarks", "disk", "rand_write", "iops"), True),
+    ("download", "Download (MB/s)", lambda r: get(r, "benchmarks", "download_cloudflare", "mb_per_second"), True),
+    ("redis_build", "Redis build (s)", lambda r: get(r, "benchmarks", "compile_redis", "seconds"), False),
+    ("redis_cost", "$ per Redis build", cost_per_build, False),
 ]
 
 
@@ -110,62 +110,95 @@ def table(headers, rows):
     return "\n".join(lines)
 
 
-def report(results):
+def summarise(results):
+    """One entry per runner label, with hardware details, per-sample values and medians."""
     by_label = defaultdict(list)
     for r in results:
         by_label[(r["spec"].get("provider"), r["spec"].get("label"))].append(r)
-    groups = sorted(by_label.items(), key=lambda kv: (kv[1][0]["spec"].get("arch", ""), kv[0]))
 
-    info_rows = []
-    for (provider, label), samples in groups:
-        latest = max(samples, key=lambda r: r["started_at"])
-        system = latest["system"]
-        cpu_models = sorted({get(r, "system", "cpu", "model") or "?" for r in samples})
+    runners = []
+    for (provider, label), samples in by_label.items():
+        samples.sort(key=lambda r: r["started_at"])
+        spec, system = samples[-1]["spec"], samples[-1]["system"]
         mem = get(system, "memory", "total_bytes")
         disk = get(system, "disk", "total_bytes")
         net = system.get("network") or {}
-        info_rows.append([
-            provider, f"`{label}`", "<br>".join(cpu_models), get(system, "cpu", "available_cpus"),
-            f"{mem / 2**30:.1f}" if mem else "–", f"{disk / 1e9:.0f}" if disk else "–",
-            system.get("virtualization") or "–", ", ".join(filter(None, [net.get("city"), net.get("country")])) or "–",
-            net.get("org") or "–", len(samples),
-        ])
-
-    medians = []
-    for _, samples in groups:
-        row = []
-        for _, extract, _ in METRICS:
+        medians = {}
+        for key, _, extract, _ in METRICS:
             values = [v for v in map(extract, samples) if v is not None]
-            row.append(statistics.median(values) if values else None)
-        medians.append(row)
-
-    bench_rows = []
-    for ((provider, label), _), row in zip(groups, medians):
-        cells = [provider, f"`{label}`"]
-        for i, (header, _, higher_is_better) in enumerate(METRICS):
-            column = [m[i] for m in medians if m[i] is not None]
-            best = (max if higher_is_better else min)(column) if len(column) > 1 else None
-            text = fmt(row[i], header)
-            cells.append(f"**{text}**" if row[i] is not None and row[i] == best else text)
-        bench_rows.append(cells)
+            medians[key] = statistics.median(values) if values else None
+        runners.append({
+            "provider": provider,
+            "label": label,
+            "arch": spec.get("arch"),
+            "price_per_minute": spec.get("price_per_minute"),
+            "cpu_models": sorted({get(r, "system", "cpu", "model") or "?" for r in samples}),
+            "vcpus": get(system, "cpu", "available_cpus"),
+            "memory_gib": round(mem / 2**30, 1) if mem else None,
+            "disk_gb": round(disk / 1e9) if disk else None,
+            "virtualization": system.get("virtualization"),
+            "location": ", ".join(filter(None, [net.get("city"), net.get("country")])) or None,
+            "network": net.get("org"),
+            "medians": medians,
+            "samples": [
+                {
+                    "started_at": r["started_at"],
+                    "run_id": r["github"]["run_id"],
+                    "cpu_model": get(r, "system", "cpu", "model"),
+                    "values": {key: extract(r) for key, _, extract, _ in METRICS},
+                }
+                for r in samples
+            ],
+        })
+    runners.sort(key=lambda x: (x["arch"] or "", x["provider"] or "", x["label"] or ""))
 
     errors = [
-        f"- `{r['spec'].get('label')}` {name}: {str(b['error']).splitlines()[0]}"
+        {"label": r["spec"].get("label"), "run_id": r["github"]["run_id"], "benchmark": name,
+         "error": str(b["error"]).splitlines()[0]}
         for r in results for name, b in r["benchmarks"].items() if isinstance(b, dict) and "error" in b
     ]
+    return {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "sample_count": len(results),
+        "run_count": len({r["github"]["run_id"] for r in results}),
+        "metrics": [{"key": k, "label": h, "higher_is_better": hib} for k, h, _, hib in METRICS],
+        "runners": runners,
+        "errors": errors,
+    }
+
+
+def report(summary):
+    runners = summary["runners"]
+    info_rows = [
+        [x["provider"], f"`{x['label']}`", "<br>".join(x["cpu_models"]), x["vcpus"] or "–",
+         x["memory_gib"] or "–", x["disk_gb"] or "–", x["virtualization"] or "–", x["location"] or "–",
+         x["network"] or "–", len(x["samples"])]
+        for x in runners
+    ]
+
+    bench_rows = []
+    for x in runners:
+        cells = [x["provider"], f"`{x['label']}`"]
+        for key, header, _, higher_is_better in METRICS:
+            column = [y["medians"][key] for y in runners if y["medians"][key] is not None]
+            best = (max if higher_is_better else min)(column) if len(column) > 1 else None
+            value = x["medians"][key]
+            text = fmt(value, header)
+            cells.append(f"**{text}**" if value is not None and value == best else text)
+        bench_rows.append(cells)
 
     sections = [
         "# Runner benchmark report",
-        f"{len(results)} samples from {len({r['github']['run_id'] for r in results})} workflow run(s). "
+        f"{summary['sample_count']} samples from {summary['run_count']} workflow run(s). "
         "Benchmark values are medians across samples; the best value in each column is bold.",
         "## Runners",
         table(["Provider", "Label", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "Virtualization", "Location",
                "Network", "Samples"], info_rows),
         "## Benchmarks",
-        table(["Provider", "Label"] + [h for h, _, _ in METRICS], bench_rows),
+        table(["Provider", "Label"] + [h for _, h, _, _ in METRICS], bench_rows),
     ]
-    if errors:
-        sections += ["## Errors", "\n".join(errors)]
+    if summary["errors"]:
+        sections += ["## Errors", "\n".join(f"- `{e['label']}` {e['benchmark']}: {e['error']}" for e in summary["errors"])]
     return "\n\n".join(sections) + "\n"
 
 
@@ -175,6 +208,7 @@ def main():
     parser.add_argument("--job-timing", action="store_true", help="fetch queue times from the GitHub API")
     parser.add_argument("--json", help="write combined results to this file")
     parser.add_argument("--markdown", help="write the report to this file instead of stdout")
+    parser.add_argument("--summary", help="write per-runner medians and samples (used by the Pages site) to this file")
     args = parser.parse_args()
 
     results = load(args.paths)
@@ -183,13 +217,17 @@ def main():
     if args.job_timing:
         add_job_timing(results)
 
-    for path in (args.json, args.markdown):
+    for path in (args.json, args.markdown, args.summary):
         if path:
             os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
     if args.json:
         with open(args.json, "w") as f:
             json.dump(results, f, indent=2)
-    text = report(results)
+    summary = summarise(results)
+    if args.summary:
+        with open(args.summary, "w") as f:
+            json.dump(summary, f, indent=1)
+    text = report(summary)
     if args.markdown:
         with open(args.markdown, "w") as f:
             f.write(text)

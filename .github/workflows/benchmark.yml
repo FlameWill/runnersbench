@@ -77,6 +77,9 @@ jobs:
     needs: bench
     if: ${{ !cancelled() }}
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: read
     steps:
       - uses: actions/checkout@v7
       - uses: jdx/mise-action@v5
@@ -95,3 +98,22 @@ jobs:
           name: combined-results
           path: combined/
           retention-days: 90
+      - uses: actions/checkout@v7
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          ref: gh-pages
+          path: pages
+      - name: Publish to GitHub Pages
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          mkdir -p pages/runs
+          cp combined/results.json "pages/runs/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}.json"
+          python analyze/analyze.py --summary pages/data.json --markdown pages/report.md pages/runs
+          cp -r site/. pages/
+          touch pages/.nojekyll
+          cd pages
+          git add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "Add results from run ${GITHUB_RUN_ID}"
+          git push -q
+          echo "Published to https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/" >> "$GITHUB_STEP_SUMMARY"
