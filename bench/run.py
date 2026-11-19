@@ -25,6 +25,8 @@ CLOUDFLARE_URL = "https://speed.cloudflare.com/__down?bytes=50000000"
 REDIS_URL = f"https://github.com/redis/redis/archive/refs/tags/{REDIS_VERSION}.tar.gz"
 APT_PACKAGES = ["sysbench", "fio", "build-essential"]
 CPU_FLAGS = ["avx2", "avx512f", "sha_ni", "aes", "vaes", "asimd", "sve", "sve2", "sha2"]
+# Buildkite hosted agents run jobs as root without sudo installed.
+SUDO = [] if os.geteuid() == 0 else ["sudo"]
 DMI_FIELDS = ["sys_vendor", "product_name", "product_version", "board_vendor", "bios_vendor", "chassis_vendor"]
 
 
@@ -125,8 +127,8 @@ def system_info(workdir):
         "dmi": {f: read(f"/sys/class/dmi/id/{f}") or try_sh(f"sudo -n cat /sys/class/dmi/id/{f}") for f in DMI_FIELDS},
         "network": ip_info(),
         "runner": {
-            "name": os.environ.get("RUNNER_NAME"),
-            "environment": os.environ.get("RUNNER_ENVIRONMENT"),
+            "name": os.environ.get("RUNNER_NAME") or os.environ.get("BUILDKITE_AGENT_NAME"),
+            "environment": os.environ.get("RUNNER_ENVIRONMENT") or ("buildkite" if os.environ.get("BUILDKITE") else None),
         },
         "tools": {
             "docker": try_sh("docker --version"),
@@ -138,9 +140,9 @@ def system_info(workdir):
 
 def bench_apt_install():
     start = time.monotonic()
-    sh("sudo apt-get update -qq")
+    sh([*SUDO, "apt-get", "update", "-qq"])
     update = time.monotonic() - start
-    sh(["sudo", "env", "DEBIAN_FRONTEND=noninteractive", "apt-get", "install", "-y", "-qq", *APT_PACKAGES])
+    sh([*SUDO, "env", "DEBIAN_FRONTEND=noninteractive", "apt-get", "install", "-y", "-qq", *APT_PACKAGES])
     return {"update_seconds": update, "seconds": time.monotonic() - start}
 
 

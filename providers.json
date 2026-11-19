@@ -21,6 +21,22 @@
       "enabled": true,
       "notes": "luxor.ai (formerly Tenki). $0.002 per vCPU-minute.",
       "pricing_source": "https://luxor.ai/docs/pricing"
+    },
+    {
+      "provider": "buildkite",
+      "label": "buildkite-linux-amd64-4x16",
+      "arch": "x64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.016,
+      "enabled": false,
+      "notes": "Buildkite hosted agent (Medium). Runs .buildkite/pipeline.yml, started by the bench-buildkite job. Needs a paid or trial plan.",
+      "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",
+      "buildkite": {
+        "organization": "daniellockyer",
+        "pipeline": "runners",
+        "queue": "linux-medium"
+      }
     }
   ]
 }

@@ -26,7 +26,8 @@ jobs:
   setup:
     runs-on: ubuntu-24.04
     outputs:
-      matrix: ${{ steps.matrix.outputs.matrix }}
+      github: ${{ steps.matrix.outputs.github }}
+      buildkite: ${{ steps.matrix.outputs.buildkite }}
     steps:
       - uses: actions/checkout@v7
       - id: matrix
@@ -49,17 +50,19 @@ jobs:
             exit 1
           fi
           jq . <<<"$matrix"
-          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+          echo "github=$(jq -c '{include: [.include[] | select(has("buildkite") | not)]}' <<<"$matrix")" >> "$GITHUB_OUTPUT"
+          echo "buildkite=$(jq -c '{include: [.include[] | select(has("buildkite"))]}' <<<"$matrix")" >> "$GITHUB_OUTPUT"
 
   bench:
     needs: setup
+    if: ${{ fromJSON(needs.setup.outputs.github).include[0] }}
     # analyze.py matches this name against the GitHub API to get queue times.
     name: ${{ matrix.label }} (${{ matrix.rep }})
     runs-on: ${{ matrix.label }}
     timeout-minutes: 30
     strategy:
       fail-fast: false
-      matrix: ${{ fromJSON(needs.setup.outputs.matrix) }}
+      matrix: ${{ fromJSON(needs.setup.outputs.github) }}
     steps:
       - uses: actions/checkout@v7
       - uses: jdx/mise-action@v5
@@ -73,8 +76,30 @@ jobs:
           path: ${{ runner.temp }}/result.json
           if-no-files-found: error
 
+  bench-buildkite:
+    needs: setup
+    if: ${{ fromJSON(needs.setup.outputs.buildkite).include[0] }}
+    name: ${{ matrix.label }} (${{ matrix.rep }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.setup.outputs.buildkite) }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Benchmark on Buildkite
+        env:
+          RUNNER_SPEC: ${{ toJSON(matrix) }}
+          BUILDKITE_API_TOKEN: ${{ secrets.BUILDKITE_API_TOKEN }}
+        run: python3 bench/buildkite.py --output "$RUNNER_TEMP/result.json"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: result-${{ matrix.label }}-${{ matrix.rep }}
+          path: ${{ runner.temp }}/result.json
+          if-no-files-found: error
+
   analyze:
-    needs: bench
+    needs: [bench, bench-buildkite]
     if: ${{ !cancelled() }}
     runs-on: ubuntu-24.04
     permissions:

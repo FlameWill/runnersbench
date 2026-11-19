@@ -1,6 +1,6 @@
 # CI runner benchmarks
 
-Benchmarks GitHub Actions runner providers (GitHub-hosted,
+Benchmarks GitHub Actions runner providers (GitHub-hosted, Buildkite,
 luxor.ai, ...) side by side on the same workloads.
 
 ## How it works
@@ -67,6 +67,33 @@ python analyze/analyze.py combined
    runner is compared at the same core count. `price_per_minute` may be `null`
    if unknown.
    Set `enabled: false` to stop running a runner without losing its entry.
+
+### Buildkite
+
+Buildkite doesn't run GitHub Actions jobs, so it works differently. Entries
+with a `buildkite` object are run by the `bench-buildkite` job, which starts a
+build of `.buildkite/pipeline.yml` through the Buildkite API, waits for it, and
+downloads its `result.json`. Queue time comes from Buildkite rather than GitHub.
+
+One-time setup:
+
+1. In Buildkite, create a cluster with a hosted Linux queue using the Medium
+   AMD64 shape (4 vCPU, 16 GB). Its key must match `buildkite.queue` in
+   `providers.json` (`linux-medium`).
+2. Create a pipeline named `runners` (or set `buildkite.pipeline`) for this
+   repository in that cluster, with the steps:
+
+   ```yaml
+   steps:
+     - command: buildkite-agent pipeline upload
+   ```
+
+   Turn off building on pushes and pull requests; builds should only come from
+   the workflow. The step in `.buildkite/pipeline.yml` is skipped without a
+   `RUNNER_SPEC` anyway.
+3. Create an API access token with `read_builds`, `write_builds` and
+   `read_artifacts`, and save it as the `BUILDKITE_API_TOKEN` Actions secret.
+4. Check `buildkite.organization` and set `enabled: true`.
 
 ## Caveats
 

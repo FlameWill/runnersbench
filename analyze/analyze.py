@@ -45,7 +45,7 @@ def parse_time(value):
 
 def add_job_timing(results):
     """Add queue and job durations from the GitHub API; needs `gh` and a token with actions:read."""
-    runs = {(r["github"]["repository"], r["github"]["run_id"], r["github"]["run_attempt"]) for r in results}
+    runs = {(r["github"]["repository"], r["github"]["run_id"], r["github"]["run_attempt"]) for r in results if "timing" not in r}
     jobs = {}
     for repo, run_id, attempt in runs:
         out = subprocess.run(
@@ -57,6 +57,8 @@ def add_job_timing(results):
             name, created, started, completed = (line.split("\t") + [""] * 4)[:4]
             jobs[(run_id, attempt, name)] = (parse_time(created), parse_time(started), parse_time(completed))
     for r in results:
+        if "timing" in r:  # Buildkite results carry their own queue times.
+            continue
         created, started, completed = jobs.get((r["github"]["run_id"], r["github"]["run_attempt"], job_name(r["spec"])), (None,) * 3)
         r["timing"] = {
             "queue_seconds": (started - created).total_seconds() if created and started else None,

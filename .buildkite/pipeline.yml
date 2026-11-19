@@ -1,0 +1,11 @@
+# Started by the bench-buildkite job in .github/workflows/benchmark.yml, which
+# passes RUNNER_SPEC and BENCH_QUEUE as build environment variables.
+steps:
+  - key: bench
+    label: ":stopwatch: Benchmark"
+    if: build.env("RUNNER_SPEC") != null
+    command: .buildkite/bench.sh
+    agents:
+      queue: "${BENCH_QUEUE}"
+    artifact_paths: result.json
+    timeout_in_minutes: 30
