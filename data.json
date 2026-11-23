@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-19T07:57:38.952080+00:00",
+ "generated_at": "2026-11-23T18:16:44.245380+00:00",
  "sample_count": 2,
  "runs": [
   {
-   "run_id": "44483068201",
-   "url": "https://github.com/daniellockyer/runners/actions/runs/44483068201"
+   "run_id": "45235940340",
+   "url": "https://github.com/daniellockyer/runners/actions/runs/45235940340"
   }
  ],
  "metrics": [
@@ -76,27 +76,27 @@
    "arch": "x64",
    "price_per_minute": 0.012,
    "cpu_models": [
-    "Intel(R) Xeon(R) 6975P-C"
+    "AMD EPYC 7763 64-Core Processor"
    ],
    "vcpus": 4,
-   "memory_gib": 15.3,
+   "memory_gib": 15.6,
    "disk_gb": 155,
-   "virtualization": "amazon",
-   "location": "Boardman, US",
-   "network": "AS16509 Amazon.com, Inc.",
+   "virtualization": "microsoft",
+   "location": "San Jose, US",
+   "network": "AS8075 Microsoft Corporation",
    "medians": {
     "queue": 3.0,
-    "apt_install": 37.42106636000001,
-    "cpu_single": 3293.8,
-    "cpu_multi": 6915.11,
-    "memory": 39011.33,
-    "seq_read": 472.459103,
-    "seq_write": 226.111596,
-    "rand_read": 68817.94547,
-    "rand_write": 33545.830278,
-    "download": 209.517104,
-    "redis_build": 58.84583804900001,
-    "redis_cost": 0.011769167609800003
+    "apt_install": 12.007669431,
+    "cpu_single": 3668.36,
+    "cpu_multi": 8200.13,
+    "memory": 27331.36,
+    "seq_read": 413.882157,
+    "seq_write": 412.611756,
+    "rand_read": 19631.557896,
+    "rand_write": 19610.025998,
+    "download": 229.604254,
+    "redis_build": 67.45088099,
+    "redis_cost": 0.013490176198
    },
    "sample_count": 1
   },
@@ -115,18 +115,18 @@
    "location": "Seattle, US",
    "network": "AS19538 Luxor",
    "medians": {
-    "queue": 12.0,
-    "apt_install": 20.411286473000004,
-    "cpu_single": 6973.24,
-    "cpu_multi": 27306.63,
-    "memory": 43457.11,
-    "seq_read": 17859.064593,
-    "seq_write": 14931.425862,
-    "rand_read": 114509.366042,
-    "rand_write": 119348.110126,
-    "download": 254.773175,
-    "redis_build": 23.347362816999976,
-    "redis_cost": 0.00311298170893333
+    "queue": 14.0,
+    "apt_install": 7.390573180999999,
+    "cpu_single": 6954.07,
+    "cpu_multi": 26977.39,
+    "memory": 42731.47,
+    "seq_read": 17039.552226,
+    "seq_write": 12952.956545,
+    "rand_read": 88161.989201,
+    "rand_write": 114740.083994,
+    "download": 107.106058,
+    "redis_build": 23.404960009999996,
+    "redis_cost": 0.003120661334666666
    },
    "sample_count": 1
   }
