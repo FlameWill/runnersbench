@@ -95,6 +95,52 @@ One-time setup:
    `read_artifacts`, and save it as the `BUILDKITE_API_TOKEN` Actions secret.
 4. Check `buildkite.organization` and set `enabled: true`.
 
+## Providers to add
+
+- [ ] Namespace
+- [ ] Actuated
+- [ ] Cirun
+- [x] WarpBuild
+- [ ] Ubicloud
+- [ ] Dime
+- [ ] RunsOn
+- [ ] Blacksmith
+- [ ] Sprinters
+- [ ] GetMac
+- [ ] AWS CodeBuild
+- [x] Avrea
+- [ ] StarSling Runners
+- [ ] RunJob
+- [ ] FasterCI
+- [ ] Veertu Anka Build
+- [ ] Aspect Workflows
+- [ ] CodSpeed Macro Runners
+- [ ] Buildalon
+- [ ] HyperEnv
+- [ ] Bitrise Build Hub
+- [ ] Scaleway Pre-installed Runners
+- [ ] Blaze
+- [ ] Microsoft Managed DevOps Pools
+- [ ] IBM Actions for Power Z and LinuxONE
+- [ ] MacStadium Orka
+- [ ] MacinCloud
+- [x] Depot
+- [ ] Cirrus Runners
+- [ ] Amazon CodeCatalyst
+- [ ] Harness CI GitHub Action step
+- [ ] CircleCI
+- [ ] Buildkite (set up but disabled; needs a Buildkite account, see [Buildkite](#buildkite))
+- [ ] Runnable
+- [ ] Jog (JogCI)
+- [ ] Latchkey
+- [ ] machine.dev
+- [ ] CRACI
+- [ ] Trunk Runners
+- [ ] BoxD
+- [ ] Ravion
+- [ ] InstaBox
+- [ ] Celesto
+
 ## Caveats
 
 - A label that no runner serves leaves its job queued (up to 24 hours) and
