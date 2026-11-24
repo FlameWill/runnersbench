@@ -23,6 +23,17 @@
       "pricing_source": "https://luxor.ai/docs/pricing"
     },
     {
+      "provider": "avrea",
+      "label": "avrea-ubuntu-24.04-4-vcpu",
+      "arch": "x64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.008,
+      "enabled": true,
+      "notes": "Pinned to Ubuntu 24.04 to match GitHub. Billed per second.",
+      "pricing_source": "https://avrea.com/pricing"
+    },
+    {
       "provider": "buildkite",
       "label": "buildkite-linux-amd64-4x16",
       "arch": "x64",

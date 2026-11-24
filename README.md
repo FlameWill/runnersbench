@@ -1,6 +1,6 @@
 # CI runner benchmarks
 
-Benchmarks GitHub Actions runner providers (GitHub-hosted, Buildkite,
+Benchmarks GitHub Actions runner providers (GitHub-hosted, Avrea, Buildkite,
 luxor.ai, ...) side by side on the same workloads.
 
 ## How it works
