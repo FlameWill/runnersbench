@@ -131,6 +131,7 @@ def summarise(results):
             medians[key] = statistics.median(values) if values else None
         runners.append({
             "provider": provider,
+            "provider_name": spec.get("name") or provider,
             "label": label,
             "arch": spec.get("arch"),
             "price_per_minute": spec.get("price_per_minute"),
