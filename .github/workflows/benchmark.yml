@@ -135,6 +135,8 @@ jobs:
         run: |
           find pages -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -r site/. combined/. pages/
+          # GitHub Pages lets browsers cache assets for 10 minutes; a new URL per publish skips that.
+          sed -i -E "s/(style\.css|app\.js)\"/\1?v=${GITHUB_RUN_ID}\"/" pages/index.html
           touch pages/.nojekyll
           cd pages
           git add -A
