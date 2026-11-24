@@ -44,6 +44,28 @@
       "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
     },
     {
+      "provider": "warpbuild",
+      "label": "warp-ubuntu-2404-x64-4x",
+      "arch": "x64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.008,
+      "enabled": true,
+      "notes": "Pinned to Ubuntu 24.04 to match GitHub.",
+      "pricing_source": "https://www.warpbuild.com/pricing"
+    },
+    {
+      "provider": "checklane",
+      "label": "checklane-4vcpu",
+      "arch": "x64",
+      "vcpu": 4,
+      "memory_gb": null,
+      "price_per_minute": null,
+      "enabled": true,
+      "notes": "No public docs or pricing found; fill in memory_gb and price_per_minute.",
+      "pricing_source": null
+    },
+    {
       "provider": "buildkite",
       "label": "buildkite-linux-amd64-4x16",
       "arch": "x64",
