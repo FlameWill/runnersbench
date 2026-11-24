@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-24T14:42:54.316585+00:00",
- "sample_count": 6,
+ "generated_at": "2026-11-24T19:24:44.904722+00:00",
+ "sample_count": 7,
  "runs": [
   {
-   "run_id": "45416175832",
-   "url": "https://github.com/lockyer-labs/runners/actions/runs/45416175832"
+   "run_id": "45469139059",
+   "url": "https://github.com/lockyer-labs/runners/actions/runs/45469139059"
   }
  ],
  "metrics": [
@@ -86,18 +86,49 @@
    "location": "Roubaix, FR",
    "network": "AS16276 OVH SAS",
    "medians": {
-    "queue": 8.0,
-    "apt_install": 9.628632952,
-    "cpu_single": 6506.55,
-    "cpu_multi": 24524.21,
-    "memory": 39752.58,
-    "seq_read": 9849.736199,
-    "seq_write": 8905.067676,
-    "rand_read": 207523.165122,
-    "rand_write": 87187.587494,
-    "download": 96.291431,
-    "redis_build": 28.152594970999985,
-    "redis_cost": 0.0037536793294666647
+    "queue": 7.0,
+    "apt_install": 6.761248310999999,
+    "cpu_single": 6597.97,
+    "cpu_multi": 25686.91,
+    "memory": 40822.1,
+    "seq_read": 15408.216535,
+    "seq_write": 9519.381398,
+    "rand_read": 195633.157789,
+    "rand_write": 112465.702287,
+    "download": 151.822938,
+    "redis_build": 24.455986509000013,
+    "redis_cost": 0.003260798201200002
+   },
+   "sample_count": 1
+  },
+  {
+   "provider": "buildkite",
+   "provider_name": "Buildkite",
+   "label": "buildkite-linux-amd64-4x16",
+   "arch": "x64",
+   "price_per_minute": 0.016,
+   "cpu_models": [
+    "AMD EPYC"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.7,
+   "disk_gb": 101,
+   "virtualization": "docker",
+   "location": "Ashburn, US",
+   "network": "AS401483 Namespace Labs",
+   "medians": {
+    "queue": 12.736,
+    "apt_install": 6.014756422,
+    "cpu_single": 6723.96,
+    "cpu_multi": 26203.23,
+    "memory": 40498.02,
+    "seq_read": 3569.114763,
+    "seq_write": 2777.422757,
+    "rand_read": 384982.467835,
+    "rand_write": 380440.570629,
+    "download": 252.974985,
+    "redis_build": 27.118784144000017,
+    "redis_cost": 0.007231675771733338
    },
    "sample_count": 1
   },
@@ -117,18 +148,18 @@
    "location": "London, GB",
    "network": "AS212027 PebbleHost Ltd",
    "medians": {
-    "queue": 8.0,
-    "apt_install": 5.076084708999998,
-    "cpu_single": 6925.86,
-    "cpu_multi": 26911.57,
-    "memory": 42091.53,
-    "seq_read": 8601.87414,
-    "seq_write": 3119.026044,
-    "rand_read": 93498.5001,
-    "rand_write": 91102.793147,
-    "download": 95.494201,
-    "redis_build": 24.157922367000026,
-    "redis_cost": 0.0016105281578000018
+    "queue": 9.0,
+    "apt_install": 5.038755666,
+    "cpu_single": 6995.23,
+    "cpu_multi": 27893.5,
+    "memory": 43644.04,
+    "seq_read": 7335.348672,
+    "seq_write": 3226.53287,
+    "rand_read": 95174.788347,
+    "rand_write": 96295.713619,
+    "download": 94.162667,
+    "redis_build": 23.384617577,
+    "redis_cost": 0.0015589745051333332
    },
    "sample_count": 1
   },
@@ -139,27 +170,27 @@
    "arch": "x64",
    "price_per_minute": 0.012,
    "cpu_models": [
-    "AMD EPYC 9R45 96-Core Processor"
+    "Intel(R) Xeon(R) 6975P-C"
    ],
    "vcpus": 4,
-   "memory_gib": 15.6,
-   "disk_gb": 156,
-   "virtualization": "kvm",
+   "memory_gib": 30.8,
+   "disk_gb": 87,
+   "virtualization": "amazon",
    "location": "Ashburn, US",
    "network": "AS14618 Amazon.com, Inc.",
    "medians": {
     "queue": 1.0,
-    "apt_install": 3.8507272419999996,
-    "cpu_single": 5198.87,
-    "cpu_multi": 20399.05,
-    "memory": 32175.79,
-    "seq_read": 7393.285459,
-    "seq_write": 14265.72201,
-    "rand_read": 230355.752566,
-    "rand_write": 221339.84401,
-    "download": 231.279112,
-    "redis_build": 31.504817580000008,
-    "redis_cost": 0.006300963516000002
+    "apt_install": 25.576118923999996,
+    "cpu_single": 3317.44,
+    "cpu_multi": 6970.13,
+    "memory": 40386.42,
+    "seq_read": 343.445017,
+    "seq_write": 332.884585,
+    "rand_read": 5756.911598,
+    "rand_write": 8604.810768,
+    "download": 280.138724,
+    "redis_build": 53.53406866899999,
+    "redis_cost": 0.010706813733799999
    },
    "sample_count": 1
   },
@@ -180,17 +211,17 @@
    "network": "AS16509 Amazon.com, Inc.",
    "medians": {
     "queue": 3.0,
-    "apt_install": 24.55853162400001,
-    "cpu_single": 3310.34,
-    "cpu_multi": 6970.22,
-    "memory": 40974.57,
-    "seq_read": 472.357924,
-    "seq_write": 225.957411,
-    "rand_read": 69179.321379,
-    "rand_write": 33545.696954,
-    "download": 201.690977,
-    "redis_build": 56.17319179499998,
-    "redis_cost": 0.011234638358999996
+    "apt_install": 34.230200921999995,
+    "cpu_single": 3308.92,
+    "cpu_multi": 6936.2,
+    "memory": 40739.11,
+    "seq_read": 472.459103,
+    "seq_write": 226.126604,
+    "rand_read": 68711.485901,
+    "rand_write": 33545.763616,
+    "download": 127.584218,
+    "redis_build": 62.44334632599998,
+    "redis_cost": 0.012488669265199998
    },
    "sample_count": 1
   },
@@ -210,18 +241,18 @@
    "location": "Seattle, US",
    "network": "AS19538 Luxor",
    "medians": {
-    "queue": 10.0,
-    "apt_install": 5.920947956000001,
-    "cpu_single": 6973.72,
-    "cpu_multi": 26834.36,
-    "memory": 42711.91,
-    "seq_read": 19263.433663,
-    "seq_write": 15654.265967,
-    "rand_read": 104884.807679,
-    "rand_write": 106138.390774,
-    "download": 175.225252,
-    "redis_build": 23.703877441999992,
-    "redis_cost": 0.003160516992266666
+    "queue": 12.0,
+    "apt_install": 6.1916312510000004,
+    "cpu_single": 6970.88,
+    "cpu_multi": 26885.42,
+    "memory": 42868.7,
+    "seq_read": 21352.756817,
+    "seq_write": 15870.960716,
+    "rand_read": 132729.15139,
+    "rand_write": 110187.387507,
+    "download": 35.571466,
+    "redis_build": 23.585043256999995,
+    "redis_cost": 0.003144672434266666
    },
    "sample_count": 1
   },
@@ -241,18 +272,18 @@
    "location": "Chicago, US",
    "network": "AS398418 WarpBuild",
    "medians": {
-    "queue": 8.0,
-    "apt_install": 10.412940584000001,
-    "cpu_single": 6293.92,
-    "cpu_multi": 13100.57,
-    "memory": 38734.02,
-    "seq_read": 4799.222119,
-    "seq_write": 2507.649723,
-    "rand_read": 99470.90194,
-    "rand_write": 77711.352576,
-    "download": 204.494795,
-    "redis_build": 36.13493701499999,
-    "redis_cost": 0.004817991601999999
+    "queue": 9.0,
+    "apt_install": 8.227468414,
+    "cpu_single": 6166.18,
+    "cpu_multi": 13142.37,
+    "memory": 39263.88,
+    "seq_read": 4090.788398,
+    "seq_write": 2877.97524,
+    "rand_read": 71021.731885,
+    "rand_write": 25091.593894,
+    "download": 106.031495,
+    "redis_build": 34.08014938399998,
+    "redis_cost": 0.0045440199178666645
    },
    "sample_count": 1
   }
