@@ -83,7 +83,7 @@
       "notes": "Buildkite hosted agent (Medium). Runs .buildkite/pipeline.yml, started by the bench-buildkite job. Needs a paid or trial plan.",
       "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",
       "buildkite": {
-        "organization": "lockyer-labs",
+        "organization": "daniel-lockyer",
         "pipeline": "runners",
         "queue": "linux-medium"
       }
