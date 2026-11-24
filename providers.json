@@ -79,7 +79,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.016,
-      "enabled": false,
+      "enabled": true,
       "notes": "Buildkite hosted agent (Medium). Runs .buildkite/pipeline.yml, started by the bench-buildkite job. Needs a paid or trial plan.",
       "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",
       "buildkite": {
