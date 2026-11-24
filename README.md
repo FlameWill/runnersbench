@@ -16,7 +16,7 @@ luxor.ai, ...) side by side on the same workloads.
    all results as JSON). On `main` it also replaces the site on the
    `gh-pages` branch with this run's results.
 
-Results are published at <https://daniellockyer.github.io/runners/>. The page
+Results are published at <https://lockyer-labs.github.io/runners/>. The page
 itself lives in `site/`; `analyze.py --summary` produces the `data.json` it reads.
 
 ### What gets collected
