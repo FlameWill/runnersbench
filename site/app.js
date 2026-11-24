@@ -14,7 +14,7 @@ function fmt(value, metric) {
 }
 
 function table(node, headers, rows) {
-  node.append(el("thead", {}, el("tr", {}, ...headers.map((h) => el("th", { textContent: h })))));
+  node.append(el("thead", {}, el("tr", {}, ...headers.map((h) => (typeof h === "string" ? el("th", { textContent: h }) : h)))));
   node.append(el("tbody", {}, ...rows.map((cells) => el("tr", {}, ...cells))));
 }
 
@@ -22,8 +22,8 @@ function textCell(text, className = "") {
   return el("td", { className, textContent: text ?? "–" });
 }
 
-function runnerCell(runner, color) {
-  return el("td", {}, el("span", { className: "swatch", style: `background:${color(runner.provider)}` }),
+function runnerCell(runner, color, tag = "td") {
+  return el(tag, {}, el("span", { className: "swatch", style: `background:${color(runner.provider)}` }),
     el("code", { textContent: runner.label }));
 }
 
@@ -49,10 +49,10 @@ function renderTables(data, color) {
   const bests = Object.fromEntries(metrics.map((m) => [m.key, best(runners, m)]));
   table(
     document.getElementById("benchmarks"),
-    ["Label", ...metrics.map((m) => m.label)],
-    runners.map((r) => [
-      runnerCell(r, color),
-      ...metrics.map((m) => {
+    ["Metric", ...runners.map((r) => runnerCell(r, color, "th"))],
+    metrics.map((m) => [
+      el("td", {}, m.label, el("span", { className: "hint", textContent: m.higher_is_better ? "higher is better" : "lower is better" })),
+      ...runners.map((r) => {
         const value = r.medians[m.key];
         return textCell(fmt(value, m), value !== null && value === bests[m.key] ? "num best" : "num");
       }),
