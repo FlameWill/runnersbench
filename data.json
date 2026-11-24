@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-24T14:27:53.313139+00:00",
- "sample_count": 3,
+ "generated_at": "2026-11-24T14:41:31.813431+00:00",
+ "sample_count": 6,
  "runs": [
   {
-   "run_id": "45413665977",
-   "url": "https://github.com/lockyer-labs/runners/actions/runs/45413665977"
+   "run_id": "45416175832",
+   "url": "https://github.com/lockyer-labs/runners/actions/runs/45416175832"
   }
  ],
  "metrics": [
@@ -85,18 +85,78 @@
    "location": "Roubaix, FR",
    "network": "AS16276 OVH SAS",
    "medians": {
-    "queue": 11.0,
-    "apt_install": 9.904950278000001,
-    "cpu_single": 6450.35,
-    "cpu_multi": 25556.08,
-    "memory": 40148.99,
-    "seq_read": 12964.498319,
-    "seq_write": 10614.92734,
-    "rand_read": 142618.692087,
-    "rand_write": 96125.924938,
-    "download": 98.572667,
-    "redis_build": 24.84280771600001,
-    "redis_cost": 0.003312374362133335
+    "queue": 8.0,
+    "apt_install": 9.628632952,
+    "cpu_single": 6506.55,
+    "cpu_multi": 24524.21,
+    "memory": 39752.58,
+    "seq_read": 9849.736199,
+    "seq_write": 8905.067676,
+    "rand_read": 207523.165122,
+    "rand_write": 87187.587494,
+    "download": 96.291431,
+    "redis_build": 28.152594970999985,
+    "redis_cost": 0.0037536793294666647
+   },
+   "sample_count": 1
+  },
+  {
+   "provider": "checklane",
+   "label": "checklane-4vcpu-ubuntu-2404",
+   "arch": "x64",
+   "price_per_minute": 0.004,
+   "cpu_models": [
+    "AMD EPYC"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.6,
+   "disk_gb": 169,
+   "virtualization": "kvm",
+   "location": "London, GB",
+   "network": "AS212027 PebbleHost Ltd",
+   "medians": {
+    "queue": 8.0,
+    "apt_install": 5.076084708999998,
+    "cpu_single": 6925.86,
+    "cpu_multi": 26911.57,
+    "memory": 42091.53,
+    "seq_read": 8601.87414,
+    "seq_write": 3119.026044,
+    "rand_read": 93498.5001,
+    "rand_write": 91102.793147,
+    "download": 95.494201,
+    "redis_build": 24.157922367000026,
+    "redis_cost": 0.0016105281578000018
+   },
+   "sample_count": 1
+  },
+  {
+   "provider": "depot",
+   "label": "depot-ubuntu-24.04-4",
+   "arch": "x64",
+   "price_per_minute": 0.012,
+   "cpu_models": [
+    "AMD EPYC 9R45 96-Core Processor"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.6,
+   "disk_gb": 156,
+   "virtualization": "kvm",
+   "location": "Ashburn, US",
+   "network": "AS14618 Amazon.com, Inc.",
+   "medians": {
+    "queue": 1.0,
+    "apt_install": 3.8507272419999996,
+    "cpu_single": 5198.87,
+    "cpu_multi": 20399.05,
+    "memory": 32175.79,
+    "seq_read": 7393.285459,
+    "seq_write": 14265.72201,
+    "rand_read": 230355.752566,
+    "rand_write": 221339.84401,
+    "download": 231.279112,
+    "redis_build": 31.504817580000008,
+    "redis_cost": 0.006300963516000002
    },
    "sample_count": 1
   },
@@ -112,21 +172,21 @@
    "memory_gib": 15.3,
    "disk_gb": 155,
    "virtualization": "amazon",
-   "location": "Ashburn, US",
-   "network": "AS14618 Amazon.com, Inc.",
+   "location": "Boardman, US",
+   "network": "AS16509 Amazon.com, Inc.",
    "medians": {
     "queue": 3.0,
-    "apt_install": 18.716687090999983,
-    "cpu_single": 3325.46,
-    "cpu_multi": 6993.43,
-    "memory": 41091.69,
-    "seq_read": 472.459103,
-    "seq_write": 226.012001,
-    "rand_read": 69510.032664,
-    "rand_write": 33544.830345,
-    "download": 302.363271,
-    "redis_build": 52.195668513000044,
-    "redis_cost": 0.010439133702600007
+    "apt_install": 24.55853162400001,
+    "cpu_single": 3310.34,
+    "cpu_multi": 6970.22,
+    "memory": 40974.57,
+    "seq_read": 472.357924,
+    "seq_write": 225.957411,
+    "rand_read": 69179.321379,
+    "rand_write": 33545.696954,
+    "download": 201.690977,
+    "redis_build": 56.17319179499998,
+    "redis_cost": 0.011234638358999996
    },
    "sample_count": 1
   },
@@ -145,18 +205,48 @@
    "location": "Seattle, US",
    "network": "AS19538 Luxor",
    "medians": {
-    "queue": 33.0,
-    "apt_install": 6.201845402000002,
-    "cpu_single": 6988.31,
-    "cpu_multi": 27051.39,
-    "memory": 43104.34,
-    "seq_read": 16924.985459,
-    "seq_write": 13097.204908,
-    "rand_read": 85591.293914,
-    "rand_write": 141010.865942,
-    "download": 279.56388,
-    "redis_build": 23.649263423999997,
-    "redis_cost": 0.0031532351232
+    "queue": 10.0,
+    "apt_install": 5.920947956000001,
+    "cpu_single": 6973.72,
+    "cpu_multi": 26834.36,
+    "memory": 42711.91,
+    "seq_read": 19263.433663,
+    "seq_write": 15654.265967,
+    "rand_read": 104884.807679,
+    "rand_write": 106138.390774,
+    "download": 175.225252,
+    "redis_build": 23.703877441999992,
+    "redis_cost": 0.003160516992266666
+   },
+   "sample_count": 1
+  },
+  {
+   "provider": "warpbuild",
+   "label": "warp-ubuntu-2404-x64-4x",
+   "arch": "x64",
+   "price_per_minute": 0.008,
+   "cpu_models": [
+    "AMD Ryzen 9 9950X 16-Core Processor"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.6,
+   "disk_gb": 265,
+   "virtualization": "kvm",
+   "location": "Chicago, US",
+   "network": "AS398418 WarpBuild",
+   "medians": {
+    "queue": 8.0,
+    "apt_install": 10.412940584000001,
+    "cpu_single": 6293.92,
+    "cpu_multi": 13100.57,
+    "memory": 38734.02,
+    "seq_read": 4799.222119,
+    "seq_write": 2507.649723,
+    "rand_read": 99470.90194,
+    "rand_write": 77711.352576,
+    "download": 204.494795,
+    "redis_build": 36.13493701499999,
+    "redis_cost": 0.004817991601999999
    },
    "sample_count": 1
   }
