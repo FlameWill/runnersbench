@@ -26,7 +26,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         return None
 
 
-def api(path, body=None):
+def api(path, body=None, raw=False):
     req = urllib.request.Request(
         path if path.startswith("https://") else f"{API}/{path}",
         data=json.dumps(body).encode() if body is not None else None,
@@ -34,8 +34,10 @@ def api(path, body=None):
     )
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
-            return json.load(resp)
+            return resp.read().decode(errors="replace") if raw else json.load(resp)
     except urllib.error.HTTPError as e:
+        if raw:
+            return f"(couldn't fetch log: {e.code}; the token needs the read_job_logs scope)"
         sys.exit(f"Buildkite API {req.get_method()} {req.full_url} failed: {e.code} {e.read().decode()[:500]}")
 
 
@@ -83,6 +85,13 @@ def main():
 
     job = next((j for j in build["jobs"] if j.get("step_key") == "bench"), None)
     if not job or job.get("state") != "passed":
+        for j in build["jobs"]:
+            if j.get("type") != "script":
+                continue
+            print(f"::group::{j.get('name') or j.get('step_key')}: {j.get('state')}, exit status {j.get('exit_status')}")
+            if j.get("raw_log_url"):
+                print("\n".join(api(j["raw_log_url"], raw=True).splitlines()[-60:]))
+            print("::endgroup::", flush=True)
         sys.exit(f"Benchmark job did not pass (build state {build['state']}): {build['web_url']}")
 
     artifacts = api(f"{pipeline}/builds/{build['number']}/jobs/{job['id']}/artifacts")
