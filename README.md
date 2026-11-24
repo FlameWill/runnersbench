@@ -100,7 +100,6 @@ One-time setup:
 - [ ] Namespace
 - [ ] Actuated
 - [ ] Cirun
-- [x] WarpBuild
 - [ ] Ubicloud
 - [ ] Dime
 - [ ] RunsOn
@@ -108,7 +107,6 @@ One-time setup:
 - [ ] Sprinters
 - [ ] GetMac
 - [ ] AWS CodeBuild
-- [x] Avrea
 - [ ] StarSling Runners
 - [ ] RunJob
 - [ ] FasterCI
@@ -124,7 +122,6 @@ One-time setup:
 - [ ] IBM Actions for Power Z and LinuxONE
 - [ ] MacStadium Orka
 - [ ] MacinCloud
-- [x] Depot
 - [ ] Cirrus Runners
 - [ ] Amazon CodeCatalyst
 - [ ] Harness CI GitHub Action step
