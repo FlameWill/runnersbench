@@ -22,9 +22,21 @@ function textCell(text, className = "") {
   return el("td", { className, textContent: text ?? "–" });
 }
 
-function runnerCell(runner, color, tag = "td") {
-  return el(tag, {}, el("span", { className: "swatch", style: `background:${color(runner.provider)}` }),
+function runnerCell(runner, color) {
+  return el("td", {}, el("span", { className: "swatch", style: `background:${color(runner.provider)}` }),
     el("code", { textContent: runner.label }));
+}
+
+function providerCell(runner, color) {
+  return el("th", { title: runner.label }, el("span", { className: "swatch", style: `background:${color(runner.provider)}` }),
+    runner.provider_name);
+}
+
+function hint(metric) {
+  const text = metric.higher_is_better ? "higher is better" : "lower is better";
+  const node = el("span", { className: "hint", title: text, textContent: text });
+  node.dataset.short = metric.higher_is_better ? "↑" : "↓";
+  return node;
 }
 
 function best(runners, metric) {
@@ -39,7 +51,7 @@ function renderTables(data, color) {
     document.getElementById("runners"),
     ["Label", "Provider", "Arch", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Virtualization", "Location", "Network", "Samples"],
     runners.map((r) => [
-      runnerCell(r, color), textCell(r.provider), textCell(r.arch), textCell(r.cpu_models.join(", ")),
+      runnerCell(r, color), textCell(r.provider_name), textCell(r.arch), textCell(r.cpu_models.join(", ")),
       textCell(r.vcpus, "num"), textCell(r.memory_gib, "num"), textCell(r.disk_gb, "num"),
       textCell(r.price_per_minute === null ? null : `$${r.price_per_minute}`, "num"), textCell(r.virtualization),
       textCell(r.location), textCell(r.network), textCell(r.sample_count, "num"),
@@ -49,9 +61,9 @@ function renderTables(data, color) {
   const bests = Object.fromEntries(metrics.map((m) => [m.key, best(runners, m)]));
   table(
     document.getElementById("benchmarks"),
-    ["Metric", ...runners.map((r) => runnerCell(r, color, "th"))],
+    ["Metric", ...runners.map((r) => providerCell(r, color))],
     metrics.map((m) => [
-      el("td", {}, m.label, el("span", { className: "hint", textContent: m.higher_is_better ? "higher is better" : "lower is better" })),
+      el("td", {}, m.label, hint(m)),
       ...runners.map((r) => {
         const value = r.medians[m.key];
         return textCell(fmt(value, m), value !== null && value === bests[m.key] ? "num best" : "num");
@@ -73,7 +85,7 @@ function renderBarCharts(data, color) {
     new Chart(canvas, {
       type: "bar",
       data: {
-        labels: runners.map((r) => r.label),
+        labels: runners.map((r) => r.provider_name),
         datasets: [{
           data: runners.map((r) => r.medians[metric.key]),
           backgroundColor: runners.map((r) => color(r.provider)),

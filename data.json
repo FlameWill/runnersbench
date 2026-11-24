@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T14:41:31.813431+00:00",
+ "generated_at": "2026-11-24T14:42:54.316585+00:00",
  "sample_count": 6,
  "runs": [
   {
@@ -72,6 +72,7 @@
  "runners": [
   {
    "provider": "avrea",
+   "provider_name": "Avrea",
    "label": "avrea-ubuntu-24.04-4-vcpu",
    "arch": "x64",
    "price_per_minute": 0.008,
@@ -102,6 +103,7 @@
   },
   {
    "provider": "checklane",
+   "provider_name": "Checklane",
    "label": "checklane-4vcpu-ubuntu-2404",
    "arch": "x64",
    "price_per_minute": 0.004,
@@ -132,6 +134,7 @@
   },
   {
    "provider": "depot",
+   "provider_name": "Depot",
    "label": "depot-ubuntu-24.04-4",
    "arch": "x64",
    "price_per_minute": 0.012,
@@ -162,6 +165,7 @@
   },
   {
    "provider": "github",
+   "provider_name": "GitHub",
    "label": "ubuntu-24.04",
    "arch": "x64",
    "price_per_minute": 0.012,
@@ -192,6 +196,7 @@
   },
   {
    "provider": "luxor",
+   "provider_name": "Luxor",
    "label": "luxor-ubuntu-medium-4c-8g",
    "arch": "x64",
    "price_per_minute": 0.008,
@@ -222,6 +227,7 @@
   },
   {
    "provider": "warpbuild",
+   "provider_name": "WarpBuild",
    "label": "warp-ubuntu-2404-x64-4x",
    "arch": "x64",
    "price_per_minute": 0.008,

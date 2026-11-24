@@ -72,7 +72,8 @@ code { font-size: 12px; }
   table { font-size: 12px; }
   th, td { padding: 3px 6px; }
   #benchmarks th, #benchmarks td:first-child { white-space: normal; }
-  #benchmarks th code { word-break: break-all; }
-  .hint { display: block; font-size: 11px; }
-  .hint::before { content: none; }
+  #benchmarks thead th { white-space: nowrap; }
+  #benchmarks td:first-child { min-width: 9em; }
+  .hint { font-size: 0; }
+  .hint::before { content: " " attr(data-short); font-size: 12px; }
 }

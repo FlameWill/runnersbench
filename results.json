@@ -11,7 +11,8 @@
       "enabled": true,
       "notes": "Pinned to Ubuntu 24.04 to match GitHub. Billed per second.",
       "pricing_source": "https://avrea.com/pricing",
-      "rep": 1
+      "rep": 1,
+      "name": "Avrea"
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -251,7 +252,8 @@
       "enabled": true,
       "notes": "Pinned to Ubuntu 24.04 to match GitHub; the bare label runs 26.04. $0.001 per vCPU-minute, billed per second.",
       "pricing_source": "https://checklane.sh/pricing",
-      "rep": 1
+      "rep": 1,
+      "name": "Checklane"
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -494,7 +496,8 @@
       "price_per_minute": 0.012,
       "enabled": true,
       "pricing_source": "https://depot.dev/docs/github-actions/runner-types",
-      "rep": 1
+      "rep": 1,
+      "name": "Depot"
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -745,7 +748,8 @@
       "enabled": true,
       "notes": "luxor.ai (formerly Tenki). $0.002 per vCPU-minute.",
       "pricing_source": "https://luxor.ai/docs/pricing",
-      "rep": 1
+      "rep": 1,
+      "name": "Luxor"
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -1097,7 +1101,8 @@
       "enabled": true,
       "notes": "Baseline. 4 vCPU / 16 GB on public repos, where it's free; priced at GitHub's 4-core larger runner rate, the paid equivalent.",
       "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing",
-      "rep": 1
+      "rep": 1,
+      "name": "GitHub"
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -1344,7 +1349,8 @@
       "enabled": true,
       "notes": "Pinned to Ubuntu 24.04 to match GitHub.",
       "pricing_source": "https://www.warpbuild.com/pricing",
-      "rep": 1
+      "rep": 1,
+      "name": "WarpBuild"
     },
     "github": {
       "repository": "lockyer-labs/runners",
