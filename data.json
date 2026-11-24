@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-24T13:02:22.583989+00:00",
+ "generated_at": "2026-11-24T14:27:53.313139+00:00",
  "sample_count": 3,
  "runs": [
   {
-   "run_id": "45398713270",
-   "url": "https://github.com/daniellockyer/runners/actions/runs/45398713270"
+   "run_id": "45413665977",
+   "url": "https://github.com/lockyer-labs/runners/actions/runs/45413665977"
   }
  ],
  "metrics": [
@@ -85,18 +85,18 @@
    "location": "Roubaix, FR",
    "network": "AS16276 OVH SAS",
    "medians": {
-    "queue": 9.0,
-    "apt_install": 9.204136837,
-    "cpu_single": 6387.96,
-    "cpu_multi": 24686.13,
-    "memory": 38664.97,
-    "seq_read": 11771.49227,
-    "seq_write": 7617.028846,
-    "rand_read": 194278.04813,
-    "rand_write": 73631.357909,
-    "download": 240.558094,
-    "redis_build": 26.159053817,
-    "redis_cost": 0.003487873842266667
+    "queue": 11.0,
+    "apt_install": 9.904950278000001,
+    "cpu_single": 6450.35,
+    "cpu_multi": 25556.08,
+    "memory": 40148.99,
+    "seq_read": 12964.498319,
+    "seq_write": 10614.92734,
+    "rand_read": 142618.692087,
+    "rand_write": 96125.924938,
+    "download": 98.572667,
+    "redis_build": 24.84280771600001,
+    "redis_cost": 0.003312374362133335
    },
    "sample_count": 1
   },
@@ -106,27 +106,27 @@
    "arch": "x64",
    "price_per_minute": 0.012,
    "cpu_models": [
-    "AMD EPYC 9V74 80-Core Processor"
+    "Intel(R) Xeon(R) 6975P-C"
    ],
    "vcpus": 4,
-   "memory_gib": 15.6,
+   "memory_gib": 15.3,
    "disk_gb": 155,
-   "virtualization": "microsoft",
-   "location": "Chicago, US",
-   "network": "AS8075 Microsoft Corporation",
+   "virtualization": "amazon",
+   "location": "Ashburn, US",
+   "network": "AS14618 Amazon.com, Inc.",
    "medians": {
-    "queue": 4.0,
-    "apt_install": 14.701556346000004,
-    "cpu_single": 4529.42,
-    "cpu_multi": 9542.28,
-    "memory": 32047.33,
-    "seq_read": 413.238104,
-    "seq_write": 236.4675,
-    "rand_read": 19075.65877,
-    "rand_write": 17679.109452,
-    "download": 231.434337,
-    "redis_build": 59.81193595099998,
-    "redis_cost": 0.011962387190199996
+    "queue": 3.0,
+    "apt_install": 18.716687090999983,
+    "cpu_single": 3325.46,
+    "cpu_multi": 6993.43,
+    "memory": 41091.69,
+    "seq_read": 472.459103,
+    "seq_write": 226.012001,
+    "rand_read": 69510.032664,
+    "rand_write": 33544.830345,
+    "download": 302.363271,
+    "redis_build": 52.195668513000044,
+    "redis_cost": 0.010439133702600007
    },
    "sample_count": 1
   },
@@ -145,18 +145,18 @@
    "location": "Seattle, US",
    "network": "AS19538 Luxor",
    "medians": {
-    "queue": 13.0,
-    "apt_install": 6.637209575,
-    "cpu_single": 6891.59,
-    "cpu_multi": 26681.98,
-    "memory": 41849.62,
-    "seq_read": 17933.508526,
-    "seq_write": 14336.922903,
-    "rand_read": 96173.321779,
-    "rand_write": 123023.798413,
-    "download": 251.07586,
-    "redis_build": 23.822606371000006,
-    "redis_cost": 0.0031763475161333344
+    "queue": 33.0,
+    "apt_install": 6.201845402000002,
+    "cpu_single": 6988.31,
+    "cpu_multi": 27051.39,
+    "memory": 43104.34,
+    "seq_read": 16924.985459,
+    "seq_write": 13097.204908,
+    "rand_read": 85591.293914,
+    "rand_write": 141010.865942,
+    "download": 279.56388,
+    "redis_build": 23.649263423999997,
+    "redis_cost": 0.0031532351232
    },
    "sample_count": 1
   }
