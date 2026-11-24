@@ -56,14 +56,14 @@
     },
     {
       "provider": "checklane",
-      "label": "checklane-4vcpu",
+      "label": "checklane-4vcpu-ubuntu-2404",
       "arch": "x64",
       "vcpu": 4,
-      "memory_gb": null,
-      "price_per_minute": null,
+      "memory_gb": 16,
+      "price_per_minute": 0.004,
       "enabled": true,
-      "notes": "No public docs or pricing found; fill in memory_gb and price_per_minute.",
-      "pricing_source": null
+      "notes": "Pinned to Ubuntu 24.04 to match GitHub; the bare label runs 26.04. $0.001 per vCPU-minute, billed per second.",
+      "pricing_source": "https://checklane.sh/pricing"
     },
     {
       "provider": "buildkite",
