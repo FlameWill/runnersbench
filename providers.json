@@ -34,6 +34,16 @@
       "pricing_source": "https://avrea.com/pricing"
     },
     {
+      "provider": "depot",
+      "label": "depot-ubuntu-24.04-4",
+      "arch": "x64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.012,
+      "enabled": true,
+      "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
+    },
+    {
       "provider": "buildkite",
       "label": "buildkite-linux-amd64-4x16",
       "arch": "x64",
