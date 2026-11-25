@@ -115,7 +115,7 @@ def cost_per_build(r):
 # (key, column header, extractor, higher_is_better)
 METRICS = [
     ("queue", "Queue (s)", lambda r: get(r, "timing", "queue_seconds"), False),
-    ("apt_install", "apt install (s)", lambda r: get(r, "benchmarks", "apt_install", "seconds"), False),
+    ("apt_install", "Package install (s)", lambda r: get(r, "benchmarks", "apt_install", "seconds"), False),
     ("cpu_single", "CPU 1 thread (events/s)", lambda r: get(r, "benchmarks", "cpu_single", "events_per_second"), True),
     ("cpu_multi", "CPU all threads (events/s)", lambda r: get(r, "benchmarks", "cpu_multi", "events_per_second"), True),
     ("memory", "Memory (MiB/s)", lambda r: get(r, "benchmarks", "memory", "mib_per_second"), True),
@@ -167,6 +167,7 @@ def summarise(results):
             "provider_name": spec.get("name") or provider,
             "label": label,
             "arch": spec.get("arch"),
+            "platform": "macos" if spec.get("os") == "macos" else spec.get("arch"),
             "price_per_minute": spec.get("price_per_minute"),
             "billing": billing_label(spec.get("billing")),
             "cpu_models": sorted({get(r, "system", "cpu", "model") or "?" for r in samples}),
@@ -181,7 +182,7 @@ def summarise(results):
             "measured_at": samples[-1]["started_at"],
             "run_url": f"https://github.com/{samples[-1]['github']['repository']}/actions/runs/{samples[-1]['github']['run_id']}",
         })
-    runners.sort(key=lambda x: (x["arch"] or "", x["provider"] or "", x["label"] or ""))
+    runners.sort(key=lambda x: (x["platform"] or "", x["provider"] or "", x["label"] or ""))
 
     errors = [
         {"label": r["spec"].get("label"), "run_id": r["github"]["run_id"], "benchmark": name,

@@ -1,9 +1,10 @@
 const COLORS = ["#4269d0", "#efb118", "#ff725c", "#6cc5b0", "#3ca951", "#ff8ab7", "#a463f2", "#97bbf5", "#9c6b4e", "#9498a0"];
 let color = () => COLORS[0];
 
-const ARCHES = [
+const PLATFORMS = [
   ["x64", "Linux x64"],
   ["arm64", "Linux arm64"],
+  ["macos", "macOS"],
 ];
 
 const HEADLINES = [
@@ -213,8 +214,8 @@ function renderErrors(data) {
     el("li", {}, el("code", { textContent: e.label }), ` ${e.benchmark} (run ${e.run_id}): ${e.error}`)));
 }
 
-function render(data, arch, resetHighlights) {
-  const runners = data.runners.filter((r) => r.arch === arch);
+function render(data, platform, resetHighlights) {
+  const runners = data.runners.filter((r) => r.platform === platform);
   const labels = new Set(runners.map((r) => r.label));
   const view = { ...data, runners, errors: data.errors.filter((e) => labels.has(e.label)) };
   for (const id of ["stats", "benchmarks", "runners", "boards", "errors"]) {
@@ -231,24 +232,24 @@ function render(data, arch, resetHighlights) {
 
 function renderTabs(data, onSelect) {
   const container = document.getElementById("tabs");
-  const arches = ARCHES.filter(([arch]) => data.runners.some((r) => r.arch === arch));
-  const select = (arch) => {
-    for (const tab of container.children) tab.setAttribute("aria-selected", tab.dataset.arch === arch);
-    onSelect(arch);
+  const platforms = PLATFORMS.filter(([platform]) => data.runners.some((r) => r.platform === platform));
+  const select = (platform) => {
+    for (const tab of container.children) tab.setAttribute("aria-selected", tab.dataset.platform === platform);
+    onSelect(platform);
   };
-  for (const [arch, label] of arches) {
-    const count = data.runners.filter((r) => r.arch === arch).length;
+  for (const [platform, label] of platforms) {
+    const count = data.runners.filter((r) => r.platform === platform).length;
     const tab = el("button", { type: "button", className: "tab", textContent: label }, el("span", { className: "count", textContent: count }));
     tab.setAttribute("role", "tab");
-    tab.dataset.arch = arch;
+    tab.dataset.platform = platform;
     tab.addEventListener("click", () => {
-      history.replaceState(null, "", arch === ARCHES[0][0] ? location.pathname : `#${arch}`);
-      select(arch);
+      history.replaceState(null, "", platform === PLATFORMS[0][0] ? location.pathname : `#${platform}`);
+      select(platform);
     });
     container.append(tab);
   }
   const fromHash = location.hash.slice(1);
-  select(arches.some(([arch]) => arch === fromHash) ? fromHash : arches[0][0]);
+  select(platforms.some(([platform]) => platform === fromHash) ? fromHash : platforms[0][0]);
 }
 
 async function main() {
@@ -256,7 +257,7 @@ async function main() {
   const providers = [...new Set(data.runners.map((r) => r.provider))].sort();
   color = (provider) => COLORS[providers.indexOf(provider) % COLORS.length];
   const resetHighlights = enableHighlighting(document.getElementById("benchmarks"));
-  renderTabs(data, (arch) => render(data, arch, resetHighlights));
+  renderTabs(data, (platform) => render(data, platform, resetHighlights));
 }
 
 main();

@@ -28,7 +28,7 @@ itself lives in `site/`; `analyze.py --summary` produces the `data.json` it read
 |---|---|
 | System | CPU model, vendor, core count, cgroup limits, CPU flags, memory, disk and filesystem, kernel, image version, virtualization, DMI vendor, public IP location and network owner |
 | Queue time | Time between the job being created and a runner picking it up |
-| apt install | `apt-get update` and installing `sysbench`, `fio` and `build-essential` |
+| Package install | Linux: `apt-get update` and installing `sysbench`, `fio` and `build-essential`. macOS: `brew install sysbench fio` without `brew update` |
 | CPU | `sysbench cpu` with 1 thread and with all threads |
 | Memory | `sysbench memory`, single-thread bandwidth |
 | Disk | `fio` sequential read/write (1M blocks) and 4k random read/write IOPS on the runner's work disk |
@@ -87,6 +87,9 @@ python analyze/analyze.py combined
    ```
 
    `arch` is `x64` or `arm64`; the site shows each architecture on its own tab.
+   Add `"os": "macos"` for Apple Silicon runners, which get a separate macOS
+   tab. Mac runners don't share a common size, so use the provider's smallest
+   Apple Silicon size on macOS 26 (the version every provider offers).
    `label` is the `runs-on` value. Pick the provider's 4 vCPU size so every
    runner is compared at the same core count. `price_per_minute` may be `null`
    if unknown.
