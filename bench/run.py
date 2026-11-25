@@ -169,8 +169,13 @@ def system_info(workdir):
 def bench_package_install():
     if MACOS:
         start = time.monotonic()
-        sh(["env", "HOMEBREW_NO_AUTO_UPDATE=1", "HOMEBREW_NO_INSTALL_CLEANUP=1", "HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1",
-            "brew", "install", "--quiet", *BREW_PACKAGES])
+        try:
+            sh(["env", "HOMEBREW_NO_AUTO_UPDATE=1", "HOMEBREW_NO_INSTALL_CLEANUP=1", "HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1",
+                "brew", "install", "--quiet", *BREW_PACKAGES])
+        except CommandError:
+            # brew exits 1 when a dependency's post-install step fails, even though the packages installed.
+            if not all(shutil.which(p) for p in BREW_PACKAGES):
+                raise
         return {"manager": "brew", "seconds": time.monotonic() - start}
     start = time.monotonic()
     sh([*SUDO, "apt-get", "update", "-qq"])
