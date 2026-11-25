@@ -69,6 +69,7 @@ code { font-family: var(--mono); font-size: 0.85em; }
   text-decoration: none;
 }
 .button:hover { background: var(--p2); }
+.actions { display: flex; gap: 10px; }
 h1 { font: 500 64px/1.05 var(--display); letter-spacing: -0.02em; margin: 0 0 40px; max-width: 14ch; }
 .meta { font: 13px var(--mono); color: var(--p3); margin: 24px 0 0; padding-bottom: 48px; }
 
