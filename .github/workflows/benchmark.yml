@@ -84,7 +84,6 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJSON(needs.setup.outputs.github) }}
     env:
-      CACHE_DIR: ${{ runner.temp }}/cache-bench
       CACHE_KEY: bench-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.label }}-${{ matrix.rep }}
     steps:
       - uses: actions/checkout@v7
@@ -92,7 +91,9 @@ jobs:
       # Cache steps can fail without stopping the job; run.py records the missing result as an error.
       - name: Generate cache data
         continue-on-error: true
-        run: python bench/cache.py generate "$CACHE_DIR"
+        run: |
+          echo "CACHE_DIR=$RUNNER_TEMP/cache-bench" >> "$GITHUB_ENV"
+          python bench/cache.py generate "$RUNNER_TEMP/cache-bench"
       - name: Cache save
         continue-on-error: true
         uses: actions/cache/save@v6
