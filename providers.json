@@ -104,7 +104,7 @@
       "arch": "x64",
       "price_per_minute": 0.00133333,
       "billing": {"increment_seconds": 1},
-      "enabled": false,
+      "enabled": true,
       "notes": "Large is Celesto's 4 vCPU / 16 GB size on Ubuntu 24.04. Billed per second of runtime, which also includes runner preparation and cleanup.",
       "pricing_source": "https://celesto.ai/docs/ci"
     },
