@@ -84,6 +84,17 @@
       "pricing_source": "https://groundbox.dev/pricing"
     },
     {
+      "provider": "blacksmith",
+      "name": "Blacksmith",
+      "label": "blacksmith-4vcpu-ubuntu-2404",
+      "arch": "x64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.008,
+      "enabled": true,
+      "pricing_source": "https://www.blacksmith.sh/pricing"
+    },
+    {
       "provider": "buildkite",
       "name": "Buildkite",
       "label": "buildkite-linux-amd64-4x16",
