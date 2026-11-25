@@ -129,6 +129,19 @@
       "pricing_source": "https://usejog.com/#pricing"
     },
     {
+      "provider": "runjob",
+      "name": "RunJob",
+      "label": "runjob-ubuntu-24.04",
+      "arch": "x64",
+      "vcpu": 12,
+      "memory_gb": 32,
+      "price_per_minute": null,
+      "billing": {"increment_seconds": 1},
+      "enabled": true,
+      "notes": "runjob.eu (Puzl Cloud). No fixed sizes: free-plan jobs get up to 12 vCPU and 32 GB on shared cores. Billed per second for load, not time: EUR 0.00002 per vCPU-second used plus EUR 0.000001 per GB-second, so there's no per-minute price.",
+      "pricing_source": "https://runjob.eu/#Pricing"
+    },
+    {
       "provider": "github",
       "name": "GitHub",
       "label": "ubuntu-24.04-arm",
