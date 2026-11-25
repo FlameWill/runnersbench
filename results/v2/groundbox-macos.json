@@ -1,0 +1,461 @@
+[
+  {
+    "schema_version": 1,
+    "benchmark_version": 2,
+    "spec": {
+      "provider": "groundbox",
+      "name": "Groundbox",
+      "label": "groundbox-macos",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 12,
+      "memory_gb": 12,
+      "price_per_minute": 0.05,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "M6, macOS 26. Groundbox's only macOS size.",
+      "pricing_source": "https://groundbox.dev/macos-ci",
+      "rep": 1
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45609568269",
+      "run_attempt": "1",
+      "sha": "0d96cb935bf10bd70d0953f968839595107251b5"
+    },
+    "started_at": "2026-11-25T12:03:15.413048+00:00",
+    "finished_at": "2026-11-25T12:05:05.393497+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M6 (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 12,
+        "available_cpus": 12,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 12884901888,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/admin/actions-runner/_work/_temp",
+        "total_bytes": 139475673088,
+        "free_bytes": 56087937024,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.6.2",
+        "kernel": "25.6.0",
+        "image_os": null,
+        "image_version": null
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "67.180.61.109",
+        "city": "Martinez",
+        "region": "California",
+        "country": "US",
+        "org": "AS7922 Comcast Cable Communications, LLC"
+      },
+      "runner": {
+        "name": "gbx-macos-vofhwihxzy",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.8786226249999984
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 5.552350083000004,
+        "wall_seconds": 5.552353125000003
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 36115.67,
+        "wall_seconds": 15.005553041999995
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 5529.103084,
+          "iops": 5271.963738,
+          "p99_latency_us": 8355.84,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 5303.130134,
+          "iops": 5056.459139,
+          "p99_latency_us": 5537.792,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 59.480058,
+          "iops": 14520.498633,
+          "p99_latency_us": 3063.808,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 36.724481,
+          "iops": 8964.938008,
+          "p99_latency_us": 3850.24,
+          "direct": true
+        },
+        "wall_seconds": 73.783553125
+      },
+      "download_cloudflare": {
+        "mb_per_second": 54.70238,
+        "bytes": 50000000,
+        "seconds": 0.914037,
+        "connect_seconds": 0.107037,
+        "ttfb_seconds": 0.189246,
+        "wall_seconds": 0.9250246249999918
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 12,
+        "seconds": 12.351256542000002,
+        "github_download": {
+          "mb_per_second": 3.775014,
+          "bytes": 4780701,
+          "seconds": 1.266406,
+          "connect_seconds": 0.120142,
+          "ttfb_seconds": 0.394264
+        },
+        "wall_seconds": 13.828490167000012
+      }
+    },
+    "timing": {
+      "queue_seconds": 175.0,
+      "job_seconds": 126.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 2,
+    "spec": {
+      "provider": "groundbox",
+      "name": "Groundbox",
+      "label": "groundbox-macos",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 12,
+      "memory_gb": 12,
+      "price_per_minute": 0.05,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "M6, macOS 26. Groundbox's only macOS size.",
+      "pricing_source": "https://groundbox.dev/macos-ci",
+      "rep": 2
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45609568269",
+      "run_attempt": "1",
+      "sha": "0d96cb935bf10bd70d0953f968839595107251b5"
+    },
+    "started_at": "2026-11-25T12:00:41.716445+00:00",
+    "finished_at": "2026-11-25T12:02:38.023328+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M6 (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 12,
+        "available_cpus": 12,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 12884901888,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/admin/actions-runner/_work/_temp",
+        "total_bytes": 139475673088,
+        "free_bytes": 56088027136,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.6.2",
+        "kernel": "25.6.0",
+        "image_os": null,
+        "image_version": null
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "67.180.61.109",
+        "city": "Martinez",
+        "region": "California",
+        "country": "US",
+        "org": "AS7922 Comcast Cable Communications, LLC"
+      },
+      "runner": {
+        "name": "gbx-macos-zsyq04rwea",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 1.0291202500000018
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 12.608813792,
+        "wall_seconds": 12.608816084000004
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 36207.07,
+        "wall_seconds": 15.007016750000005
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 6088.199167,
+          "iops": 5805.159312,
+          "p99_latency_us": 8585.216,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 5279.223365,
+          "iops": 5033.659935,
+          "p99_latency_us": 5603.328,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 59.300392,
+          "iops": 14476.634891,
+          "p99_latency_us": 3227.648,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 35.455078,
+          "iops": 8655.025327,
+          "p99_latency_us": 4882.432,
+          "direct": true
+        },
+        "wall_seconds": 72.85271129100002
+      },
+      "download_cloudflare": {
+        "mb_per_second": 59.301077,
+        "bytes": 50000000,
+        "seconds": 0.843155,
+        "connect_seconds": 0.030985,
+        "ttfb_seconds": 0.092727,
+        "wall_seconds": 0.8529792919999863
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 12,
+        "seconds": 12.842619249999984,
+        "github_download": {
+          "mb_per_second": 5.271417,
+          "bytes": 4780701,
+          "seconds": 0.90691,
+          "connect_seconds": 0.104499,
+          "ttfb_seconds": 0.432309
+        },
+        "wall_seconds": 13.951039417000004
+      }
+    },
+    "timing": {
+      "queue_seconds": 21.0,
+      "job_seconds": 131.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 2,
+    "spec": {
+      "provider": "groundbox",
+      "name": "Groundbox",
+      "label": "groundbox-macos",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 12,
+      "memory_gb": 12,
+      "price_per_minute": 0.05,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "M6, macOS 26. Groundbox's only macOS size.",
+      "pricing_source": "https://groundbox.dev/macos-ci",
+      "rep": 3
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45609568269",
+      "run_attempt": "1",
+      "sha": "0d96cb935bf10bd70d0953f968839595107251b5"
+    },
+    "started_at": "2026-11-25T12:00:45.947920+00:00",
+    "finished_at": "2026-11-25T12:02:44.381574+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M6 (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 12,
+        "available_cpus": 12,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 12884901888,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/admin/actions-runner/_work/_temp",
+        "total_bytes": 139475673088,
+        "free_bytes": 56089333760,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.6.2",
+        "kernel": "25.6.0",
+        "image_os": null,
+        "image_version": null
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "67.180.61.109",
+        "city": "Martinez",
+        "region": "California",
+        "country": "US",
+        "org": "AS7922 Comcast Cable Communications, LLC"
+      },
+      "runner": {
+        "name": "gbx-macos-kmgubhuzvp",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.840594957999997
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 13.662901167000001,
+        "wall_seconds": 13.662904915999995
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 36265.6,
+        "wall_seconds": 15.005756083000001
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 6240.638404,
+          "iops": 5950.869942,
+          "p99_latency_us": 8454.144,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 5147.326144,
+          "iops": 4907.872808,
+          "p99_latency_us": 6193.152,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 58.565072,
+          "iops": 14297.113526,
+          "p99_latency_us": 3260.416,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 34.844529,
+          "iops": 8505.965474,
+          "p99_latency_us": 4882.432,
+          "direct": true
+        },
+        "wall_seconds": 73.781548958
+      },
+      "download_cloudflare": {
+        "mb_per_second": 55.041407,
+        "bytes": 50000000,
+        "seconds": 0.908407,
+        "connect_seconds": 0.029868,
+        "ttfb_seconds": 0.10358,
+        "wall_seconds": 0.9231251249999843
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 12,
+        "seconds": 13.277998167000021,
+        "github_download": {
+          "mb_per_second": 6.241979,
+          "bytes": 4780701,
+          "seconds": 0.765895,
+          "connect_seconds": 0.096179,
+          "ttfb_seconds": 0.288147
+        },
+        "wall_seconds": 14.209561332999982
+      }
+    },
+    "timing": {
+      "queue_seconds": 22.0,
+      "job_seconds": 137.0
+    }
+  }
+]

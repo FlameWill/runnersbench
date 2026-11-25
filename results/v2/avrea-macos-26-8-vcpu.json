@@ -1,0 +1,461 @@
+[
+  {
+    "schema_version": 1,
+    "benchmark_version": 2,
+    "spec": {
+      "provider": "avrea",
+      "name": "Avrea",
+      "label": "avrea-macos-26-8-vcpu",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 8,
+      "memory_gb": 24,
+      "price_per_minute": 0.08,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "M5 Max. Smallest macOS size.",
+      "pricing_source": "https://avrea.com/pricing",
+      "rep": 1
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45609568269",
+      "run_attempt": "1",
+      "sha": "0d96cb935bf10bd70d0953f968839595107251b5"
+    },
+    "started_at": "2026-11-25T12:01:09.246789+00:00",
+    "finished_at": "2026-11-25T12:03:03.629934+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M5 Max (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 8,
+        "available_cpus": 8,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 25769803776,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/runner/_work/_temp",
+        "total_bytes": 361108602880,
+        "free_bytes": 114340929536,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.5.1",
+        "kernel": "25.5.0",
+        "image_os": "macos26",
+        "image_version": "20261117-160811"
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "85.208.3.50",
+        "city": "Helsinki",
+        "region": "Uusimaa",
+        "country": "FI",
+        "org": "AS209378 Inios Oy"
+      },
+      "runner": {
+        "name": "avrea-exe-01a21293e7ae73fba3012bb92b8192b7",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 1.2519045829999982
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 9.741234250000002,
+        "wall_seconds": 9.741237250000001
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 34247.74,
+        "wall_seconds": 15.017932833000003
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 16101.70849,
+          "iops": 15354.789425,
+          "p99_latency_us": 1368.064,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 17693.260829,
+          "iops": 16872.608493,
+          "p99_latency_us": 1335.296,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 414.042498,
+          "iops": 101083.594427,
+          "p99_latency_us": 261.12,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 238.603526,
+          "iops": 58251.832461,
+          "p99_latency_us": 544.768,
+          "direct": true
+        },
+        "wall_seconds": 73.128531667
+      },
+      "download_cloudflare": {
+        "mb_per_second": 281.096275,
+        "bytes": 50000000,
+        "seconds": 0.177875,
+        "connect_seconds": 0.006707,
+        "ttfb_seconds": 0.033879,
+        "wall_seconds": 0.18580070800000215
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 8,
+        "seconds": 14.231430167,
+        "github_download": {
+          "mb_per_second": 7.464188,
+          "bytes": 4780701,
+          "seconds": 0.640485,
+          "connect_seconds": 0.083858,
+          "ttfb_seconds": 0.342849
+        },
+        "wall_seconds": 15.053660999999991
+      }
+    },
+    "timing": {
+      "queue_seconds": 32.0,
+      "job_seconds": 127.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 2,
+    "spec": {
+      "provider": "avrea",
+      "name": "Avrea",
+      "label": "avrea-macos-26-8-vcpu",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 8,
+      "memory_gb": 24,
+      "price_per_minute": 0.08,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "M5 Max. Smallest macOS size.",
+      "pricing_source": "https://avrea.com/pricing",
+      "rep": 2
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45609568269",
+      "run_attempt": "1",
+      "sha": "0d96cb935bf10bd70d0953f968839595107251b5"
+    },
+    "started_at": "2026-11-25T12:01:10.328408+00:00",
+    "finished_at": "2026-11-25T12:03:00.170015+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M5 Max (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 8,
+        "available_cpus": 8,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 25769803776,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/runner/_work/_temp",
+        "total_bytes": 361108602880,
+        "free_bytes": 114338652160,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.5.1",
+        "kernel": "25.5.0",
+        "image_os": "macos26",
+        "image_version": "20261117-160811"
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "85.208.3.50",
+        "city": "Helsinki",
+        "region": "Uusimaa",
+        "country": "FI",
+        "org": "AS209378 Inios Oy"
+      },
+      "runner": {
+        "name": "avrea-exe-01a21293e7ad74a9b04ad37522af2d9b",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 1.211866666999999
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 5.377044166000005,
+        "wall_seconds": 5.377046874999998
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 33223.54,
+        "wall_seconds": 15.018285916000004
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 16914.430498,
+          "iops": 16129.858009,
+          "p99_latency_us": 1171.456,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 17489.431243,
+          "iops": 16678.221452,
+          "p99_latency_us": 1564.672,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 412.815691,
+          "iops": 100784.414372,
+          "p99_latency_us": 259.072,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 246.799986,
+          "iops": 60252.923117,
+          "p99_latency_us": 552.96,
+          "direct": true
+        },
+        "wall_seconds": 73.239594584
+      },
+      "download_cloudflare": {
+        "mb_per_second": 294.472746,
+        "bytes": 50000000,
+        "seconds": 0.169795,
+        "connect_seconds": 0.006402,
+        "ttfb_seconds": 0.035865,
+        "wall_seconds": 0.1774639169999972
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 8,
+        "seconds": 13.727492833,
+        "github_download": {
+          "mb_per_second": 5.364865,
+          "bytes": 4780701,
+          "seconds": 0.891113,
+          "connect_seconds": 0.076027,
+          "ttfb_seconds": 0.341225
+        },
+        "wall_seconds": 14.813440291999981
+      }
+    },
+    "timing": {
+      "queue_seconds": 30.0,
+      "job_seconds": 126.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 2,
+    "spec": {
+      "provider": "avrea",
+      "name": "Avrea",
+      "label": "avrea-macos-26-8-vcpu",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 8,
+      "memory_gb": 24,
+      "price_per_minute": 0.08,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "M5 Max. Smallest macOS size.",
+      "pricing_source": "https://avrea.com/pricing",
+      "rep": 3
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45609568269",
+      "run_attempt": "1",
+      "sha": "0d96cb935bf10bd70d0953f968839595107251b5"
+    },
+    "started_at": "2026-11-25T12:01:04.044387+00:00",
+    "finished_at": "2026-11-25T12:02:55.836055+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M5 Max (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 8,
+        "available_cpus": 8,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 25769803776,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/runner/_work/_temp",
+        "total_bytes": 361108602880,
+        "free_bytes": 114340098048,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.5.1",
+        "kernel": "25.5.0",
+        "image_os": "macos26",
+        "image_version": "20261117-160811"
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "85.208.3.50",
+        "city": "Helsinki",
+        "region": "Uusimaa",
+        "country": "FI",
+        "org": "AS209378 Inios Oy"
+      },
+      "runner": {
+        "name": "avrea-exe-01a21293e7ad74a9b04ad3769d6ce3fd",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 1.3638217080000032
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 4.773099625000004,
+        "wall_seconds": 4.773102583
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 32159.98,
+        "wall_seconds": 15.019538874999995
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 14786.172817,
+          "iops": 14100.19332,
+          "p99_latency_us": 1302.528,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 16917.855618,
+          "iops": 16133.124458,
+          "p99_latency_us": 1531.904,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 380.618909,
+          "iops": 92923.538431,
+          "p99_latency_us": 292.864,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 220.363216,
+          "iops": 53798.613426,
+          "p99_latency_us": 610.304,
+          "direct": true
+        },
+        "wall_seconds": 73.205000042
+      },
+      "download_cloudflare": {
+        "mb_per_second": 239.0503,
+        "bytes": 50000000,
+        "seconds": 0.209161,
+        "connect_seconds": 0.032933,
+        "ttfb_seconds": 0.062454,
+        "wall_seconds": 0.22310929200000373
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 8,
+        "seconds": 16.150451375000003,
+        "github_download": {
+          "mb_per_second": 5.683131,
+          "bytes": 4780701,
+          "seconds": 0.841209,
+          "connect_seconds": 0.070636,
+          "ttfb_seconds": 0.4949
+        },
+        "wall_seconds": 17.203030792000007
+      }
+    },
+    "timing": {
+      "queue_seconds": 24.0,
+      "job_seconds": 128.0
+    }
+  }
+]

@@ -1,0 +1,461 @@
+[
+  {
+    "schema_version": 1,
+    "benchmark_version": 2,
+    "spec": {
+      "provider": "warpbuild",
+      "name": "WarpBuild",
+      "label": "warp-macos-26-arm64-6x",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 6,
+      "memory_gb": 14,
+      "price_per_minute": 0.08,
+      "billing": {
+        "increment_seconds": 60
+      },
+      "enabled": true,
+      "notes": "Smallest macOS size.",
+      "pricing_source": "https://docs.warpbuild.com/ci/cloud-runners",
+      "rep": 1
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45609568269",
+      "run_attempt": "1",
+      "sha": "0d96cb935bf10bd70d0953f968839595107251b5"
+    },
+    "started_at": "2026-11-25T12:00:21.294316+00:00",
+    "finished_at": "2026-11-25T12:02:13.313303+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M5 Pro (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 6,
+        "available_cpus": 6,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 23622320128,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/runner/work/_temp",
+        "total_bytes": 423603732480,
+        "free_bytes": 107492093952,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.6.2",
+        "kernel": "25.6.0",
+        "image_os": "macos26",
+        "image_version": "20261119.01"
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "207.186.192.23",
+        "city": "Las Vegas",
+        "region": "Nevada",
+        "country": "US",
+        "org": "AS395337 MacStadium, Inc."
+      },
+      "runner": {
+        "name": "warp-6x-arm64-w49jbxd8ilobfc5u",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 1.1826809999999952
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 5.421024375000002,
+        "wall_seconds": 5.42102779199999
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 31893.79,
+        "wall_seconds": 15.019719124999995
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 8759.779159,
+          "iops": 8352.976468,
+          "p99_latency_us": 3424.256,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 8047.494015,
+          "iops": 7673.688421,
+          "p99_latency_us": 3489.792,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 62.69493,
+          "iops": 15305.379641,
+          "p99_latency_us": 2342.912,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 35.754131,
+          "iops": 8728.036262,
+          "p99_latency_us": 4489.216,
+          "direct": true
+        },
+        "wall_seconds": 73.57138274999998
+      },
+      "download_cloudflare": {
+        "mb_per_second": 199.11196,
+        "bytes": 50000000,
+        "seconds": 0.251115,
+        "connect_seconds": 0.028015,
+        "ttfb_seconds": 0.076745,
+        "wall_seconds": 0.2716385419999767
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 6,
+        "seconds": 15.231068542000003,
+        "github_download": {
+          "mb_per_second": 4.52558,
+          "bytes": 4780701,
+          "seconds": 1.056373,
+          "connect_seconds": 0.052637,
+          "ttfb_seconds": 0.385178
+        },
+        "wall_seconds": 16.551737332999977
+      }
+    },
+    "timing": {
+      "queue_seconds": 5.0,
+      "job_seconds": 122.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 2,
+    "spec": {
+      "provider": "warpbuild",
+      "name": "WarpBuild",
+      "label": "warp-macos-26-arm64-6x",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 6,
+      "memory_gb": 14,
+      "price_per_minute": 0.08,
+      "billing": {
+        "increment_seconds": 60
+      },
+      "enabled": true,
+      "notes": "Smallest macOS size.",
+      "pricing_source": "https://docs.warpbuild.com/ci/cloud-runners",
+      "rep": 2
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45609568269",
+      "run_attempt": "1",
+      "sha": "0d96cb935bf10bd70d0953f968839595107251b5"
+    },
+    "started_at": "2026-11-25T12:00:18.577634+00:00",
+    "finished_at": "2026-11-25T12:02:11.198453+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M5 Pro (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 6,
+        "available_cpus": 6,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 23622320128,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/runner/work/_temp",
+        "total_bytes": 423603732480,
+        "free_bytes": 107510755328,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.6.2",
+        "kernel": "25.6.0",
+        "image_os": "macos26",
+        "image_version": "20261119.01"
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "207.186.194.64",
+        "city": "Atlanta",
+        "region": "Georgia",
+        "country": "US",
+        "org": "AS395336 MacStadium, Inc."
+      },
+      "runner": {
+        "name": "warp-6x-arm64-wjgbgxyenf4r6f3c",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 2.665211958999997
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 5.169405791999999,
+        "wall_seconds": 5.169412792000003
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 33297.48,
+        "wall_seconds": 15.016367333000005
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 5352.119771,
+          "iops": 5103.179364,
+          "p99_latency_us": 7634.944,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 7022.963755,
+          "iops": 6696.620225,
+          "p99_latency_us": 7241.728,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 52.642924,
+          "iops": 12851.276582,
+          "p99_latency_us": 3948.544,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 31.669599,
+          "iops": 7730.835889,
+          "p99_latency_us": 6914.048,
+          "direct": true
+        },
+        "wall_seconds": 73.247938375
+      },
+      "download_cloudflare": {
+        "mb_per_second": 250.20642,
+        "bytes": 50000000,
+        "seconds": 0.199835,
+        "connect_seconds": 0.007853,
+        "ttfb_seconds": 0.045009,
+        "wall_seconds": 0.21019699999999375
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 6,
+        "seconds": 15.675987292000002,
+        "github_download": {
+          "mb_per_second": 13.713805,
+          "bytes": 4780701,
+          "seconds": 0.348605,
+          "connect_seconds": 0.039195,
+          "ttfb_seconds": 0.217147
+        },
+        "wall_seconds": 16.311026707999986
+      }
+    },
+    "timing": {
+      "queue_seconds": 5.0,
+      "job_seconds": 119.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 2,
+    "spec": {
+      "provider": "warpbuild",
+      "name": "WarpBuild",
+      "label": "warp-macos-26-arm64-6x",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 6,
+      "memory_gb": 14,
+      "price_per_minute": 0.08,
+      "billing": {
+        "increment_seconds": 60
+      },
+      "enabled": true,
+      "notes": "Smallest macOS size.",
+      "pricing_source": "https://docs.warpbuild.com/ci/cloud-runners",
+      "rep": 3
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45609568269",
+      "run_attempt": "1",
+      "sha": "0d96cb935bf10bd70d0953f968839595107251b5"
+    },
+    "started_at": "2026-11-25T12:00:18.690727+00:00",
+    "finished_at": "2026-11-25T12:02:13.412932+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M5 Pro (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 6,
+        "available_cpus": 6,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 23622320128,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/runner/work/_temp",
+        "total_bytes": 423603732480,
+        "free_bytes": 107522007040,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.6.2",
+        "kernel": "25.6.0",
+        "image_os": "macos26",
+        "image_version": "20261119.01"
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "207.186.194.20",
+        "city": "Atlanta",
+        "region": "Georgia",
+        "country": "US",
+        "org": "AS395336 MacStadium, Inc."
+      },
+      "runner": {
+        "name": "warp-6x-arm64-wkp6we747dc8jhjx",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 1.1585204160000018
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 9.216766499999999,
+        "wall_seconds": 9.216769667000001
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 32426.2,
+        "wall_seconds": 15.017374417
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 8383.086235,
+          "iops": 7993.734169,
+          "p99_latency_us": 4079.616,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 7751.186191,
+          "iops": 7391.10726,
+          "p99_latency_us": 3620.864,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 61.201098,
+          "iops": 14940.674577,
+          "p99_latency_us": 2506.752,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 36.415684,
+          "iops": 8889.54806,
+          "p99_latency_us": 4292.608,
+          "direct": true
+        },
+        "wall_seconds": 73.62668883399999
+      },
+      "download_cloudflare": {
+        "mb_per_second": 122.045283,
+        "bytes": 50000000,
+        "seconds": 0.409684,
+        "connect_seconds": 0.010878,
+        "ttfb_seconds": 0.063468,
+        "wall_seconds": 0.42647204200000033
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 6,
+        "seconds": 14.670624750000002,
+        "github_download": {
+          "mb_per_second": 15.131338,
+          "bytes": 4780701,
+          "seconds": 0.315947,
+          "connect_seconds": 0.041894,
+          "ttfb_seconds": 0.180805
+        },
+        "wall_seconds": 15.275658542000002
+      }
+    },
+    "timing": {
+      "queue_seconds": 5.0,
+      "job_seconds": 121.0
+    }
+  }
+]
