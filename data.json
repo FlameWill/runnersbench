@@ -1,6 +1,9 @@
 {
- "generated_at": "2026-11-24T20:12:59.954795+00:00",
+ "generated_at": "2026-11-25T05:21:45.856172+00:00",
  "sample_count": 8,
+ "benchmark_versions": [
+  1
+ ],
  "runs": [
   {
    "run_id": "45476966696",
@@ -99,7 +102,9 @@
     "redis_build": 22.917630355,
     "redis_cost": 0.0030556840473333334
    },
-   "sample_count": 1
+   "sample_count": 1,
+   "measured_at": "2026-11-24T20:07:09.888539+00:00",
+   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
   },
   {
    "provider": "buildkite",
@@ -130,7 +135,9 @@
     "redis_build": 31.367172978,
     "redis_cost": 0.0083645794608
    },
-   "sample_count": 1
+   "sample_count": 1,
+   "measured_at": "2026-11-24T20:07:28.116097+00:00",
+   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
   },
   {
    "provider": "checklane",
@@ -161,7 +168,9 @@
     "redis_build": 23.32082882399999,
     "redis_cost": 0.0015547219215999992
    },
-   "sample_count": 1
+   "sample_count": 1,
+   "measured_at": "2026-11-24T20:08:51.707180+00:00",
+   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
   },
   {
    "provider": "depot",
@@ -192,7 +201,9 @@
     "redis_build": 57.969309837000026,
     "redis_cost": 0.011593861967400006
    },
-   "sample_count": 1
+   "sample_count": 1,
+   "measured_at": "2026-11-24T20:08:16.976605+00:00",
+   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
   },
   {
    "provider": "github",
@@ -223,7 +234,9 @@
     "redis_build": 74.37236481599999,
     "redis_cost": 0.014874472963199997
    },
-   "sample_count": 1
+   "sample_count": 1,
+   "measured_at": "2026-11-24T20:07:07.626918+00:00",
+   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
   },
   {
    "provider": "groundbox",
@@ -254,7 +267,9 @@
     "redis_build": 43.51665058999998,
     "redis_cost": 0.004351665058999999
    },
-   "sample_count": 1
+   "sample_count": 1,
+   "measured_at": "2026-11-24T20:07:05.587943+00:00",
+   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
   },
   {
    "provider": "luxor",
@@ -285,7 +300,9 @@
     "redis_build": 23.782294629999996,
     "redis_cost": 0.0031709726173333327
    },
-   "sample_count": 1
+   "sample_count": 1,
+   "measured_at": "2026-11-24T20:07:10.446538+00:00",
+   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
   },
   {
    "provider": "warpbuild",
@@ -316,7 +333,9 @@
     "redis_build": 33.89744435800003,
     "redis_cost": 0.004519659247733338
    },
-   "sample_count": 1
+   "sample_count": 1,
+   "measured_at": "2026-11-24T20:07:07.875581+00:00",
+   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
   }
  ],
  "errors": []

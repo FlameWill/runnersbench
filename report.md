@@ -1,6 +1,6 @@
 # Runner benchmark report
 
-8 samples from 1 workflow run(s). Benchmark values are medians across samples; the best value in each column is bold.
+Benchmark version 1. 8 samples from 1 workflow run(s). Benchmark values are medians across samples; the best value in each column is bold.
 
 ## Runners
 
