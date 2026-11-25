@@ -74,7 +74,7 @@ def questions(data):
     qa.append(("How often are the results updated?",
                f"The benchmark runs weekly on GitHub Actions and the code is open source. These results were updated on {updated}, "
                f"covering {len(names)} providers."))
-    return names, updated, qa
+    return names, qa
 
 
 def jsonld(data, names, qa):
@@ -104,14 +104,12 @@ def main():
     site = sys.argv[1]
     with open(os.path.join(site, "data.json")) as f:
         data = json.load(f)
-    names, updated, qa = questions(data)
+    names, qa = questions(data)
 
     path = os.path.join(site, "index.html")
     with open(path) as f:
         html = f.read()
-    lede = (f"Benchmarks of {len(names)} GitHub Actions runner providers ({escape(join(names))}) on "
-            "4 vCPU Linux x64 and arm64 runners and Apple Silicon Macs. Every runner runs the same tests three times, "
-            f"and the results are refreshed weekly. Last updated {updated}.")
+    lede = f"{len(names)} GitHub Actions runner providers, benchmarked side by side on Linux x64, arm64 and macOS. Refreshed weekly."
     html = re.sub(r'(<p class="lede" id="lede">).*?(</p>)', lambda m: m.group(1) + lede + m.group(2), html, flags=re.S)
     faq = "\n".join(f"        <div><h3>{escape(q)}</h3><p>{escape(a)}</p></div>" for q, a in qa)
     html = html.replace("        <!-- seo:faq -->", faq).replace("  <!-- seo:jsonld -->", "  " + jsonld(data, names, qa))
