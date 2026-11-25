@@ -167,13 +167,13 @@
     {
       "provider": "namespace",
       "name": "Namespace",
-      "label": "nscloud-ubuntu-24.04-arm64-4x8",
+      "label": "namespace-profile-default-arm64",
       "arch": "arm64",
       "vcpu": 4,
       "memory_gb": 8,
       "price_per_minute": 0.008,
-      "enabled": false,
-      "notes": "4x8 is Namespace's standard 4 vCPU shape. Disabled: no runner picked up the job in 6 minutes on 2026-11-25.",
+      "enabled": true,
+      "notes": "Uses the default-arm64 runner profile configured in Namespace; its shape is set there.",
       "pricing_source": "https://namespace.so/pricing"
     },
     {
