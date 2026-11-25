@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T10:52:59.457027+00:00",
+ "generated_at": "2026-11-25T11:08:25.458546+00:00",
  "sample_count": 15,
  "benchmark_versions": [
   1
@@ -99,6 +99,7 @@
    "label": "avrea-ubuntu-24.04-arm-4-vcpu",
    "arch": "arm64",
    "price_per_minute": 0.024,
+   "billing": "per second",
    "cpu_models": [
     "-"
    ],
@@ -120,7 +121,7 @@
     "rand_write": 121282.381175,
     "download": 298.407696,
     "redis_build": 23.26850598500002,
-    "redis_cost": 0.009307402394000009
+    "redis_cost": 0.009600000000000001
    },
    "sample_count": 1,
    "measured_at": "2026-11-25T10:46:30.379664+00:00",
@@ -132,6 +133,7 @@
    "label": "blacksmith-4vcpu-ubuntu-2404-arm",
    "arch": "arm64",
    "price_per_minute": 0.005,
+   "billing": "per minute, rounded up",
    "cpu_models": [
     "Ampere-1a"
    ],
@@ -153,7 +155,7 @@
     "rand_write": 94214.719019,
     "download": 180.783443,
     "redis_build": 51.57127793499998,
-    "redis_cost": 0.004297606494583332
+    "redis_cost": 0.005
    },
    "sample_count": 1,
    "measured_at": "2026-11-25T10:46:24.639628+00:00",
@@ -165,6 +167,7 @@
    "label": "depot-ubuntu-24.04-arm-4",
    "arch": "arm64",
    "price_per_minute": 0.012,
+   "billing": "per second",
    "cpu_models": [
     "Neoverse-V2"
    ],
@@ -186,7 +189,7 @@
     "rand_write": 193758.616092,
     "download": 202.45128,
     "redis_build": 38.913000358999994,
-    "redis_cost": 0.007782600071799999
+    "redis_cost": 0.0078000000000000005
    },
    "sample_count": 1,
    "measured_at": "2026-11-25T10:46:27.343842+00:00",
@@ -198,6 +201,7 @@
    "label": "ubuntu-24.04-arm",
    "arch": "arm64",
    "price_per_minute": 0.008,
+   "billing": "per minute, rounded up",
    "cpu_models": [
     "Neoverse-N2"
    ],
@@ -219,7 +223,7 @@
     "rand_write": 19566.526751,
     "download": 312.199507,
     "redis_build": 55.181378499999994,
-    "redis_cost": 0.007357517133333333
+    "redis_cost": 0.008
    },
    "sample_count": 1,
    "measured_at": "2026-11-25T10:46:19.430543+00:00",
@@ -231,6 +235,7 @@
    "label": "warp-ubuntu-2404-arm64-4x",
    "arch": "arm64",
    "price_per_minute": 0.006,
+   "billing": "per minute, rounded up",
    "cpu_models": [
     "Neoverse-V2"
    ],
@@ -252,7 +257,7 @@
     "rand_write": 4197.761194,
     "download": 121.638815,
     "redis_build": 44.343213520999996,
-    "redis_cost": 0.004434321352099999
+    "redis_cost": 0.006
    },
    "sample_count": 1,
    "measured_at": "2026-11-25T10:46:59.645929+00:00",
@@ -264,6 +269,7 @@
    "label": "avrea-ubuntu-24.04-4-vcpu",
    "arch": "x64",
    "price_per_minute": 0.008,
+   "billing": "per second",
    "cpu_models": [
     "AMD EPYC 4585PX 16-Core Processor"
    ],
@@ -285,7 +291,7 @@
     "rand_write": 133862.409173,
     "download": 138.763231,
     "redis_build": 22.917630355,
-    "redis_cost": 0.0030556840473333334
+    "redis_cost": 0.0030666666666666668
    },
    "sample_count": 1,
    "measured_at": "2026-11-24T20:07:09.888539+00:00",
@@ -297,6 +303,7 @@
    "label": "blacksmith-4vcpu-ubuntu-2404",
    "arch": "x64",
    "price_per_minute": 0.008,
+   "billing": "per minute, rounded up",
    "cpu_models": [
     "AMD EPYC"
    ],
@@ -318,7 +325,7 @@
     "rand_write": 426474.168389,
     "download": 110.132643,
     "redis_build": 25.90236019400001,
-    "redis_cost": 0.003453648025866668
+    "redis_cost": 0.008
    },
    "sample_count": 1,
    "measured_at": "2026-11-25T09:38:16.864975+00:00",
@@ -330,6 +337,7 @@
    "label": "buildkite-linux-amd64-4x16",
    "arch": "x64",
    "price_per_minute": 0.016,
+   "billing": "per second",
    "cpu_models": [
     "AMD EPYC"
    ],
@@ -351,7 +359,7 @@
     "rand_write": 281066.59556,
     "download": 305.099431,
     "redis_build": 31.367172978,
-    "redis_cost": 0.0083645794608
+    "redis_cost": 0.008533333333333334
    },
    "sample_count": 1,
    "measured_at": "2026-11-24T20:07:28.116097+00:00",
@@ -363,6 +371,7 @@
    "label": "checklane-4vcpu-ubuntu-2404",
    "arch": "x64",
    "price_per_minute": 0.004,
+   "billing": "per second",
    "cpu_models": [
     "AMD EPYC"
    ],
@@ -384,7 +393,7 @@
     "rand_write": 92981.267915,
     "download": 262.850774,
     "redis_build": 24.08164589399999,
-    "redis_cost": 0.0016054430595999994
+    "redis_cost": 0.0016666666666666668
    },
    "sample_count": 1,
    "measured_at": "2026-11-25T05:23:04.408213+00:00",
@@ -396,6 +405,7 @@
    "label": "depot-ubuntu-24.04-4",
    "arch": "x64",
    "price_per_minute": 0.012,
+   "billing": "per second",
    "cpu_models": [
     "Intel(R) Xeon(R) 6975P-C"
    ],
@@ -417,7 +427,7 @@
     "rand_write": 6528.383992,
     "download": 176.902855,
     "redis_build": 57.969309837000026,
-    "redis_cost": 0.011593861967400006
+    "redis_cost": 0.011600000000000001
    },
    "sample_count": 1,
    "measured_at": "2026-11-24T20:08:16.976605+00:00",
@@ -429,6 +439,7 @@
    "label": "ubuntu-24.04",
    "arch": "x64",
    "price_per_minute": 0.012,
+   "billing": "per minute, rounded up",
    "cpu_models": [
     "AMD EPYC 7763 64-Core Processor"
    ],
@@ -450,7 +461,7 @@
     "rand_write": 19574.380165,
     "download": 58.53108,
     "redis_build": 74.37236481599999,
-    "redis_cost": 0.014874472963199997
+    "redis_cost": 0.024
    },
    "sample_count": 1,
    "measured_at": "2026-11-24T20:07:07.626918+00:00",
@@ -462,6 +473,7 @@
    "label": "groundbox-4vcpu",
    "arch": "x64",
    "price_per_minute": 0.006,
+   "billing": "per second",
    "cpu_models": [
     "AMD EPYC"
    ],
@@ -483,7 +495,7 @@
     "rand_write": 199992.580816,
     "download": 77.72798,
     "redis_build": 23.439460179000008,
-    "redis_cost": 0.002343946017900001
+    "redis_cost": 0.0024000000000000002
    },
    "sample_count": 1,
    "measured_at": "2026-11-25T09:25:29.473066+00:00",
@@ -495,6 +507,7 @@
    "label": "luxor-ubuntu-medium-4c-8g",
    "arch": "x64",
    "price_per_minute": 0.008,
+   "billing": "per second",
    "cpu_models": [
     "AMD Ryzen 9 9950X 16-Core Processor"
    ],
@@ -516,7 +529,7 @@
     "rand_write": 119833.877741,
     "download": 298.334695,
     "redis_build": 23.782294629999996,
-    "redis_cost": 0.0031709726173333327
+    "redis_cost": 0.0032
    },
    "sample_count": 1,
    "measured_at": "2026-11-24T20:07:10.446538+00:00",
@@ -528,6 +541,7 @@
    "label": "nscloud-ubuntu-24.04-amd64-4x8",
    "arch": "x64",
    "price_per_minute": 0.008,
+   "billing": "per minute, rounded up after 15 s, 1 min minimum",
    "cpu_models": [
     "AMD EPYC"
    ],
@@ -549,7 +563,7 @@
     "rand_write": 553258.516099,
     "download": 328.631709,
     "redis_build": 22.555800642999998,
-    "redis_cost": 0.003007440085733333
+    "redis_cost": 0.008
    },
    "sample_count": 1,
    "measured_at": "2026-11-25T10:28:58.765056+00:00",
@@ -561,6 +575,7 @@
    "label": "warp-ubuntu-2404-x64-4x",
    "arch": "x64",
    "price_per_minute": 0.008,
+   "billing": "per minute, rounded up",
    "cpu_models": [
     "AMD Ryzen 9 9950X 16-Core Processor"
    ],
@@ -582,7 +597,7 @@
     "rand_write": 100366.175588,
     "download": 0.293795,
     "redis_build": 33.89744435800003,
-    "redis_cost": 0.004519659247733338
+    "redis_cost": 0.008
    },
    "sample_count": 1,
    "measured_at": "2026-11-24T20:07:07.875581+00:00",

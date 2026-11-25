@@ -118,11 +118,11 @@ function renderTables(data) {
   document.getElementById("runners-caption").textContent = `${runners.length} runners · as reported by each machine`;
   table(
     document.getElementById("runners"),
-    ["Provider", "Label", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Virtualization", "Location", "Network", "Samples", "Measured"],
+    ["Provider", "Label", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Billed", "Virtualization", "Location", "Network", "Samples", "Measured"],
     runners.map((r) => [
       el("td", {}, swatch(r), r.provider_name), el("td", {}, el("code", { textContent: r.label })),
       textCell(r.cpu_models.join(", ")), textCell(r.vcpus, "num"), textCell(r.memory_gib, "num"), textCell(r.disk_gb, "num"),
-      textCell(r.price_per_minute === null ? null : `$${r.price_per_minute}`, "num"), textCell(r.virtualization),
+      textCell(r.price_per_minute === null ? null : `$${r.price_per_minute}`, "num"), textCell(r.billing), textCell(r.virtualization),
       textCell(r.location), textCell(r.network), textCell(r.sample_count, "num"),
       el("td", {}, el("a", { href: r.run_url, textContent: new Date(r.measured_at).toLocaleDateString() })),
     ]),

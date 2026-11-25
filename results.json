@@ -12,7 +12,10 @@
       "enabled": true,
       "notes": "Baseline. 4 vCPU / 16 GB on public repos, where it's free; priced at GitHub's 4-core larger runner rate, the paid equivalent.",
       "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 60
+      }
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -233,7 +236,10 @@
       "enabled": true,
       "notes": "luxor.ai (formerly Tenki). $0.002 per vCPU-minute.",
       "pricing_source": "https://luxor.ai/docs/pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 1
+      }
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -587,7 +593,10 @@
       "enabled": true,
       "notes": "Pinned to Ubuntu 24.04 to match GitHub. Billed per second.",
       "pricing_source": "https://avrea.com/pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 1
+      }
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -828,7 +837,10 @@
       "price_per_minute": 0.012,
       "enabled": true,
       "pricing_source": "https://depot.dev/docs/github-actions/runner-types",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 1
+      }
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -1062,7 +1074,10 @@
       "enabled": true,
       "notes": "Pinned to Ubuntu 24.04 to match GitHub.",
       "pricing_source": "https://www.warpbuild.com/pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 60
+      }
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -1291,7 +1306,10 @@
       "enabled": true,
       "notes": "Pinned to Ubuntu 24.04 to match GitHub; the bare label runs 26.04. $0.001 per vCPU-minute, billed per second.",
       "pricing_source": "https://checklane.sh/pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 1
+      }
     },
     "github": {
       "repository": "lockyer-labs/runners",
@@ -1537,7 +1555,10 @@
       "enabled": true,
       "notes": "groundbox.dev. Ubuntu 24.04, one Firecracker microVM per job. $0.0015 per vCPU-minute.",
       "pricing_source": "https://groundbox.dev/pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 1
+      }
     },
     "github": {
       "repository": "lockyer-labs/runnersbench",
@@ -1764,7 +1785,10 @@
       "price_per_minute": 0.008,
       "enabled": true,
       "pricing_source": "https://www.blacksmith.sh/pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 60
+      }
     },
     "github": {
       "repository": "lockyer-labs/runnersbench",
@@ -2228,7 +2252,12 @@
       "enabled": true,
       "notes": "4x8 is Namespace's standard 4 vCPU shape. $0.002 per compute-unit minute (1 vCPU, 2 GB).",
       "pricing_source": "https://namespace.so/pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 60,
+        "minimum_seconds": 60,
+        "grace_seconds": 15
+      }
     },
     "github": {
       "repository": "lockyer-labs/runnersbench",
@@ -2624,7 +2653,10 @@
       "enabled": true,
       "notes": "4 vCPU / 16 GB on public repos, where it is free; priced at the 4-core arm64 larger runner rate.",
       "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 60
+      }
     },
     "github": {
       "repository": "lockyer-labs/runnersbench",
@@ -2840,7 +2872,10 @@
       "enabled": true,
       "notes": "Runs on Apple M5 Max hardware. Pinned to Ubuntu 24.04.",
       "pricing_source": "https://avrea.com/pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 1
+      }
     },
     "github": {
       "repository": "lockyer-labs/runnersbench",
@@ -3073,7 +3108,10 @@
       "price_per_minute": 0.005,
       "enabled": true,
       "pricing_source": "https://www.blacksmith.sh/pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 60
+      }
     },
     "github": {
       "repository": "lockyer-labs/runnersbench",
@@ -3486,7 +3524,10 @@
       "price_per_minute": 0.012,
       "enabled": true,
       "pricing_source": "https://depot.dev/docs/github-actions/runner-types",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 1
+      }
     },
     "github": {
       "repository": "lockyer-labs/runnersbench",
@@ -3780,7 +3821,10 @@
       "price_per_minute": 0.006,
       "enabled": true,
       "pricing_source": "https://www.warpbuild.com/pricing",
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 60
+      }
     },
     "github": {
       "repository": "lockyer-labs/runnersbench",
@@ -4014,7 +4058,10 @@
         "pipeline": "runners",
         "queue": "linux-medium"
       },
-      "rep": 1
+      "rep": 1,
+      "billing": {
+        "increment_seconds": 1
+      }
     },
     "github": {
       "repository": "lockyer-labs/runners",
