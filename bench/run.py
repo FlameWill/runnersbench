@@ -280,8 +280,13 @@ def main():
     cpus = cpu_count()
     # Stored as apt_install so older Linux results stay comparable.
     benchmarks = {"apt_install": run("package install", bench_package_install)}
-    benchmarks["cpu_single"] = run("sysbench cpu (1 thread)", bench_sysbench_cpu, 1)
-    benchmarks["cpu_multi"] = run(f"sysbench cpu ({cpus} threads)", bench_sysbench_cpu, cpus)
+    if MACOS:
+        # Homebrew's sysbench reports ~1,000x Linux's events/s on Apple Silicon, so its prime search isn't doing the work.
+        skipped = {"skipped": "sysbench's CPU test doesn't do real work on macOS"}
+        benchmarks["cpu_single"], benchmarks["cpu_multi"] = skipped, dict(skipped)
+    else:
+        benchmarks["cpu_single"] = run("sysbench cpu (1 thread)", bench_sysbench_cpu, 1)
+        benchmarks["cpu_multi"] = run(f"sysbench cpu ({cpus} threads)", bench_sysbench_cpu, cpus)
     benchmarks["memory"] = run("sysbench memory", bench_sysbench_memory)
     benchmarks["disk"] = run("fio", bench_fio, args.workdir)
     benchmarks["download_cloudflare"] = run("download from Cloudflare", curl, CLOUDFLARE_URL)

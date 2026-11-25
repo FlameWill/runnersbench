@@ -29,7 +29,7 @@ itself lives in `site/`; `analyze.py --summary` produces the `data.json` it read
 | System | CPU model, vendor, core count, cgroup limits, CPU flags, memory, disk and filesystem, kernel, image version, virtualization, DMI vendor, public IP location and network owner |
 | Queue time | Time between the job being created and a runner picking it up |
 | Package install | Linux: `apt-get update` and installing `sysbench`, `fio` and `build-essential`. macOS: `brew install sysbench fio` without `brew update` |
-| CPU | `sysbench cpu` with 1 thread and with all threads |
+| CPU | `sysbench cpu` with 1 thread and with all threads. Skipped on macOS, where Homebrew's sysbench reports impossible scores |
 | Memory | `sysbench memory`, single-thread bandwidth |
 | Disk | `fio` sequential read/write (1M blocks) and 4k random read/write IOPS on the runner's work disk |
 | Network | 50 MB download from Cloudflare, Redis source download from GitHub |
