@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25T13:37:51.319403+00:00",
- "sample_count": 68,
+ "generated_at": "2026-11-25T16:36:19.761904+00:00",
+ "sample_count": 71,
  "benchmark_versions": [
   3
  ],
@@ -12,6 +12,10 @@
   {
    "run_id": "45624838539",
    "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45624838539"
+  },
+  {
+   "run_id": "45654935956",
+   "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45654935956"
   }
  ],
  "metrics": [
@@ -1377,6 +1381,101 @@
    "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45620389115"
   },
   {
+   "provider": "boat",
+   "provider_name": "boat",
+   "label": "boat",
+   "arch": "x64",
+   "platform": "x64",
+   "price_per_minute": 0.0006,
+   "billing": "per second",
+   "cpu_models": [
+    "AMD EPYC 4585PX 16-Core Processor"
+   ],
+   "vcpus": 4,
+   "memory_gib": 7.8,
+   "disk_gb": 84,
+   "virtualization": "kvm",
+   "location": "Warsaw, PL",
+   "network": "AS16276 OVH SAS",
+   "medians": {
+    "queue": 8.0,
+    "apt_install": 6.185318132000006,
+    "cpu_single": 6433.5,
+    "cpu_multi": 25103.41,
+    "memory": 38861.1,
+    "seq_read": 13390.261696,
+    "seq_write": 6185.662046,
+    "rand_read": 628427.038197,
+    "rand_write": 389825.878275,
+    "download": 208.431469,
+    "cache_save": 8.373608827590942,
+    "cache_restore": 14.129352807998657,
+    "redis_build": 26.726210114999986,
+    "redis_cost": 0.00027
+   },
+   "ranges": {
+    "queue": [
+     8.0,
+     8.0
+    ],
+    "apt_install": [
+     6.05481220099999,
+     6.78100382400001
+    ],
+    "cpu_single": [
+     6326.94,
+     6475.81
+    ],
+    "cpu_multi": [
+     24410.01,
+     25226.16
+    ],
+    "memory": [
+     37779.06,
+     38897.31
+    ],
+    "seq_read": [
+     13115.483198,
+     16303.151442
+    ],
+    "seq_write": [
+     5322.206385,
+     6277.47685
+    ],
+    "rand_read": [
+     611332.577828,
+     674164.322379
+    ],
+    "rand_write": [
+     387345.643624,
+     391455.436304
+    ],
+    "download": [
+     185.741722,
+     253.161993
+    ],
+    "cache_save": [
+     7.9303014278411865,
+     9.45542311668396
+    ],
+    "cache_restore": [
+     13.726392984390259,
+     15.730244636535645
+    ],
+    "redis_build": [
+     26.447431327999993,
+     26.85613685300001
+    ],
+    "redis_cost": [
+     0.00027,
+     0.00027
+    ]
+   },
+   "sample_count": 3,
+   "measured_at": "2026-11-25T16:33:16.899184+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45654935956"
+  },
+  {
    "provider": "buildkite",
    "provider_name": "Buildkite",
    "label": "buildkite-linux-amd64-4x16",
@@ -2232,15 +2331,16 @@
  "colors": {
   "avrea": "#4269d0",
   "blacksmith": "#efb118",
-  "buildkite": "#ff725c",
-  "celesto": "#6cc5b0",
-  "checklane": "#3ca951",
-  "depot": "#ff8ab7",
-  "github": "#a463f2",
-  "groundbox": "#97bbf5",
-  "luxor": "#9c6b4e",
-  "namespace": "#9498a0",
-  "warpbuild": "#4269d0"
+  "boat": "#ff725c",
+  "buildkite": "#6cc5b0",
+  "celesto": "#3ca951",
+  "checklane": "#ff8ab7",
+  "depot": "#a463f2",
+  "github": "#97bbf5",
+  "groundbox": "#9c6b4e",
+  "luxor": "#9498a0",
+  "namespace": "#4269d0",
+  "warpbuild": "#efb118"
  },
  "errors": [
   {
