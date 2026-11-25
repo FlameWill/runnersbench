@@ -21,6 +21,11 @@ function fmt(value, metric) {
   return value.toFixed(1);
 }
 
+function compact(value, metric) {
+  if (value === null || value === undefined || Math.abs(value) < 10000) return fmt(value, metric);
+  return Math.abs(value) < 100000 ? `${(value / 1000).toFixed(1)}k` : `${Math.round(value / 1000)}k`;
+}
+
 function unit(metric) {
   const match = metric.label.match(/\(([^)]+)\)$/);
   return match ? ` ${match[1]}` : "";
@@ -79,12 +84,14 @@ function renderTables(data) {
     `${runners.length} runners · ${metrics.length} metrics · benchmark v${data.benchmark_versions.join(", ")}`;
   table(
     document.getElementById("benchmarks"),
-    ["Metric", ...runners.map((r) => el("th", { title: r.label }, swatch(r), r.provider_name))],
+    ["Metric", ...runners.map((r) => el("th", { className: "provider", title: r.label, style: `border-top-color:${color(r.provider)}`, textContent: r.provider_name }))],
     metrics.map((m) => [
       el("td", {}, m.label, hint(m)),
       ...runners.map((r) => {
         const value = r.medians[m.key];
-        return textCell(fmt(value, m), value !== null && value === bests[m.key] ? "num best" : "num");
+        const cell = textCell(compact(value, m), value !== null && value === bests[m.key] ? "num best" : "num");
+        cell.title = fmt(value, m);
+        return cell;
       }),
     ]),
   );
