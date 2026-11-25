@@ -119,6 +119,7 @@ h2 { font: 500 40px/1.1 var(--display); letter-spacing: -0.015em; margin: 0 0 8p
 #benchmarks td.hl { box-shadow: inset 0 0 0 2px var(--mark-line); }
 #benchmarks td.hl:not(.best) { background: var(--mark); color: var(--fg); font-weight: 600; }
 #benchmarks th.lit, #benchmarks td.lit { font-weight: 600; }
+#benchmarks.shift-held { user-select: none; -webkit-user-select: none; cursor: cell; }
 @media (hover: none) { .shortcut { display: none; } }
 table { border-collapse: separate; border-spacing: 0; font-size: 14px; white-space: nowrap; border: 1px solid var(--line); border-width: 1px 0 0 1px; }
 th, td { border: 1px solid var(--line); border-width: 0 1px 1px 0; padding: 7px 12px; text-align: left; }
