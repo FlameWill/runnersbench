@@ -4,42 +4,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CI runner benchmarks</title>
-  <link rel="stylesheet" href="style.css?v=45553147564">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.6.1/dist/chart.umd.min.js" defer></script>
-  <script src="app.js?v=45553147564" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css?v=1795596213">
+  <script src="app.js?v=1795596213" defer></script>
 </head>
 <body>
-  <header>
-    <h1>CI runner benchmarks</h1>
-    <p>
-      GitHub Actions runner providers on the same workloads.
-      <span id="meta"></span>
-    </p>
-    <p class="links">
-      <a href="https://github.com/lockyer-labs/runners">Source and methodology</a> ·
-      <a href="report.md">Markdown report</a> ·
-      <a href="data.json">data.json</a> ·
-      <a href="results.json">Raw results</a>
-    </p>
+  <header class="hero">
+    <div class="wrap">
+      <nav>
+        <span class="brand">runners<span>/bench</span></span>
+        <a class="button" href="https://github.com/lockyer-labs/runners">GitHub</a>
+      </nav>
+      <h1>CI runner benchmarks</h1>
+      <p class="lede">GitHub Actions runner providers, compared on the same workloads with 4 vCPU x64 machines.</p>
+      <div id="stats" class="stats"></div>
+      <p id="meta" class="meta"></p>
+    </div>
+    <div class="horizon" aria-hidden="true"></div>
   </header>
-  <main>
-    <section>
-      <h2>Runners</h2>
-      <div class="scroll"><table id="runners"></table></div>
-    </section>
+  <main class="wrap">
     <section>
       <h2>Benchmarks</h2>
       <p class="note">Medians across each runner's samples. The best value for each metric is highlighted.</p>
+      <p class="caption" id="benchmarks-caption"></p>
       <div class="scroll"><table id="benchmarks"></table></div>
     </section>
     <section>
-      <h2>Charts</h2>
-      <div id="charts" class="grid"></div>
+      <h2>Leaderboards</h2>
+      <p class="note">Each metric ranked from best to worst.</p>
+      <div id="boards" class="grid"></div>
+    </section>
+    <section>
+      <h2>Runners</h2>
+      <p class="note">What each provider's runner reported about itself. Measured links to the run its results came from.</p>
+      <p class="caption" id="runners-caption"></p>
+      <div class="scroll"><table id="runners"></table></div>
     </section>
     <section id="errors-section" hidden>
       <h2>Errors</h2>
       <ul id="errors"></ul>
     </section>
   </main>
+  <footer>
+    <div class="wrap">
+      <p>Every runner runs <code>bench/run.py</code>: sysbench, fio, a download test and a Redis build.</p>
+      <p class="links">
+        <a href="https://github.com/lockyer-labs/runners">Source and methodology</a>
+        <a href="report.md">Markdown report</a>
+        <a href="data.json">data.json</a>
+        <a href="results.json">Raw results</a>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
