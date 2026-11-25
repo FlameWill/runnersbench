@@ -127,6 +127,8 @@ METRICS = [
     ("rand_read", "4k rand read (IOPS)", lambda r: get(r, "benchmarks", "disk", "rand_read", "iops"), True),
     ("rand_write", "4k rand write (IOPS)", lambda r: get(r, "benchmarks", "disk", "rand_write", "iops"), True),
     ("download", "Download (MB/s)", lambda r: get(r, "benchmarks", "download_cloudflare", "mb_per_second"), True),
+    ("cache_save", "Cache save 1 GB (s)", lambda r: get(r, "benchmarks", "cache", "save_seconds"), False),
+    ("cache_restore", "Cache restore 1 GB (s)", lambda r: get(r, "benchmarks", "cache", "restore_seconds"), False),
     ("redis_build", "Redis build (s)", lambda r: get(r, "benchmarks", "compile_redis", "seconds"), False),
     ("redis_cost", "$ per Redis build", cost_per_build, False),
 ]

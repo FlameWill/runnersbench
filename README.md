@@ -40,6 +40,7 @@ each provider runs its smallest Apple Silicon machine on macOS 26.
 | **Memory** | `sysbench memory`, single thread |
 | **Disk** | `fio` sequential read/write (1M) and 4k random read/write IOPS |
 | **Network** | 50 MB from Cloudflare, Redis source from GitHub |
+| **Cache** | Save and restore 1 GB of incompressible data with the stock `actions/cache`, so providers that speed it up show it |
 | **Redis build** | `make -j$(nproc)`, and its cost at list price with each provider's billing rounding |
 
 Plus the system details each runner reports: CPU model, memory, disk,

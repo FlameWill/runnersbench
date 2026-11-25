@@ -298,6 +298,10 @@ def main():
     benchmarks["disk"] = run("fio", bench_fio, args.workdir)
     benchmarks["download_cloudflare"] = run("download from Cloudflare", curl, CLOUDFLARE_URL)
     benchmarks["compile_redis"] = run("compile redis", bench_compile_redis, args.workdir)
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        # Timed by bench/cache.py around the workflow's actions/cache steps.
+        cache = os.path.join(os.environ.get("RUNNER_TEMP", "/tmp"), "cache.json")
+        benchmarks["cache"] = json.load(open(cache)) if os.path.exists(cache) else {"error": "cache steps didn't finish"}
 
     result = {
         "schema_version": SCHEMA_VERSION,
