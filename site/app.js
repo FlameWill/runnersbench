@@ -154,12 +154,17 @@ function enableHighlighting(node) {
     }
   };
 
+  const shift = (e) => node.classList.toggle("shift-held", e.shiftKey);
+  document.addEventListener("keydown", shift);
+  document.addEventListener("keyup", shift);
+  window.addEventListener("blur", () => node.classList.remove("shift-held"));
   node.addEventListener("mousedown", (e) => {
     if (e.shiftKey) e.preventDefault();
   });
   node.addEventListener("click", (e) => {
     const cell = e.shiftKey && e.target.closest("[data-row], [data-col]");
     if (!cell) return;
+    getSelection().removeAllRanges();
     const { row, col } = cell.dataset;
     if (row && col) toggle(cells, `${row}|${col}`);
     else if (row) toggle(rows, row);
