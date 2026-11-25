@@ -95,6 +95,18 @@
       "pricing_source": "https://www.blacksmith.sh/pricing"
     },
     {
+      "provider": "namespace",
+      "name": "Namespace",
+      "label": "nscloud-ubuntu-24.04-amd64-4x8",
+      "arch": "x64",
+      "vcpu": 4,
+      "memory_gb": 8,
+      "price_per_minute": 0.008,
+      "enabled": true,
+      "notes": "4x8 is Namespace's standard 4 vCPU shape. $0.002 per compute-unit minute (1 vCPU, 2 GB).",
+      "pricing_source": "https://namespace.so/pricing"
+    },
+    {
       "provider": "buildkite",
       "name": "Buildkite",
       "label": "buildkite-linux-amd64-4x16",
