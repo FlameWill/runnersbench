@@ -12,18 +12,20 @@ spread.
 
 ## Providers
 
+<!-- providers:start -->
 | | Provider | Linux x64 | Linux arm64 | macOS |
 |---|---|:-:|:-:|:-:|
 | ![](https://img.shields.io/badge/-%20-4269d0?style=flat-square) | Avrea | ✓ | ✓ | ✓ |
 | ![](https://img.shields.io/badge/-%20-efb118?style=flat-square) | Blacksmith | ✓ | ✓ | ✓ |
-| ![](https://img.shields.io/badge/-%20-ff725c?style=flat-square) | Buildkite | ✓ | | |
-| ![](https://img.shields.io/badge/-%20-6cc5b0?style=flat-square) | Checklane | ✓ | | |
+| ![](https://img.shields.io/badge/-%20-ff725c?style=flat-square) | Buildkite | ✓ |  |  |
+| ![](https://img.shields.io/badge/-%20-6cc5b0?style=flat-square) | Checklane | ✓ |  |  |
 | ![](https://img.shields.io/badge/-%20-3ca951?style=flat-square) | Depot | ✓ | ✓ | ✓ |
 | ![](https://img.shields.io/badge/-%20-ff8ab7?style=flat-square) | GitHub | ✓ | ✓ | ✓ |
-| ![](https://img.shields.io/badge/-%20-a463f2?style=flat-square) | Groundbox | ✓ | | ✓ |
-| ![](https://img.shields.io/badge/-%20-97bbf5?style=flat-square) | Luxor | ✓ | | ✓ |
-| ![](https://img.shields.io/badge/-%20-9c6b4e?style=flat-square) | Namespace | ✓ | | |
+| ![](https://img.shields.io/badge/-%20-a463f2?style=flat-square) | Groundbox | ✓ |  | ✓ |
+| ![](https://img.shields.io/badge/-%20-97bbf5?style=flat-square) | Luxor | ✓ |  | ✓ |
+| ![](https://img.shields.io/badge/-%20-9c6b4e?style=flat-square) | Namespace | ✓ |  |  |
 | ![](https://img.shields.io/badge/-%20-9498a0?style=flat-square) | WarpBuild | ✓ | ✓ | ✓ |
+<!-- providers:end -->
 
 Linux runners are 4 vCPU on Ubuntu 24.04. Macs don't share a common size, so
 each provider runs its smallest Apple Silicon machine on macOS 26.
@@ -53,8 +55,8 @@ setup ─▶ bench × runner × 3 ─▶ analyze ─▶ gh-pages
 **setup** builds a matrix from [`providers.json`](providers.json), skipping
 runners that already have a result at the current benchmark version.
 **bench** runs [`bench/run.py`](bench/run.py) on each runner. **analyze**
-merges the results, adds queue times and rebuilds the [site](site/) from every
-stored result.
+merges the results, adds queue times, rebuilds the [site](site/) from every
+stored result and refreshes the provider table above.
 
 Run **Benchmark** from the Actions tab with `providers` (e.g. `depot,luxor`),
 `repetitions` (default 3) and `force` (re-run runners that have results).

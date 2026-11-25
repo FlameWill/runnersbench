@@ -1,5 +1,4 @@
-const COLORS = ["#4269d0", "#efb118", "#ff725c", "#6cc5b0", "#3ca951", "#ff8ab7", "#a463f2", "#97bbf5", "#9c6b4e", "#9498a0"];
-let color = () => COLORS[0];
+let color = () => null;
 
 const PLATFORMS = [
   ["x64", "Linux x64"],
@@ -276,8 +275,7 @@ function renderTabs(data, onSelect) {
 
 async function main() {
   const data = await (await fetch("data.json", { cache: "no-cache" })).json();
-  const providers = [...new Set(data.runners.map((r) => r.provider))].sort();
-  color = (provider) => COLORS[providers.indexOf(provider) % COLORS.length];
+  color = (provider) => data.colors[provider];
   const resetHighlights = enableHighlighting(document.getElementById("benchmarks"));
   renderTabs(data, (platform) => render(data, platform, resetHighlights));
 }

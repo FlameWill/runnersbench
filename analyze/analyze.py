@@ -112,6 +112,9 @@ def cost_per_build(r):
     return price * billed_seconds(seconds, get(r, "spec", "billing") or {}) / 60
 
 
+# Assigned to providers in alphabetical order; the site and README both read them from data.json.
+COLORS = ["#4269d0", "#efb118", "#ff725c", "#6cc5b0", "#3ca951", "#ff8ab7", "#a463f2", "#97bbf5", "#9c6b4e", "#9498a0"]
+
 # (key, column header, extractor, higher_is_better)
 METRICS = [
     ("queue", "Queue (s)", lambda r: get(r, "timing", "queue_seconds"), False),
@@ -201,6 +204,7 @@ def summarise(results):
         ],
         "metrics": [{"key": k, "label": h, "higher_is_better": hib} for k, h, _, hib in METRICS],
         "runners": runners,
+        "colors": {p: COLORS[i % len(COLORS)] for i, p in enumerate(sorted({x["provider"] for x in runners}))},
         "errors": errors,
     }
 
