@@ -112,6 +112,8 @@ h2 { font: 500 40px/1.1 var(--display); letter-spacing: -0.015em; margin: 0 0 8p
 /* Lets a wide table use the window's width beyond the 1144px content column, up to 1600px. */
 .bleed { margin-inline: calc(-1 * clamp(24px, (100vw - 1192px) / 2, 228px)); }
 .bleed table { margin-inline: auto; }
+.bleed { padding-block: 40px 48px; }
+@media (min-width: 1100px) { .bleed { padding-inline: 32px; } }
 #benchmarks th, #benchmarks td { padding: 6px 7px; }
 #benchmarks th.provider { border-top: 4px solid; font-size: 13px; text-align: right; }
 #benchmarks td:first-child { white-space: normal; min-width: 9.5em; max-width: 14em; }
@@ -178,7 +180,7 @@ footer a { color: var(--on-accent); }
   table { font-size: 12px; }
   th, td { padding: 5px 7px; }
   td.num { font-size: 12px; }
-  .bleed { margin-inline: 0; }
+  .bleed { margin-inline: 0; padding-block: 16px 24px; }
   #benchmarks th, #benchmarks td { padding: 5px 7px; }
   #benchmarks th, #benchmarks td:first-child { white-space: normal; }
   #benchmarks thead th { white-space: nowrap; }
