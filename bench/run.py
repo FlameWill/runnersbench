@@ -18,6 +18,10 @@ import urllib.request
 from datetime import datetime, timezone
 
 SCHEMA_VERSION = 1
+# Bump bench/VERSION when a change makes new results incomparable with stored ones;
+# the workflow re-runs every runner whose stored result has an older version.
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "VERSION")) as f:
+    BENCHMARK_VERSION = int(f.read())
 DURATION = 15  # seconds per sysbench/fio test
 REDIS_VERSION = "8.10.3"
 # Cloudflare rejects requests above roughly 50 MB.
@@ -254,6 +258,7 @@ def main():
 
     result = {
         "schema_version": SCHEMA_VERSION,
+        "benchmark_version": BENCHMARK_VERSION,
         "spec": json.loads(os.environ.get("RUNNER_SPEC") or "{}"),
         "github": {
             "repository": os.environ.get("GITHUB_REPOSITORY"),

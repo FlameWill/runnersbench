@@ -7,14 +7,17 @@ luxor.ai, WarpBuild, ...) side by side on the same workloads.
 
 `.github/workflows/benchmark.yml` runs weekly and on demand:
 
-1. **setup** reads `providers.json` and builds a job matrix of enabled runners.
+1. **setup** reads `providers.json` and builds a job matrix of enabled runners,
+   skipping any that already have results for the current benchmark version
+   (see [Versioning](#versioning)).
 2. **bench** runs `bench/run.py` once per runner (and per repetition). It records
    hardware and environment details and runs the benchmarks below, then uploads
    `result.json` as an artifact.
 3. **analyze** merges every result, adds queue times from the GitHub API, writes
    a report to the job summary, and uploads `combined-results` (the report and
-   all results as JSON). On `main` it also replaces the site on the
-   `gh-pages` branch with this run's results.
+   all results as JSON). On `main`, `scripts/publish.sh` stores the new results
+   on the `gh-pages` branch and rebuilds the site from the stored results of
+   every enabled runner.
 
 Results are published at <https://lockyer-labs.github.io/runners/>. The page
 itself lives in `site/`; `analyze.py --summary` produces the `data.json` it reads.
@@ -35,8 +38,27 @@ itself lives in `site/`; `analyze.py --summary` produces the `data.json` it read
 ## Running
 
 Run **Benchmark** from the Actions tab. Set `providers` (e.g. `luxor`) to
-only run some providers, and `repetitions` to collect several samples per
-runner; the report uses the median.
+only run some providers, `repetitions` to collect several samples per runner
+(the report uses the median), and `force` to re-run runners that already have
+results.
+
+### Versioning
+
+`bench/VERSION` holds the benchmark version, and every result records it.
+Results are stored per runner on the `gh-pages` branch as
+`results/v<version>/<label>.json`, and a run only benchmarks enabled runners
+with no stored result at the current version. So the weekly schedule only picks
+up new providers or changed labels, and the site shows each runner's latest
+result at the current version.
+
+- **Bump `bench/VERSION`** when a change to the benchmarks makes new numbers
+  incomparable with stored ones (for example a new test, a different duration
+  or Redis version). The next run re-benchmarks every runner. Changes that
+  don't affect the numbers don't need a bump.
+- **Use `force`** to re-measure runners without changing the benchmarks, e.g.
+  when a provider changes its hardware. It replaces their stored result.
+- **Prices and names** are read from `providers.json` when the site is built,
+  so fixing a price doesn't need a re-run.
 
 To rebuild the report for a run locally:
 

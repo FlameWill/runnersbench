@@ -11,6 +11,10 @@ on:
         description: Number of times to run each runner
         required: false
         default: "1"
+      force:
+        description: Re-run runners that already have results for the current benchmark version
+        type: boolean
+        default: false
   schedule:
     - cron: "17 6 * * 1"
 
@@ -28,30 +32,43 @@ jobs:
     outputs:
       github: ${{ steps.matrix.outputs.github }}
       buildkite: ${{ steps.matrix.outputs.buildkite }}
+      any: ${{ steps.matrix.outputs.any }}
     steps:
       - uses: actions/checkout@v7
       - id: matrix
         env:
           PROVIDERS: ${{ inputs.providers }}
           REPETITIONS: ${{ inputs.repetitions || '1' }}
+          FORCE: ${{ inputs.force }}
         run: |
-          matrix=$(jq -c --arg providers "$PROVIDERS" --argjson reps "$REPETITIONS" '
+          version=$(cat bench/VERSION)
+          stored='[]'
+          if [ "$FORCE" != true ] && git fetch -q --depth 1 origin gh-pages; then
+            stored=$(git ls-tree --name-only FETCH_HEAD "results/v$version/" | sed 's#.*/##; s#\.json$##' | jq -R . | jq -sc .)
+          fi
+          matrix=$(jq -c --arg providers "$PROVIDERS" --argjson reps "$REPETITIONS" --argjson stored "$stored" '
             ($providers | split(",") | map(gsub("^\\s+|\\s+$"; "")) | map(select(. != ""))) as $wanted
             | {include: [
                 .runners[]
                 | select(.enabled)
                 | select(($wanted | length) == 0 or (.provider | IN($wanted[])))
+                | select(.label | IN($stored[]) | not)
                 | . as $runner
                 | range(1; $reps + 1)
                 | $runner + {rep: .}
               ]}' providers.json)
+          if [ "$stored" != '[]' ]; then
+            echo "Already benchmarked at version $version (run with force to repeat): $(jq -r 'join(", ")' <<<"$stored")" >> "$GITHUB_STEP_SUMMARY"
+          fi
           if [ "$(jq '.include | length' <<<"$matrix")" -eq 0 ]; then
-            echo "::error::No enabled runners match providers='$PROVIDERS'"
-            exit 1
+            echo "::notice::Nothing to benchmark: every matching runner has results for version $version"
           fi
           jq . <<<"$matrix"
-          echo "github=$(jq -c '{include: [.include[] | select(has("buildkite") | not)]}' <<<"$matrix")" >> "$GITHUB_OUTPUT"
-          echo "buildkite=$(jq -c '{include: [.include[] | select(has("buildkite"))]}' <<<"$matrix")" >> "$GITHUB_OUTPUT"
+          {
+            echo "any=$(jq '.include | length > 0' <<<"$matrix")"
+            echo "github=$(jq -c '{include: [.include[] | select(has("buildkite") | not)]}' <<<"$matrix")"
+            echo "buildkite=$(jq -c '{include: [.include[] | select(has("buildkite"))]}' <<<"$matrix")"
+          } >> "$GITHUB_OUTPUT"
 
   bench:
     needs: setup
@@ -99,8 +116,8 @@ jobs:
           if-no-files-found: error
 
   analyze:
-    needs: [bench, bench-buildkite]
-    if: ${{ !cancelled() }}
+    needs: [setup, bench, bench-buildkite]
+    if: ${{ !cancelled() && needs.setup.outputs.any == 'true' }}
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -124,20 +141,15 @@ jobs:
           name: combined-results
           path: combined/
           retention-days: 90
-      # Only full runs replace the site, so a partial run started for testing doesn't hide other providers.
       - uses: actions/checkout@v7
-        if: ${{ github.ref == 'refs/heads/main' && !inputs.providers }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           ref: gh-pages
           path: pages
       - name: Publish to GitHub Pages
-        if: ${{ github.ref == 'refs/heads/main' && !inputs.providers }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: |
-          find pages -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
-          cp -r site/. combined/. pages/
-          # GitHub Pages lets browsers cache assets for 10 minutes; a new URL per publish skips that.
-          sed -i -E "s/(style\.css|app\.js)\"/\1?v=${GITHUB_RUN_ID}\"/" pages/index.html
-          touch pages/.nojekyll
+          scripts/publish.sh combined/results.json pages
           cd pages
           git add -A
           git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \

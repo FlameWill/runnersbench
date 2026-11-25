@@ -35,6 +35,14 @@ def load(paths):
     return list(results.values())
 
 
+def apply_providers(results, path):
+    """Refresh each result's spec (name, price, ...) from providers.json, so stored results don't need re-running."""
+    with open(path) as f:
+        specs = {r["label"]: r for r in json.load(f)["runners"]}
+    for r in results:
+        r["spec"] = {**r["spec"], **specs.get(r["spec"].get("label"), {})}
+
+
 def job_name(spec):
     return f"{spec['label']} ({spec['rep']})"
 
@@ -144,6 +152,8 @@ def summarise(results):
             "network": net.get("org"),
             "medians": medians,
             "sample_count": len(samples),
+            "measured_at": samples[-1]["started_at"],
+            "run_url": f"https://github.com/{samples[-1]['github']['repository']}/actions/runs/{samples[-1]['github']['run_id']}",
         })
     runners.sort(key=lambda x: (x["arch"] or "", x["provider"] or "", x["label"] or ""))
 
@@ -155,6 +165,7 @@ def summarise(results):
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "sample_count": len(results),
+        "benchmark_versions": sorted({r.get("benchmark_version") for r in results}, key=lambda v: (v is None, v)),
         "runs": [
             {"run_id": run_id, "url": f"https://github.com/{repo}/actions/runs/{run_id}"}
             for repo, run_id in sorted({(r["github"]["repository"], r["github"]["run_id"]) for r in results})
@@ -187,6 +198,7 @@ def report(summary):
 
     sections = [
         "# Runner benchmark report",
+        f"Benchmark version {', '.join(str(v) for v in summary['benchmark_versions'])}. "
         f"{summary['sample_count']} samples from {len(summary['runs'])} workflow run(s). "
         "Benchmark values are medians across samples; the best value in each column is bold.",
         "## Runners",
@@ -204,6 +216,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("paths", nargs="+", help="result files or directories")
     parser.add_argument("--job-timing", action="store_true", help="fetch queue times from the GitHub API")
+    parser.add_argument("--providers", help="refresh runner specs (name, price, ...) from this providers.json")
     parser.add_argument("--json", help="write combined results to this file")
     parser.add_argument("--markdown", help="write the report to this file instead of stdout")
     parser.add_argument("--summary", help="write per-runner medians and samples (used by the Pages site) to this file")
@@ -214,6 +227,8 @@ def main():
         parser.error("no results found")
     if args.job_timing:
         add_job_timing(results)
+    if args.providers:
+        apply_providers(results, args.providers)
 
     for path in (args.json, args.markdown, args.summary):
         if path:

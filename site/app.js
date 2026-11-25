@@ -49,12 +49,13 @@ function renderTables(data, color) {
   const { runners, metrics } = data;
   table(
     document.getElementById("runners"),
-    ["Label", "Provider", "Arch", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Virtualization", "Location", "Network", "Samples"],
+    ["Label", "Provider", "Arch", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Virtualization", "Location", "Network", "Samples", "Measured"],
     runners.map((r) => [
       runnerCell(r, color), textCell(r.provider_name), textCell(r.arch), textCell(r.cpu_models.join(", ")),
       textCell(r.vcpus, "num"), textCell(r.memory_gib, "num"), textCell(r.disk_gb, "num"),
       textCell(r.price_per_minute === null ? null : `$${r.price_per_minute}`, "num"), textCell(r.virtualization),
       textCell(r.location), textCell(r.network), textCell(r.sample_count, "num"),
+      el("td", {}, el("a", { href: r.run_url, textContent: new Date(r.measured_at).toLocaleDateString() })),
     ]),
   );
 
@@ -116,11 +117,9 @@ async function main() {
   const providers = [...new Set(data.runners.map((r) => r.provider))].sort();
   const color = (provider) => COLORS[providers.indexOf(provider) % COLORS.length];
 
-  document.getElementById("meta").append(
-    `Results from ${new Date(data.generated_at).toLocaleString()}, `,
-    ...data.runs.flatMap((run, i) => [i ? ", " : "", el("a", { href: run.url, textContent: `workflow run ${run.run_id}` })]),
-    ".",
-  );
+  document.getElementById("meta").textContent =
+    `Benchmark version ${data.benchmark_versions.join(", ")}. Each runner shows its latest results at this version; ` +
+    "the Measured column links to the run they came from.";
   renderTables(data, color);
   renderBarCharts(data, color);
   renderErrors(data);
