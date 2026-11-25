@@ -158,10 +158,11 @@ def summarise(results):
         mem = get(system, "memory", "total_bytes")
         disk = get(system, "disk", "total_bytes")
         net = system.get("network") or {}
-        medians = {}
+        medians, ranges = {}, {}
         for key, _, extract, _ in METRICS:
             values = [v for v in map(extract, samples) if v is not None]
             medians[key] = statistics.median(values) if values else None
+            ranges[key] = [min(values), max(values)] if len(values) > 1 else None
         runners.append({
             "provider": provider,
             "provider_name": spec.get("name") or provider,
@@ -178,6 +179,7 @@ def summarise(results):
             "location": ", ".join(filter(None, [net.get("city"), net.get("country")])) or None,
             "network": net.get("org"),
             "medians": medians,
+            "ranges": ranges,
             "sample_count": len(samples),
             "measured_at": samples[-1]["started_at"],
             "run_url": f"https://github.com/{samples[-1]['github']['repository']}/actions/runs/{samples[-1]['github']['run_id']}",
@@ -220,6 +222,8 @@ def report(summary):
             best = (max if higher_is_better else min)(column) if len(column) > 1 else None
             value = x["medians"][key]
             text = fmt(value, header)
+            if x["ranges"][key] and x["ranges"][key][0] != x["ranges"][key][1]:
+                text += f" ({' to '.join(fmt(v, header) for v in x['ranges'][key])})"
             cells.append(f"**{text}**" if value is not None and value == best else text)
         bench_rows.append(cells)
 
@@ -227,7 +231,8 @@ def report(summary):
         "# Runner benchmark report",
         f"Benchmark version {', '.join(str(v) for v in summary['benchmark_versions'])}. "
         f"{summary['sample_count']} samples from {len(summary['runs'])} workflow run(s). "
-        "Benchmark values are medians across samples; the best value in each column is bold.",
+        "Benchmark values are medians across samples, with the lowest to highest sample in brackets; "
+        "the best median in each column is bold.",
         "## Runners",
         table(["Provider", "Label", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "Virtualization", "Location",
                "Network", "Samples"], info_rows),

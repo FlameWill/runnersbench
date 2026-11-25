@@ -27,6 +27,19 @@ function fmt(value, metric) {
   return value.toFixed(1);
 }
 
+function spread(runner, metric) {
+  const range = runner.ranges?.[metric.key];
+  const median = runner.medians[metric.key];
+  if (!range || !median) return null;
+  return Math.round(((range[1] - range[0]) / 2 / Math.abs(median)) * 100);
+}
+
+function rangeText(runner, metric) {
+  const range = runner.ranges?.[metric.key];
+  const value = fmt(runner.medians[metric.key], metric);
+  return range ? `median ${value} · ${fmt(range[0], metric)} to ${fmt(range[1], metric)} across ${runner.sample_count} samples` : value;
+}
+
 function compact(value, metric) {
   if (value === null || value === undefined || Math.abs(value) < 10000) return fmt(value, metric);
   return Math.abs(value) < 100000 ? `${(value / 1000).toFixed(1)}k` : `${Math.round(value / 1000)}k`;
@@ -87,7 +100,7 @@ function renderTables(data) {
   const { runners, metrics } = data;
   const bests = Object.fromEntries(metrics.map((m) => [m.key, best(runners, m)]));
   document.getElementById("benchmarks-caption").textContent =
-    `${runners.length} runners · ${metrics.length} metrics · benchmark v${data.benchmark_versions.join(", ")}`;
+    `${runners.length} runners · ${metrics.length} metrics · median of ${Math.max(...runners.map((r) => r.sample_count))} runs · benchmark v${data.benchmark_versions.join(", ")}`;
   const benchmarks = document.getElementById("benchmarks");
   table(
     benchmarks,
@@ -107,7 +120,7 @@ function renderTables(data) {
         ...runners.map((r) => {
           const value = r.medians[m.key];
           const cell = textCell(compact(value, m), value !== null && value === bests[m.key] ? "num best" : "num");
-          cell.title = fmt(value, m);
+          cell.title = rangeText(r, m);
           cell.dataset.row = m.key;
           cell.dataset.col = r.label;
           return cell;
@@ -191,7 +204,7 @@ function renderBoards(data) {
   for (const metric of data.metrics) {
     const order = ranked(data.runners, metric);
     if (!order.length) continue;
-    const max = Math.max(...order.map((r) => r.medians[metric.key]));
+    const max = Math.max(...order.map((r) => r.ranges?.[metric.key]?.[1] ?? r.medians[metric.key]));
     const top = best(data.runners, metric);
     container.append(el("div", { className: "board" },
       el("h3", {}, metric.label, hint(metric)),
@@ -200,10 +213,19 @@ function renderBoards(data) {
         const fill = el("div", { className: "fill" });
         fill.style.width = `${max > 0 ? (value / max) * 100 : 0}%`;
         fill.style.background = color(r.provider);
-        return el("div", { className: value === top ? "row best" : "row", title: r.label },
+        const track = el("div", { className: "track" }, fill);
+        const range = r.ranges?.[metric.key];
+        if (range && max > 0) {
+          const whisker = el("div", { className: "range" });
+          whisker.style.left = `${(range[0] / max) * 100}%`;
+          whisker.style.width = `${((range[1] - range[0]) / max) * 100}%`;
+          track.append(whisker);
+        }
+        const pct = spread(r, metric);
+        return el("div", { className: value === top ? "row best" : "row", title: `${r.label} · ${rangeText(r, metric)}` },
           el("span", { className: "name" }, swatch(r), r.provider_name),
-          el("div", { className: "track" }, fill),
-          el("span", { className: "val", textContent: fmt(value, metric) }));
+          track,
+          el("span", { className: "val" }, fmt(value, metric), pct === null ? null : el("span", { className: "spread", textContent: `±${pct}%` })));
       })));
   }
 }

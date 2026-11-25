@@ -23,6 +23,7 @@ SCHEMA_VERSION = 1
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "VERSION")) as f:
     BENCHMARK_VERSION = int(f.read())
 DURATION = 15  # seconds per sysbench/fio test
+WARMUP = 5  # seconds of all-thread CPU load before the CPU tests, so clocks and caches settle
 REDIS_VERSION = "8.10.3"
 # Cloudflare rejects requests above roughly 50 MB.
 CLOUDFLARE_URL = "https://speed.cloudflare.com/__down?bytes=50000000"
@@ -184,8 +185,8 @@ def bench_package_install():
     return {"manager": "apt", "update_seconds": update, "seconds": time.monotonic() - start}
 
 
-def bench_sysbench_cpu(threads):
-    out = sh(["sysbench", "cpu", f"--threads={threads}", f"--time={DURATION}", "run"])
+def bench_sysbench_cpu(threads, duration=DURATION):
+    out = sh(["sysbench", "cpu", f"--threads={threads}", f"--time={duration}", "run"])
     eps = float(re.search(r"events per second:\s*([\d.]+)", out).group(1))
     return {"threads": threads, "events_per_second": eps}
 
@@ -290,6 +291,7 @@ def main():
         skipped = {"skipped": "sysbench's CPU test doesn't do real work on macOS"}
         benchmarks["cpu_single"], benchmarks["cpu_multi"] = skipped, dict(skipped)
     else:
+        run("sysbench cpu warm-up", bench_sysbench_cpu, cpus, WARMUP)
         benchmarks["cpu_single"] = run("sysbench cpu (1 thread)", bench_sysbench_cpu, 1)
         benchmarks["cpu_multi"] = run(f"sysbench cpu ({cpus} threads)", bench_sysbench_cpu, cpus)
     benchmarks["memory"] = run("sysbench memory", bench_sysbench_memory)

@@ -29,7 +29,7 @@ itself lives in `site/`; `analyze.py --summary` produces the `data.json` it read
 | System | CPU model, vendor, core count, cgroup limits, CPU flags, memory, disk and filesystem, kernel, image version, virtualization, DMI vendor, public IP location and network owner |
 | Queue time | Time between the job being created and a runner picking it up |
 | Package install | Linux: `apt-get update` and installing `sysbench`, `fio` and `build-essential`. macOS: `brew install sysbench fio` without `brew update` |
-| CPU | `sysbench cpu` with 1 thread and with all threads. Skipped on macOS, where Homebrew's sysbench reports impossible scores |
+| CPU | `sysbench cpu` with 1 thread and with all threads, after a 5 s all-thread warm-up. Skipped on macOS, where Homebrew's sysbench reports impossible scores |
 | Memory | `sysbench memory`, single-thread bandwidth |
 | Disk | `fio` sequential read/write (1M blocks) and 4k random read/write IOPS on the runner's work disk |
 | Network | 50 MB download from Cloudflare, Redis source download from GitHub |
@@ -39,8 +39,10 @@ itself lives in `site/`; `analyze.py --summary` produces the `data.json` it read
 
 Run **Benchmark** from the Actions tab. Set `providers` (e.g. `luxor`) to
 only run some providers, `repetitions` to collect several samples per runner
-(the report uses the median), and `force` to re-run runners that already have
-results.
+(default 3; every sample is a separate job, so usually a separate machine), and
+`force` to re-run runners that already have results. All jobs in a run start
+together. The site shows each metric's median, with the lowest to highest
+sample as a whisker on the leaderboards and as ± half that range.
 
 ### Versioning
 

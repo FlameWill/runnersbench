@@ -158,7 +158,21 @@ tbody tr:hover td:not(.best) { background: var(--tint); }
   height: 12px;
   background: radial-gradient(circle, var(--p4) 1px, transparent 1.5px) 0 50% / 8px 8px repeat-x;
 }
+.track { position: relative; }
 .fill { height: 100%; min-width: 2px; }
+.range {
+  position: absolute;
+  top: 50%;
+  height: 8px;
+  min-width: 1px;
+  transform: translateY(-50%);
+  color: var(--fg);
+  border: solid currentColor;
+  border-width: 0 1px;
+  background: linear-gradient(currentColor, currentColor) 0 50% / 100% 1px no-repeat;
+  opacity: 0.55;
+}
+.row .spread { display: inline-block; min-width: 5ch; margin-left: 6px; color: var(--muted); font-size: 11px; font-weight: 400; text-align: right; }
 .row.best .name, .row.best .val { font-weight: 600; }
 .row.best .val::before { content: "★ "; color: #d49a00; }
 

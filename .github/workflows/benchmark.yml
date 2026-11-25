@@ -10,7 +10,7 @@ on:
       repetitions:
         description: Number of times to run each runner
         required: false
-        default: "1"
+        default: "3"
       force:
         description: Re-run runners that already have results for the current benchmark version
         type: boolean
@@ -38,7 +38,7 @@ jobs:
       - id: matrix
         env:
           PROVIDERS: ${{ inputs.providers }}
-          REPETITIONS: ${{ inputs.repetitions || '1' }}
+          REPETITIONS: ${{ inputs.repetitions || '3' }}
           FORCE: ${{ inputs.force }}
         run: |
           version=$(cat bench/VERSION)
