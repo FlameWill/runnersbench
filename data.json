@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T12:06:07.668959+00:00",
+ "generated_at": "2026-11-25T12:25:05.921662+00:00",
  "sample_count": 66,
  "benchmark_versions": [
   2
@@ -1904,5 +1904,17 @@
    "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45609568269"
   }
  ],
+ "colors": {
+  "avrea": "#4269d0",
+  "blacksmith": "#efb118",
+  "buildkite": "#ff725c",
+  "checklane": "#6cc5b0",
+  "depot": "#3ca951",
+  "github": "#ff8ab7",
+  "groundbox": "#a463f2",
+  "luxor": "#97bbf5",
+  "namespace": "#9c6b4e",
+  "warpbuild": "#9498a0"
+ },
  "errors": []
 }
