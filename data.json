@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T05:25:47.559978+00:00",
+ "generated_at": "2026-11-25T09:28:07.654133+00:00",
  "sample_count": 8,
  "benchmark_versions": [
   1
@@ -12,6 +12,10 @@
   {
    "run_id": "45553147564",
    "url": "https://github.com/lockyer-labs/runners/actions/runs/45553147564"
+  },
+  {
+   "run_id": "45585210803",
+   "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45585210803"
   }
  ],
  "metrics": [
@@ -258,22 +262,22 @@
    "location": "Warrenton, US",
    "network": "AS16276 OVH SAS",
    "medians": {
-    "queue": 2.0,
-    "apt_install": 8.555282971000025,
-    "cpu_single": 6091.35,
-    "cpu_multi": 23070.62,
-    "memory": 34414.54,
-    "seq_read": 194.038814,
-    "seq_write": 312.798157,
-    "rand_read": 15998.467382,
-    "rand_write": 15999.602517,
-    "download": 98.776553,
-    "redis_build": 43.51665058999998,
-    "redis_cost": 0.004351665058999999
+    "queue": 5.0,
+    "apt_install": 2.925161063999999,
+    "cpu_single": 6957.96,
+    "cpu_multi": 27034.93,
+    "memory": 42495.02,
+    "seq_read": 827.548188,
+    "seq_write": 1035.021321,
+    "rand_read": 201290.780615,
+    "rand_write": 199992.580816,
+    "download": 77.72798,
+    "redis_build": 23.439460179000008,
+    "redis_cost": 0.002343946017900001
    },
    "sample_count": 1,
-   "measured_at": "2026-11-24T20:07:05.587943+00:00",
-   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
+   "measured_at": "2026-11-25T09:25:29.473066+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45585210803"
   },
   {
    "provider": "luxor",
