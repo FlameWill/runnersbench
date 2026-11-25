@@ -107,6 +107,18 @@
       "pricing_source": "https://namespace.so/pricing"
     },
     {
+      "provider": "jog",
+      "name": "Jog",
+      "label": "jog-4vcpu",
+      "arch": "x64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.0024,
+      "enabled": true,
+      "notes": "usejog.com. Ubuntu 24.04, billed per second. jog-max is a faster tier at twice the price.",
+      "pricing_source": "https://usejog.com/#pricing"
+    },
+    {
       "provider": "buildkite",
       "name": "Buildkite",
       "label": "buildkite-linux-amd64-4x16",
