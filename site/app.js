@@ -80,21 +80,38 @@ function renderStats(data) {
 function renderTables(data) {
   const { runners, metrics } = data;
   const bests = Object.fromEntries(metrics.map((m) => [m.key, best(runners, m)]));
-  document.getElementById("benchmarks-caption").textContent =
-    `${runners.length} runners · ${metrics.length} metrics · benchmark v${data.benchmark_versions.join(", ")}`;
-  table(
-    document.getElementById("benchmarks"),
-    ["Metric", ...runners.map((r) => el("th", { className: "provider", title: r.label, style: `border-top-color:${color(r.provider)}`, textContent: r.provider_name }))],
-    metrics.map((m) => [
-      el("td", {}, m.label, hint(m)),
-      ...runners.map((r) => {
-        const value = r.medians[m.key];
-        const cell = textCell(compact(value, m), value !== null && value === bests[m.key] ? "num best" : "num");
-        cell.title = fmt(value, m);
-        return cell;
-      }),
-    ]),
+  document.getElementById("benchmarks-caption").append(
+    `${runners.length} runners · ${metrics.length} metrics · benchmark v${data.benchmark_versions.join(", ")}`,
+    el("span", { className: "shortcut", textContent: " · shift+click a provider, metric or cell to highlight it, esc to clear" }),
   );
+  const benchmarks = document.getElementById("benchmarks");
+  table(
+    benchmarks,
+    [
+      el("th", { className: "corner", textContent: "Metric" }),
+      ...runners.map((r) => {
+        const th = el("th", { className: "provider", title: r.label, style: `border-top-color:${color(r.provider)}`, textContent: r.provider_name });
+        th.dataset.col = r.label;
+        return th;
+      }),
+    ],
+    metrics.map((m) => {
+      const label = el("td", {}, m.label, hint(m));
+      label.dataset.row = m.key;
+      return [
+        label,
+        ...runners.map((r) => {
+          const value = r.medians[m.key];
+          const cell = textCell(compact(value, m), value !== null && value === bests[m.key] ? "num best" : "num");
+          cell.title = fmt(value, m);
+          cell.dataset.row = m.key;
+          cell.dataset.col = r.label;
+          return cell;
+        }),
+      ];
+    }),
+  );
+  enableHighlighting(benchmarks);
 
   document.getElementById("runners-caption").textContent = `${runners.length} runners · as reported by each machine`;
   table(
@@ -108,6 +125,54 @@ function renderTables(data) {
       el("td", {}, el("a", { href: r.run_url, textContent: new Date(r.measured_at).toLocaleDateString() })),
     ]),
   );
+}
+
+function enableHighlighting(node) {
+  const rows = new Set();
+  const cols = new Set();
+  const cells = new Set();
+  const toggle = (set, key) => (set.has(key) ? set.delete(key) : set.add(key));
+
+  const update = () => {
+    const litRows = new Set(rows);
+    const litCols = new Set(cols);
+    for (const key of cells) {
+      const [row, col] = key.split("|");
+      litRows.add(row);
+      litCols.add(col);
+    }
+    node.classList.toggle("spotlight", rows.size + cols.size + cells.size > 0);
+    for (const cell of node.querySelectorAll("[data-row], [data-col]")) {
+      const { row, col } = cell.dataset;
+      if (row && col) {
+        cell.classList.toggle("hl", rows.has(row) || cols.has(col) || cells.has(`${row}|${col}`));
+      } else if (row) {
+        cell.classList.toggle("lit", litRows.has(row) || cols.size > 0);
+      } else {
+        cell.classList.toggle("lit", litCols.has(col) || rows.size > 0);
+      }
+    }
+  };
+
+  node.addEventListener("mousedown", (e) => {
+    if (e.shiftKey) e.preventDefault();
+  });
+  node.addEventListener("click", (e) => {
+    const cell = e.shiftKey && e.target.closest("[data-row], [data-col]");
+    if (!cell) return;
+    const { row, col } = cell.dataset;
+    if (row && col) toggle(cells, `${row}|${col}`);
+    else if (row) toggle(rows, row);
+    else toggle(cols, col);
+    update();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    rows.clear();
+    cols.clear();
+    cells.clear();
+    update();
+  });
 }
 
 function renderBoards(data) {
