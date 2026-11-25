@@ -22,6 +22,8 @@
   --track: var(--p2);
   --bar: var(--p4);
   --link: #3b63c4;
+  --mark: #fff1b8;
+  --mark-line: #d49a00;
 
   --display: "Funnel Display", system-ui, sans-serif;
   --body: Inter, system-ui, sans-serif;
@@ -39,6 +41,8 @@
     --accent: #4a5568;
     --track: #1f2430;
     --link: #8fb0ff;
+    --mark: #4a3a05;
+    --mark-line: #e0a800;
   }
 }
 
@@ -111,6 +115,11 @@ h2 { font: 500 40px/1.1 var(--display); letter-spacing: -0.015em; margin: 0 0 8p
 #benchmarks th, #benchmarks td { padding: 6px 7px; }
 #benchmarks th.provider { border-top: 4px solid; font-size: 13px; text-align: right; }
 #benchmarks td:first-child { white-space: normal; min-width: 9.5em; max-width: 14em; }
+#benchmarks.spotlight :is(td, th):not(.hl, .lit, .corner) { opacity: 0.25; }
+#benchmarks td.hl { box-shadow: inset 0 0 0 2px var(--mark-line); }
+#benchmarks td.hl:not(.best) { background: var(--mark); color: var(--fg); font-weight: 600; }
+#benchmarks th.lit, #benchmarks td.lit { font-weight: 600; }
+@media (hover: none) { .shortcut { display: none; } }
 table { border-collapse: separate; border-spacing: 0; font-size: 14px; white-space: nowrap; border: 1px solid var(--line); border-width: 1px 0 0 1px; }
 th, td { border: 1px solid var(--line); border-width: 0 1px 1px 0; padding: 7px 12px; text-align: left; }
 th { background: var(--tint-strong); font-weight: 500; }
