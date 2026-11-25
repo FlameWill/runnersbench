@@ -1,3 +1,6 @@
+const COLORS = ["#4269d0", "#efb118", "#ff725c", "#6cc5b0", "#3ca951", "#ff8ab7", "#a463f2", "#97bbf5", "#9c6b4e", "#9498a0"];
+let color = () => COLORS[0];
+
 const HEADLINES = [
   ["redis_build", "fastest redis build"],
   ["redis_cost", "cheapest redis build"],
@@ -32,6 +35,10 @@ function textCell(text, className = "") {
   return el("td", { className, textContent: text ?? "–" });
 }
 
+function swatch(runner) {
+  return el("span", { className: "swatch", style: `background:${color(runner.provider)}` });
+}
+
 function hint(metric) {
   const text = metric.higher_is_better ? "higher is better" : "lower is better";
   const node = el("span", { className: "hint", title: text, textContent: text });
@@ -61,7 +68,7 @@ function renderStats(data) {
       el("div", { className: "label", textContent: label }),
       el("div", { className: "value" }, fmt(winner.medians[key], metric),
         el("span", { className: "unit", textContent: metric.label.startsWith("$") ? "" : unit(metric) })),
-      el("div", { className: "who", textContent: winners.map((r) => r.provider_name).join(", ") })));
+      el("div", { className: "who" }, ...winners.flatMap((r, i) => [i ? ", " : "", swatch(r), r.provider_name]))));
   }
 }
 
@@ -72,7 +79,7 @@ function renderTables(data) {
     `${runners.length} runners · ${metrics.length} metrics · benchmark v${data.benchmark_versions.join(", ")}`;
   table(
     document.getElementById("benchmarks"),
-    ["Metric", ...runners.map((r) => el("th", { title: r.label, textContent: r.provider_name }))],
+    ["Metric", ...runners.map((r) => el("th", { title: r.label }, swatch(r), r.provider_name))],
     metrics.map((m) => [
       el("td", {}, m.label, hint(m)),
       ...runners.map((r) => {
@@ -87,7 +94,7 @@ function renderTables(data) {
     document.getElementById("runners"),
     ["Provider", "Label", "Arch", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Virtualization", "Location", "Network", "Samples", "Measured"],
     runners.map((r) => [
-      textCell(r.provider_name), el("td", {}, el("code", { textContent: r.label })), textCell(r.arch),
+      el("td", {}, swatch(r), r.provider_name), el("td", {}, el("code", { textContent: r.label })), textCell(r.arch),
       textCell(r.cpu_models.join(", ")), textCell(r.vcpus, "num"), textCell(r.memory_gib, "num"), textCell(r.disk_gb, "num"),
       textCell(r.price_per_minute === null ? null : `$${r.price_per_minute}`, "num"), textCell(r.virtualization),
       textCell(r.location), textCell(r.network), textCell(r.sample_count, "num"),
@@ -110,8 +117,9 @@ function renderBoards(data) {
         const value = r.medians[metric.key];
         const fill = el("div", { className: "fill" });
         fill.style.width = `${max > 0 ? (value / max) * 100 : 0}%`;
+        fill.style.background = color(r.provider);
         return el("div", { className: value === top ? "row best" : "row", title: r.label },
-          el("span", { className: "name", textContent: r.provider_name }),
+          el("span", { className: "name" }, swatch(r), r.provider_name),
           el("div", { className: "track" }, fill),
           el("span", { className: "val", textContent: fmt(value, metric) }));
       })));
@@ -127,6 +135,8 @@ function renderErrors(data) {
 
 async function main() {
   const data = await (await fetch("data.json", { cache: "no-cache" })).json();
+  const providers = [...new Set(data.runners.map((r) => r.provider))].sort();
+  color = (provider) => COLORS[providers.indexOf(provider) % COLORS.length];
   document.getElementById("meta").textContent =
     `benchmark v${data.benchmark_versions.join(", ")} · ${data.runners.length} runners · updated ${new Date(data.generated_at).toLocaleDateString()}`;
   renderStats(data);
