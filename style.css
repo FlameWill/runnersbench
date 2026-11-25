@@ -69,8 +69,7 @@ code { font-family: var(--mono); font-size: 0.85em; }
   text-decoration: none;
 }
 .button:hover { background: var(--p2); }
-h1 { font: 500 64px/1.05 var(--display); letter-spacing: -0.02em; margin: 0 0 16px; max-width: 14ch; }
-.lede { font-size: 20px; max-width: 46ch; margin: 0 0 40px; color: var(--p2); }
+h1 { font: 500 64px/1.05 var(--display); letter-spacing: -0.02em; margin: 0 0 40px; max-width: 14ch; }
 .meta { font: 13px var(--mono); color: var(--p3); margin: 24px 0 0; padding-bottom: 48px; }
 
 .stats {
@@ -160,8 +159,7 @@ footer a { color: var(--on-accent); }
 @media (max-width: 700px) {
   .wrap { padding: 0 18px; }
   .hero nav { padding-bottom: 32px; }
-  h1 { font-size: 40px; }
-  .lede { font-size: 17px; margin-bottom: 28px; }
+  h1 { font-size: 40px; margin-bottom: 28px; }
   .stat .value { font-size: 24px; }
   section { margin: 48px 0; }
   h2 { font-size: 30px; }
