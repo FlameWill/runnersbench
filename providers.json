@@ -172,8 +172,8 @@
       "vcpu": 4,
       "memory_gb": 8,
       "price_per_minute": 0.008,
-      "enabled": true,
-      "notes": "4x8 is Namespace's standard 4 vCPU shape.",
+      "enabled": false,
+      "notes": "4x8 is Namespace's standard 4 vCPU shape. Disabled: no runner picked up the job in 6 minutes on 2026-11-25.",
       "pricing_source": "https://namespace.so/pricing"
     },
     {
