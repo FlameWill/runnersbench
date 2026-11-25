@@ -1,6 +1,6 @@
 # Runner benchmark report
 
-Benchmark version 1. 15 samples from 6 workflow run(s). Benchmark values are medians across samples; the best value in each column is bold.
+Benchmark version 1. 16 samples from 7 workflow run(s). Benchmark values are medians across samples; the best value in each column is bold.
 
 ## Runners
 
@@ -11,6 +11,7 @@ Benchmark version 1. 15 samples from 6 workflow run(s). Benchmark values are med
 | depot | `depot-ubuntu-24.04-arm-4` | Neoverse-V2 | 4 | 15.6 | 156 | qemu | Ashburn, US | AS14618 Amazon.com, Inc. | 1 |
 | github | `ubuntu-24.04-arm` | Neoverse-N2 | 4 | 15.6 | 155 | microsoft | San Jose, US | AS8075 Microsoft Corporation | 1 |
 | warpbuild | `warp-ubuntu-2404-arm64-4x` | Neoverse-V2 | 4 | 15.3 | 155 | amazon | Ashburn, US | AS14618 Amazon.com, Inc. | 1 |
+| github | `macos-26` | Apple M1 (Virtual) | 3 | 7.0 | 343 | apple | San Jose, US | AS8075 Microsoft Corporation | 1 |
 | avrea | `avrea-ubuntu-24.04-4-vcpu` | AMD EPYC 4585PX 16-Core Processor | 4 | 14.7 | 156 | kvm | Roubaix, FR | AS16276 OVH SAS | 1 |
 | blacksmith | `blacksmith-4vcpu-ubuntu-2404` | AMD EPYC | 4 | 15.4 | 161 | kvm | Phoenix, US | AS20454 SECURED SERVERS LLC | 1 |
 | buildkite | `buildkite-linux-amd64-4x16` | AMD EPYC | 4 | 15.7 | 101 | docker | Ashburn, US | AS401483 Namespace Labs | 1 |
@@ -24,13 +25,14 @@ Benchmark version 1. 15 samples from 6 workflow run(s). Benchmark values are med
 
 ## Benchmarks
 
-| Provider | Label | Queue (s) | apt install (s) | CPU 1 thread (events/s) | CPU all threads (events/s) | Memory (MiB/s) | Seq read (MB/s) | Seq write (MB/s) | 4k rand read (IOPS) | 4k rand write (IOPS) | Download (MB/s) | Redis build (s) | $ per Redis build |
+| Provider | Label | Queue (s) | Package install (s) | CPU 1 thread (events/s) | CPU all threads (events/s) | Memory (MiB/s) | Seq read (MB/s) | Seq write (MB/s) | 4k rand read (IOPS) | 4k rand write (IOPS) | Download (MB/s) | Redis build (s) | $ per Redis build |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| avrea | `avrea-ubuntu-24.04-arm-4-vcpu` | 14.0 | 9.0 | **11,662** | **46,245** | **46,793** | **24,666** | **19,029** | 93,187 | 121,282 | 298 | 23.3 | $0.0096 |
+| avrea | `avrea-ubuntu-24.04-arm-4-vcpu` | 14.0 | 9.0 | 11,662 | 46,245 | **46,793** | **24,666** | **19,029** | 93,187 | 121,282 | 298 | 23.3 | $0.0096 |
 | blacksmith | `blacksmith-4vcpu-ubuntu-2404-arm` | 10.0 | 11.5 | 931 | 3,677 | 26,322 | 1,568 | 899 | 228,881 | 94,215 | 181 | 51.6 | $0.0050 |
 | depot | `depot-ubuntu-24.04-arm-4` | 14.0 | 5.2 | 3,332 | 13,127 | 26,508 | 4,957 | 14,734 | 184,048 | 193,759 | 202 | 38.9 | $0.0078 |
 | github | `ubuntu-24.04-arm` | 6.0 | 19.3 | 3,958 | 15,748 | 27,832 | 421 | 351 | 19,634 | 19,567 | 312 | 55.2 | $0.0080 |
 | warpbuild | `warp-ubuntu-2404-arm64-4x` | 46.0 | 30.2 | 3,332 | 13,262 | 26,651 | 315 | 315 | 4,198 | 4,198 | 122 | 44.3 | $0.0060 |
+| github | `macos-26` | 3.0 | 16.2 | **6,353,812** | **21,529,176** | 14,148 | 5,174 | 3,206 | 40,433 | 15,397 | 109 | 63.7 | $0.1240 |
 | avrea | `avrea-ubuntu-24.04-4-vcpu` | 7.0 | 7.1 | 6,795 | 27,017 | 42,332 | 18,155 | 10,815 | 89,046 | 133,862 | 139 | 22.9 | $0.0031 |
 | blacksmith | `blacksmith-4vcpu-ubuntu-2404` | 7.0 | 9.6 | 6,534 | 25,584 | 40,472 | 6,247 | 1,795 | 615,990 | 426,474 | 110 | 25.9 | $0.0080 |
 | buildkite | `buildkite-linux-amd64-4x16` | 6.4 | 4.2 | 6,258 | 24,684 | 36,810 | 3,335 | 2,198 | 404,009 | 281,067 | 305 | 31.4 | $0.0085 |

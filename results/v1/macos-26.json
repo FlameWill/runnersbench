@@ -1,0 +1,159 @@
+[
+  {
+    "schema_version": 1,
+    "benchmark_version": 1,
+    "spec": {
+      "provider": "github",
+      "name": "GitHub",
+      "label": "macos-26",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 3,
+      "memory_gb": 7,
+      "price_per_minute": 0.062,
+      "billing": {
+        "increment_seconds": 60
+      },
+      "enabled": true,
+      "notes": "Standard M1 runner, free on public repos; priced at GitHub's macOS rate. The 5-core M2 Pro macos-26-xlarge is $0.102.",
+      "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing",
+      "rep": 1
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45604919602",
+      "run_attempt": "1",
+      "sha": "96bb96ad73cdf9833e4fc3e0059bdea5033697a3"
+    },
+    "started_at": "2026-11-25T11:30:08.017534+00:00",
+    "finished_at": "2026-11-25T11:33:32.547576+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M1 (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 3,
+        "available_cpus": 3,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 7516192768,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/runner/work/_temp",
+        "total_bytes": 343073095680,
+        "free_bytes": 102590509056,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.7.2",
+        "kernel": "25.6.0",
+        "image_os": "macos26",
+        "image_version": "20261117.0516.1"
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "13.105.117.124",
+        "city": "San Jose",
+        "region": "California",
+        "country": "US",
+        "org": "AS8075 Microsoft Corporation"
+      },
+      "runner": {
+        "name": "GitHub Actions 1000000161",
+        "environment": "github-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 3.62012
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 16.195416916,
+        "wall_seconds": 16.19552008299999
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 6353811.69,
+        "wall_seconds": 15.057196125000019
+      },
+      "cpu_multi": {
+        "threads": 3,
+        "events_per_second": 21529176.15,
+        "wall_seconds": 15.024903459
+      },
+      "memory": {
+        "mib_per_second": 14147.58,
+        "wall_seconds": 15.058963290999998
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 3206.471453,
+          "iops": 3057.862809,
+          "p99_latency_us": 27918.336,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 5173.543418,
+          "iops": 4932.875617,
+          "p99_latency_us": 15269.888,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 165.61618,
+          "iops": 40432.637824,
+          "p99_latency_us": 1515.52,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 63.068734,
+          "iops": 15396.640224,
+          "p99_latency_us": 5996.544,
+          "direct": true
+        },
+        "wall_seconds": 73.78104054100001
+      },
+      "download_cloudflare": {
+        "mb_per_second": 108.819611,
+        "bytes": 50000000,
+        "seconds": 0.459476,
+        "connect_seconds": 0.036007,
+        "ttfb_seconds": 0.077487,
+        "wall_seconds": 0.5708886250000091
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 3,
+        "seconds": 63.675882375000015,
+        "github_download": {
+          "mb_per_second": 8.674582,
+          "bytes": 4780701,
+          "seconds": 0.551116,
+          "connect_seconds": 0.094331,
+          "ttfb_seconds": 0.398589
+        },
+        "wall_seconds": 65.209042791
+      }
+    },
+    "timing": {
+      "queue_seconds": 3.0,
+      "job_seconds": 228.0
+    }
+  }
+]

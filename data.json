@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25T11:08:25.458546+00:00",
- "sample_count": 15,
+ "generated_at": "2026-11-25T11:33:55.070181+00:00",
+ "sample_count": 16,
  "benchmark_versions": [
   1
  ],
@@ -28,6 +28,10 @@
   {
    "run_id": "45598079480",
    "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45598079480"
+  },
+  {
+   "run_id": "45604919602",
+   "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45604919602"
   }
  ],
  "metrics": [
@@ -38,7 +42,7 @@
   },
   {
    "key": "apt_install",
-   "label": "apt install (s)",
+   "label": "Package install (s)",
    "higher_is_better": false
   },
   {
@@ -98,6 +102,7 @@
    "provider_name": "Avrea",
    "label": "avrea-ubuntu-24.04-arm-4-vcpu",
    "arch": "arm64",
+   "platform": "arm64",
    "price_per_minute": 0.024,
    "billing": "per second",
    "cpu_models": [
@@ -132,6 +137,7 @@
    "provider_name": "Blacksmith",
    "label": "blacksmith-4vcpu-ubuntu-2404-arm",
    "arch": "arm64",
+   "platform": "arm64",
    "price_per_minute": 0.005,
    "billing": "per minute, rounded up",
    "cpu_models": [
@@ -166,6 +172,7 @@
    "provider_name": "Depot",
    "label": "depot-ubuntu-24.04-arm-4",
    "arch": "arm64",
+   "platform": "arm64",
    "price_per_minute": 0.012,
    "billing": "per second",
    "cpu_models": [
@@ -200,6 +207,7 @@
    "provider_name": "GitHub",
    "label": "ubuntu-24.04-arm",
    "arch": "arm64",
+   "platform": "arm64",
    "price_per_minute": 0.008,
    "billing": "per minute, rounded up",
    "cpu_models": [
@@ -234,6 +242,7 @@
    "provider_name": "WarpBuild",
    "label": "warp-ubuntu-2404-arm64-4x",
    "arch": "arm64",
+   "platform": "arm64",
    "price_per_minute": 0.006,
    "billing": "per minute, rounded up",
    "cpu_models": [
@@ -264,10 +273,46 @@
    "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45598079480"
   },
   {
+   "provider": "github",
+   "provider_name": "GitHub",
+   "label": "macos-26",
+   "arch": "arm64",
+   "platform": "macos",
+   "price_per_minute": 0.062,
+   "billing": "per minute, rounded up",
+   "cpu_models": [
+    "Apple M1 (Virtual)"
+   ],
+   "vcpus": 3,
+   "memory_gib": 7.0,
+   "disk_gb": 343,
+   "virtualization": "apple",
+   "location": "San Jose, US",
+   "network": "AS8075 Microsoft Corporation",
+   "medians": {
+    "queue": 3.0,
+    "apt_install": 16.195416916,
+    "cpu_single": 6353811.69,
+    "cpu_multi": 21529176.15,
+    "memory": 14147.58,
+    "seq_read": 5173.543418,
+    "seq_write": 3206.471453,
+    "rand_read": 40432.637824,
+    "rand_write": 15396.640224,
+    "download": 108.819611,
+    "redis_build": 63.675882375000015,
+    "redis_cost": 0.12399999999999999
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T11:30:08.017534+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45604919602"
+  },
+  {
    "provider": "avrea",
    "provider_name": "Avrea",
    "label": "avrea-ubuntu-24.04-4-vcpu",
    "arch": "x64",
+   "platform": "x64",
    "price_per_minute": 0.008,
    "billing": "per second",
    "cpu_models": [
@@ -302,6 +347,7 @@
    "provider_name": "Blacksmith",
    "label": "blacksmith-4vcpu-ubuntu-2404",
    "arch": "x64",
+   "platform": "x64",
    "price_per_minute": 0.008,
    "billing": "per minute, rounded up",
    "cpu_models": [
@@ -336,6 +382,7 @@
    "provider_name": "Buildkite",
    "label": "buildkite-linux-amd64-4x16",
    "arch": "x64",
+   "platform": "x64",
    "price_per_minute": 0.016,
    "billing": "per second",
    "cpu_models": [
@@ -370,6 +417,7 @@
    "provider_name": "Checklane",
    "label": "checklane-4vcpu-ubuntu-2404",
    "arch": "x64",
+   "platform": "x64",
    "price_per_minute": 0.004,
    "billing": "per second",
    "cpu_models": [
@@ -404,6 +452,7 @@
    "provider_name": "Depot",
    "label": "depot-ubuntu-24.04-4",
    "arch": "x64",
+   "platform": "x64",
    "price_per_minute": 0.012,
    "billing": "per second",
    "cpu_models": [
@@ -438,6 +487,7 @@
    "provider_name": "GitHub",
    "label": "ubuntu-24.04",
    "arch": "x64",
+   "platform": "x64",
    "price_per_minute": 0.012,
    "billing": "per minute, rounded up",
    "cpu_models": [
@@ -472,6 +522,7 @@
    "provider_name": "Groundbox",
    "label": "groundbox-4vcpu",
    "arch": "x64",
+   "platform": "x64",
    "price_per_minute": 0.006,
    "billing": "per second",
    "cpu_models": [
@@ -506,6 +557,7 @@
    "provider_name": "Luxor",
    "label": "luxor-ubuntu-medium-4c-8g",
    "arch": "x64",
+   "platform": "x64",
    "price_per_minute": 0.008,
    "billing": "per second",
    "cpu_models": [
@@ -540,6 +592,7 @@
    "provider_name": "Namespace",
    "label": "nscloud-ubuntu-24.04-amd64-4x8",
    "arch": "x64",
+   "platform": "x64",
    "price_per_minute": 0.008,
    "billing": "per minute, rounded up after 15 s, 1 min minimum",
    "cpu_models": [
@@ -574,6 +627,7 @@
    "provider_name": "WarpBuild",
    "label": "warp-ubuntu-2404-x64-4x",
    "arch": "x64",
+   "platform": "x64",
    "price_per_minute": 0.008,
    "billing": "per minute, rounded up",
    "cpu_models": [
