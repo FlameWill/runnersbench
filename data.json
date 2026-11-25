@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25T09:41:11.954290+00:00",
- "sample_count": 9,
+ "generated_at": "2026-11-25T09:45:00.261581+00:00",
+ "sample_count": 10,
  "benchmark_versions": [
   1
  ],
@@ -20,6 +20,10 @@
   {
    "run_id": "45587221223",
    "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45587221223"
+  },
+  {
+   "run_id": "45587813084",
+   "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45587813084"
   }
  ],
  "metrics": [
@@ -348,6 +352,39 @@
    "sample_count": 1,
    "measured_at": "2026-11-24T20:07:10.446538+00:00",
    "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
+  },
+  {
+   "provider": "namespace",
+   "provider_name": "Namespace",
+   "label": "nscloud-ubuntu-24.04-amd64-4x8",
+   "arch": "x64",
+   "price_per_minute": 0.008,
+   "cpu_models": [
+    "AMD EPYC"
+   ],
+   "vcpus": 4,
+   "memory_gib": 7.8,
+   "disk_gb": 68,
+   "virtualization": "docker",
+   "location": "Ashburn, US",
+   "network": "AS401483 Namespace Labs",
+   "medians": {
+    "queue": 10.0,
+    "apt_install": 4.8647983020000005,
+    "cpu_single": 6352.97,
+    "cpu_multi": 24368.34,
+    "memory": 38823.63,
+    "seq_read": 1131.617683,
+    "seq_write": 1275.807074,
+    "rand_read": 121950.336644,
+    "rand_write": 107051.663222,
+    "download": 53.758411,
+    "redis_build": 39.4150731,
+    "redis_cost": 0.0052553430800000005
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T09:42:05.537133+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45587813084"
   },
   {
    "provider": "warpbuild",

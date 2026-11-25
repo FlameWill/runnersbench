@@ -1,6 +1,6 @@
 # Runner benchmark report
 
-Benchmark version 1. 9 samples from 4 workflow run(s). Benchmark values are medians across samples; the best value in each column is bold.
+Benchmark version 1. 10 samples from 5 workflow run(s). Benchmark values are medians across samples; the best value in each column is bold.
 
 ## Runners
 
@@ -14,6 +14,7 @@ Benchmark version 1. 9 samples from 4 workflow run(s). Benchmark values are medi
 | github | `ubuntu-24.04` | AMD EPYC 7763 64-Core Processor | 4 | 15.6 | 155 | microsoft | San Jose, US | AS8075 Microsoft Corporation | 1 |
 | groundbox | `groundbox-4vcpu` | AMD EPYC | 4 | 15.6 | 63 | kvm | Warrenton, US | AS16276 OVH SAS | 1 |
 | luxor | `luxor-ubuntu-medium-4c-8g` | AMD Ryzen 9 9950X 16-Core Processor | 4 | 7.8 | 156 | kvm | Seattle, US | AS19538 Luxor | 1 |
+| namespace | `nscloud-ubuntu-24.04-amd64-4x8` | AMD EPYC | 4 | 7.8 | 68 | docker | Ashburn, US | AS401483 Namespace Labs | 1 |
 | warpbuild | `warp-ubuntu-2404-x64-4x` | AMD Ryzen 9 9950X 16-Core Processor | 4 | 15.6 | 265 | kvm | Chicago, US | AS398418 WarpBuild | 1 |
 
 ## Benchmarks
@@ -28,4 +29,5 @@ Benchmark version 1. 9 samples from 4 workflow run(s). Benchmark values are medi
 | github | `ubuntu-24.04` | 4.0 | 16.0 | 3,672 | 8,197 | 27,365 | 414 | 414 | 19,570 | 19,574 | 58.5 | 74.4 | $0.0149 |
 | groundbox | `groundbox-4vcpu` | 5.0 | **2.9** | 6,958 | 27,035 | **42,495** | 828 | 1,035 | 201,291 | 199,993 | 77.7 | 23.4 | $0.0023 |
 | luxor | `luxor-ubuntu-medium-4c-8g` | 10.0 | 6.3 | 6,926 | 26,787 | 41,951 | **18,948** | **13,181** | 130,617 | 119,834 | 298 | 23.8 | $0.0032 |
+| namespace | `nscloud-ubuntu-24.04-amd64-4x8` | 10.0 | 4.9 | 6,353 | 24,368 | 38,824 | 1,132 | 1,276 | 121,950 | 107,052 | 53.8 | 39.4 | $0.0053 |
 | warpbuild | `warp-ubuntu-2404-x64-4x` | 8.0 | 6.2 | 6,189 | 13,208 | 39,323 | 4,353 | 3,013 | 285,085 | 100,366 | 0.3 | 33.9 | $0.0045 |
