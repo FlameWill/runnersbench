@@ -113,8 +113,7 @@ thead th:first-child { background: var(--tint-strong); }
 td.num { text-align: right; font: 14px var(--mono); font-variant-numeric: tabular-nums; }
 td.best { background: var(--accent); color: var(--on-accent); font-weight: 500; }
 tbody tr:hover td:not(.best) { background: var(--tint); }
-.hint { color: var(--muted); font-size: 13px; }
-.hint::before { content: " · "; }
+.hint { color: var(--muted); margin-left: 6px; cursor: help; }
 
 /* Leaderboards */
 
@@ -124,9 +123,7 @@ tbody tr:hover td:not(.best) { background: var(--tint); }
   gap: 24px;
 }
 .board { background: var(--tint); padding: 20px 22px 16px; min-width: 0; }
-.board h3 { font: 500 17px var(--body); margin: 0; }
-.board .hint::before { content: none; }
-.board .hint { display: block; font: 12px var(--mono); margin-bottom: 14px; }
+.board h3 { font: 500 17px var(--body); margin: 0 0 14px; }
 .row { display: grid; grid-template-columns: 110px 1fr auto; align-items: center; gap: 10px; font: 13px var(--mono); padding: 3px 0; }
 .row .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .track {
@@ -170,7 +167,5 @@ footer a { color: var(--on-accent); }
   #benchmarks th, #benchmarks td:first-child { white-space: normal; }
   #benchmarks thead th { white-space: nowrap; }
   #benchmarks td:first-child { min-width: 9em; }
-  #benchmarks .hint { font-size: 0; }
-  #benchmarks .hint::before { content: " " attr(data-short); font-size: 12px; }
   .row { grid-template-columns: 96px 1fr auto; }
 }
