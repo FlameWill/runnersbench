@@ -19,7 +19,7 @@ luxor.ai, WarpBuild, ...) side by side on the same workloads.
    on the `gh-pages` branch and rebuilds the site from the stored results of
    every enabled runner.
 
-Results are published at <https://lockyer-labs.github.io/runners/>. The page
+Results are published at <https://runnersbench.com/>. The page
 itself lives in `site/`; `analyze.py --summary` produces the `data.json` it reads.
 
 ### What gets collected
