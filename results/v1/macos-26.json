@@ -89,14 +89,10 @@
         "wall_seconds": 16.19552008299999
       },
       "cpu_single": {
-        "threads": 1,
-        "events_per_second": 6353811.69,
-        "wall_seconds": 15.057196125000019
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
       },
       "cpu_multi": {
-        "threads": 3,
-        "events_per_second": 21529176.15,
-        "wall_seconds": 15.024903459
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
       },
       "memory": {
         "mib_per_second": 14147.58,
