@@ -77,8 +77,6 @@ Install its GitHub App on this repo's account, then add an entry to
   "name": "Example",
   "label": "example-4vcpu-ubuntu-2404",
   "arch": "x64",
-  "vcpu": 4,
-  "memory_gb": 16,
   "price_per_minute": 0.008,
   "billing": {"increment_seconds": 60},
   "enabled": true,
