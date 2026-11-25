@@ -41,8 +41,8 @@ function swatch(runner) {
 
 function hint(metric) {
   const text = metric.higher_is_better ? "higher is better" : "lower is better";
-  const node = el("span", { className: "hint", title: text, textContent: text });
-  node.dataset.short = metric.higher_is_better ? "↑" : "↓";
+  const node = el("span", { className: "hint", title: text, textContent: metric.higher_is_better ? "↑" : "↓" });
+  node.setAttribute("aria-label", text);
   return node;
 }
 
@@ -111,8 +111,7 @@ function renderBoards(data) {
     const max = Math.max(...order.map((r) => r.medians[metric.key]));
     const top = best(data.runners, metric);
     container.append(el("div", { className: "board" },
-      el("h3", { textContent: metric.label }),
-      hint(metric),
+      el("h3", {}, metric.label, hint(metric)),
       ...order.map((r) => {
         const value = r.medians[metric.key];
         const fill = el("div", { className: "fill" });
