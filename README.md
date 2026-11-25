@@ -85,6 +85,7 @@ python analyze/analyze.py combined
    }
    ```
 
+   `arch` is `x64` or `arm64`; the site shows each architecture on its own tab.
    `label` is the `runs-on` value. Pick the provider's 4 vCPU size so every
    runner is compared at the same core count. `price_per_minute` may be `null`
    if unknown.

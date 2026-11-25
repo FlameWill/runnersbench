@@ -119,6 +119,75 @@
       "pricing_source": "https://usejog.com/#pricing"
     },
     {
+      "provider": "github",
+      "name": "GitHub",
+      "label": "ubuntu-24.04-arm",
+      "arch": "arm64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.008,
+      "enabled": true,
+      "notes": "4 vCPU / 16 GB on public repos, where it is free; priced at the 4-core arm64 larger runner rate.",
+      "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing"
+    },
+    {
+      "provider": "avrea",
+      "name": "Avrea",
+      "label": "avrea-ubuntu-24.04-arm-4-vcpu",
+      "arch": "arm64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.024,
+      "enabled": true,
+      "notes": "Runs on Apple M5 Max hardware. Pinned to Ubuntu 24.04.",
+      "pricing_source": "https://avrea.com/pricing"
+    },
+    {
+      "provider": "blacksmith",
+      "name": "Blacksmith",
+      "label": "blacksmith-4vcpu-ubuntu-2404-arm",
+      "arch": "arm64",
+      "vcpu": 4,
+      "memory_gb": 12,
+      "price_per_minute": 0.005,
+      "enabled": true,
+      "pricing_source": "https://www.blacksmith.sh/pricing"
+    },
+    {
+      "provider": "depot",
+      "name": "Depot",
+      "label": "depot-ubuntu-24.04-arm-4",
+      "arch": "arm64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.012,
+      "enabled": true,
+      "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
+    },
+    {
+      "provider": "namespace",
+      "name": "Namespace",
+      "label": "nscloud-ubuntu-24.04-arm64-4x8",
+      "arch": "arm64",
+      "vcpu": 4,
+      "memory_gb": 8,
+      "price_per_minute": 0.008,
+      "enabled": true,
+      "notes": "4x8 is Namespace's standard 4 vCPU shape.",
+      "pricing_source": "https://namespace.so/pricing"
+    },
+    {
+      "provider": "warpbuild",
+      "name": "WarpBuild",
+      "label": "warp-ubuntu-2404-arm64-4x",
+      "arch": "arm64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": 0.006,
+      "enabled": true,
+      "pricing_source": "https://www.warpbuild.com/pricing"
+    },
+    {
       "provider": "buildkite",
       "name": "Buildkite",
       "label": "buildkite-linux-amd64-4x16",
@@ -133,6 +202,23 @@
         "organization": "daniel-lockyer",
         "pipeline": "runners",
         "queue": "linux-medium"
+      }
+    },
+    {
+      "provider": "buildkite",
+      "name": "Buildkite",
+      "label": "buildkite-linux-arm64-4x16",
+      "arch": "arm64",
+      "vcpu": 4,
+      "memory_gb": 16,
+      "price_per_minute": null,
+      "enabled": false,
+      "notes": "Buildkite hosted agent (Medium ARM64). Needs a hosted queue with the LINUX_ARM64_4X16 shape and key linux-arm-medium.",
+      "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",
+      "buildkite": {
+        "organization": "daniel-lockyer",
+        "pipeline": "runners",
+        "queue": "linux-arm-medium"
       }
     }
   ]
