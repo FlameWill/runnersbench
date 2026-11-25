@@ -2233,11 +2233,11 @@
     "github": {
       "repository": "lockyer-labs/runnersbench",
       "run_id": "45593986337",
-      "run_attempt": "1",
+      "run_attempt": "2",
       "sha": "b464018ae5dd5acb1802929fc4f8c37c55c226b1"
     },
-    "started_at": "2026-11-25T10:20:42.102074+00:00",
-    "finished_at": "2026-11-25T10:23:21.318303+00:00",
+    "started_at": "2026-11-25T10:28:58.765056+00:00",
+    "finished_at": "2026-11-25T10:31:24.679699+00:00",
     "system": {
       "cpu": {
         "model": "AMD EPYC",
@@ -2277,7 +2277,7 @@
           "Core(s) per socket": "2",
           "Socket(s)": "1",
           "Stepping": "0",
-          "BogoMIPS": "8583.81",
+          "BogoMIPS": "8583.83",
           "Flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 clzero xsaveerptr wbnoinvd arat npt lbrv nrip_save tsc_scale vmcb_clean flushbyasid pausefilter pfthreshold vgif vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect flush_l1d",
           "Virtualization": "AMD-V",
           "Hypervisor vendor": "KVM",
@@ -2316,8 +2316,8 @@
       "disk": {
         "workdir": "/home/runner/work/_temp",
         "total_bytes": 67557785600,
-        "free_bytes": 66758815744,
-        "mount": "overlay overlay rw,relatime,lowerdir=/disk/extra0,upperdir=/namespace/containers/rootfs/p2j4742uouqk2/fs,workdir=/namespace/containers/rootfs/p2j4742uouqk2/work,uuid=on",
+        "free_bytes": 66758819840,
+        "mount": "overlay overlay rw,relatime,lowerdir=/disk/extra0,upperdir=/namespace/containers/rootfs/dncfgpk7op76i/fs,workdir=/namespace/containers/rootfs/dncfgpk7op76i/work,uuid=on",
         "devices": [
           {
             "name": "nbd0",
@@ -2519,14 +2519,14 @@
         "chassis_vendor": null
       },
       "network": {
-        "ip": "216.176.230.247",
+        "ip": "216.176.227.204",
         "city": "Ashburn",
         "region": "Virginia",
         "country": "US",
         "org": "AS401483 Namespace Labs"
       },
       "runner": {
-        "name": "nsc-runner-fjko9ibct6eje",
+        "name": "nsc-runner-h1vl4o95eeodu",
         "environment": "self-hosted"
       },
       "tools": {
@@ -2534,80 +2534,80 @@
         "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
         "python": "3.12.16"
       },
-      "wall_seconds": 0.13133831499999893
+      "wall_seconds": 0.21476680800000025
     },
     "benchmarks": {
       "apt_install": {
-        "update_seconds": 3.2201437829999993,
-        "seconds": 6.60008386,
-        "wall_seconds": 6.600087838
+        "update_seconds": 2.867361635000001,
+        "seconds": 8.493975194,
+        "wall_seconds": 8.493978141
       },
       "cpu_single": {
         "threads": 1,
-        "events_per_second": 6023.26,
-        "wall_seconds": 15.009493608
+        "events_per_second": 6978.9,
+        "wall_seconds": 15.004216733
       },
       "cpu_multi": {
         "threads": 4,
-        "events_per_second": 23394.92,
-        "wall_seconds": 15.006337922
+        "events_per_second": 27449.24,
+        "wall_seconds": 15.003878888000003
       },
       "memory": {
-        "mib_per_second": 37327.79,
-        "wall_seconds": 15.011608171999995
+        "mib_per_second": 42761.41,
+        "wall_seconds": 15.004101388999999
       },
       "disk": {
         "seq_write": {
-          "mb_per_second": 1349.706951,
-          "iops": 1286.114259,
-          "p99_latency_us": 42205.184,
+          "mb_per_second": 4619.508173,
+          "iops": 4404.439704,
+          "p99_latency_us": 4816.896,
           "direct": true
         },
         "seq_read": {
-          "mb_per_second": 2158.244955,
-          "iops": 2057.196187,
-          "p99_latency_us": 10944.512,
+          "mb_per_second": 6171.437001,
+          "iops": 5884.474368,
+          "p99_latency_us": 3489.792,
           "direct": true
         },
         "rand_read": {
-          "mb_per_second": 600.441216,
-          "iops": 146589.960669,
-          "p99_latency_us": 485.376,
+          "mb_per_second": 2806.468833,
+          "iops": 685170.921939,
+          "p99_latency_us": 81.408,
           "direct": true
         },
         "rand_write": {
-          "mb_per_second": 481.598784,
-          "iops": 117575.694954,
-          "p99_latency_us": 643.072,
+          "mb_per_second": 2266.155346,
+          "iops": 553258.516099,
+          "p99_latency_us": 82.432,
           "direct": true
         },
-        "wall_seconds": 69.265060016
+        "wall_seconds": 69.17828370999999
       },
       "download_cloudflare": {
-        "mb_per_second": 131.093212,
+        "mb_per_second": 328.631709,
         "bytes": 50000000,
-        "seconds": 0.381408,
-        "connect_seconds": 0.006156,
-        "ttfb_seconds": 0.067638,
-        "wall_seconds": 0.3914502460000051
+        "seconds": 0.152146,
+        "connect_seconds": 0.008701,
+        "ttfb_seconds": 0.053771,
+        "wall_seconds": 0.15633077100000037
       },
       "compile_redis": {
         "version": "8.10.3",
         "jobs": 4,
-        "seconds": 36.81307831999999,
+        "seconds": 22.555800642999998,
         "github_download": {
-          "mb_per_second": 5.732736,
+          "mb_per_second": 23.001058,
           "bytes": 4780701,
-          "seconds": 0.83393,
-          "connect_seconds": 0.004809,
-          "ttfb_seconds": 0.204385
+          "seconds": 0.207847,
+          "connect_seconds": 0.003686,
+          "ttfb_seconds": 0.172444
         },
-        "wall_seconds": 37.79999452300001
+        "wall_seconds": 22.858575351000013
       }
     },
     "timing": {
-      "queue_seconds": 12.0,
-      "job_seconds": 168.0
+      "queue_seconds": 9.0,
+      "job_seconds": 151.0
     }
   },
   {

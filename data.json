@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T10:23:39.723601+00:00",
+ "generated_at": "2026-11-25T10:31:40.693961+00:00",
  "sample_count": 10,
  "benchmark_versions": [
   1
@@ -369,21 +369,21 @@
    "location": "Ashburn, US",
    "network": "AS401483 Namespace Labs",
    "medians": {
-    "queue": 12.0,
-    "apt_install": 6.60008386,
-    "cpu_single": 6023.26,
-    "cpu_multi": 23394.92,
-    "memory": 37327.79,
-    "seq_read": 2158.244955,
-    "seq_write": 1349.706951,
-    "rand_read": 146589.960669,
-    "rand_write": 117575.694954,
-    "download": 131.093212,
-    "redis_build": 36.81307831999999,
-    "redis_cost": 0.004908410442666666
+    "queue": 9.0,
+    "apt_install": 8.493975194,
+    "cpu_single": 6978.9,
+    "cpu_multi": 27449.24,
+    "memory": 42761.41,
+    "seq_read": 6171.437001,
+    "seq_write": 4619.508173,
+    "rand_read": 685170.921939,
+    "rand_write": 553258.516099,
+    "download": 328.631709,
+    "redis_build": 22.555800642999998,
+    "redis_cost": 0.003007440085733333
    },
    "sample_count": 1,
-   "measured_at": "2026-11-25T10:20:42.102074+00:00",
+   "measured_at": "2026-11-25T10:28:58.765056+00:00",
    "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45593986337"
   },
   {
