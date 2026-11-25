@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25T11:33:55.070181+00:00",
- "sample_count": 16,
+ "generated_at": "2026-11-25T11:39:24.556664+00:00",
+ "sample_count": 22,
  "benchmark_versions": [
   1
  ],
@@ -32,6 +32,10 @@
   {
    "run_id": "45604919602",
    "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45604919602"
+  },
+  {
+   "run_id": "45605952668",
+   "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45605952668"
   }
  ],
  "metrics": [
@@ -273,6 +277,111 @@
    "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45598079480"
   },
   {
+   "provider": "avrea",
+   "provider_name": "Avrea",
+   "label": "avrea-macos-26-8-vcpu",
+   "arch": "arm64",
+   "platform": "macos",
+   "price_per_minute": 0.08,
+   "billing": "per second",
+   "cpu_models": [
+    "Apple M5 Max (Virtual)"
+   ],
+   "vcpus": 8,
+   "memory_gib": 24.0,
+   "disk_gb": 361,
+   "virtualization": "apple",
+   "location": "Helsinki, FI",
+   "network": "AS209378 Inios Oy",
+   "medians": {
+    "queue": 29.0,
+    "apt_install": 4.976366542000001,
+    "cpu_single": null,
+    "cpu_multi": null,
+    "memory": 32501.07,
+    "seq_read": 16431.069186,
+    "seq_write": 13760.52415,
+    "rand_read": 90044.263716,
+    "rand_write": 55283.514432,
+    "download": 268.010291,
+    "redis_build": 14.420354542000013,
+    "redis_cost": 0.02
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T11:37:19.467472+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45605952668"
+  },
+  {
+   "provider": "blacksmith",
+   "provider_name": "Blacksmith",
+   "label": "blacksmith-6vcpu-macos-26",
+   "arch": "arm64",
+   "platform": "macos",
+   "price_per_minute": 0.08,
+   "billing": "per minute, rounded up",
+   "cpu_models": [
+    "Apple M5 Max (Virtual)"
+   ],
+   "vcpus": 6,
+   "memory_gib": 24.0,
+   "disk_gb": 439,
+   "virtualization": "apple",
+   "location": "San Jose, US",
+   "network": "AS402960 MACWEB",
+   "medians": {
+    "queue": 25.0,
+    "apt_install": 3.2482950420000023,
+    "cpu_single": null,
+    "cpu_multi": null,
+    "memory": 30315.12,
+    "seq_read": 12547.824334,
+    "seq_write": 10288.6934,
+    "rand_read": 56914.405706,
+    "rand_write": 25919.944007,
+    "download": 219.130053,
+    "redis_build": 13.790305124999975,
+    "redis_cost": 0.08
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T11:36:53.384812+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45605952668"
+  },
+  {
+   "provider": "depot",
+   "provider_name": "Depot",
+   "label": "depot-macos-26",
+   "arch": "arm64",
+   "platform": "macos",
+   "price_per_minute": 0.08,
+   "billing": "per second",
+   "cpu_models": [
+    "Apple M4 (Virtual)"
+   ],
+   "vcpus": 9,
+   "memory_gib": 17.0,
+   "disk_gb": 424,
+   "virtualization": "apple",
+   "location": "Ashburn, US",
+   "network": "AS14618 Amazon.com, Inc.",
+   "medians": {
+    "queue": 12.0,
+    "apt_install": null,
+    "cpu_single": null,
+    "cpu_multi": null,
+    "memory": 33685.69,
+    "seq_read": 6174.248644,
+    "seq_write": 364.241457,
+    "rand_read": 35685.554296,
+    "rand_write": 21218.05213,
+    "download": 245.956475,
+    "redis_build": 16.57508224999998,
+    "redis_cost": 0.02266666666666667
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T11:36:39.282233+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45605952668"
+  },
+  {
    "provider": "github",
    "provider_name": "GitHub",
    "label": "macos-26",
@@ -292,8 +401,8 @@
    "medians": {
     "queue": 3.0,
     "apt_install": 16.195416916,
-    "cpu_single": 6353811.69,
-    "cpu_multi": 21529176.15,
+    "cpu_single": null,
+    "cpu_multi": null,
     "memory": 14147.58,
     "seq_read": 5173.543418,
     "seq_write": 3206.471453,
@@ -306,6 +415,111 @@
    "sample_count": 1,
    "measured_at": "2026-11-25T11:30:08.017534+00:00",
    "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45604919602"
+  },
+  {
+   "provider": "groundbox",
+   "provider_name": "Groundbox",
+   "label": "groundbox-macos",
+   "arch": "arm64",
+   "platform": "macos",
+   "price_per_minute": 0.05,
+   "billing": "per second",
+   "cpu_models": [
+    "Apple M6 (Virtual)"
+   ],
+   "vcpus": 12,
+   "memory_gib": 12.0,
+   "disk_gb": 139,
+   "virtualization": "apple",
+   "location": "Martinez, US",
+   "network": "AS7922 Comcast Cable Communications, LLC",
+   "medians": {
+    "queue": 21.0,
+    "apt_install": 5.430345250000002,
+    "cpu_single": null,
+    "cpu_multi": null,
+    "memory": 36293.71,
+    "seq_read": 5328.706256,
+    "seq_write": 6137.196085,
+    "rand_read": 13847.010199,
+    "rand_write": 8932.47567,
+    "download": 59.530683,
+    "redis_build": 12.453694000000013,
+    "redis_cost": 0.010833333333333334
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T11:37:16.643480+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45605952668"
+  },
+  {
+   "provider": "luxor",
+   "provider_name": "Luxor",
+   "label": "luxor-macos-26-small",
+   "arch": "arm64",
+   "platform": "macos",
+   "price_per_minute": 0.08,
+   "billing": "per second",
+   "cpu_models": [
+    "Apple M4 Pro (Virtual)"
+   ],
+   "vcpus": 4,
+   "memory_gib": 8.0,
+   "disk_gb": 449,
+   "virtualization": "apple",
+   "location": "Seattle, US",
+   "network": "AS19538 Luxor",
+   "medians": {
+    "queue": 30.0,
+    "apt_install": 6.256791541999974,
+    "cpu_single": null,
+    "cpu_multi": null,
+    "memory": 33698.64,
+    "seq_read": 5011.719355,
+    "seq_write": 6155.080306,
+    "rand_read": 16233.517765,
+    "rand_write": 6743.65127,
+    "download": 60.411061,
+    "redis_build": 18.47643925,
+    "redis_cost": 0.025333333333333333
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T11:37:02.267439+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45605952668"
+  },
+  {
+   "provider": "warpbuild",
+   "provider_name": "WarpBuild",
+   "label": "warp-macos-26-arm64-6x",
+   "arch": "arm64",
+   "platform": "macos",
+   "price_per_minute": 0.08,
+   "billing": "per minute, rounded up",
+   "cpu_models": [
+    "Apple M5 Pro (Virtual)"
+   ],
+   "vcpus": 6,
+   "memory_gib": 22.0,
+   "disk_gb": 424,
+   "virtualization": "apple",
+   "location": "Atlanta, US",
+   "network": "AS395336 MacStadium, Inc.",
+   "medians": {
+    "queue": 4.0,
+    "apt_install": 4.50710875,
+    "cpu_single": null,
+    "cpu_multi": null,
+    "memory": 31598.53,
+    "seq_read": 7251.334296,
+    "seq_write": 6836.852515,
+    "rand_read": 14068.053056,
+    "rand_write": 6639.981336,
+    "download": 108.652191,
+    "redis_build": 16.800146584000004,
+    "redis_cost": 0.08
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T11:36:25.456417+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45605952668"
   },
   {
    "provider": "avrea",
@@ -658,5 +872,12 @@
    "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
   }
  ],
- "errors": []
+ "errors": [
+  {
+   "label": "depot-macos-26",
+   "run_id": "45605952668",
+   "benchmark": "apt_install",
+   "error": "['env', 'HOMEBREW_NO_AUTO_UPDATE=1', 'HOMEBREW_NO_INSTALL_CLEANUP=1', 'HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1', 'brew', 'install', '--quiet', 'sysbench', 'fio'] exited 1: \u2714\ufe0e Bottle readline (8.3.6)"
+  }
+ ]
 }

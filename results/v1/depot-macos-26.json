@@ -1,0 +1,154 @@
+[
+  {
+    "schema_version": 1,
+    "benchmark_version": 1,
+    "spec": {
+      "provider": "depot",
+      "name": "Depot",
+      "label": "depot-macos-26",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 9,
+      "memory_gb": 17,
+      "price_per_minute": 0.08,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "M4 host with 10 cores; the job gets 9.",
+      "pricing_source": "https://depot.dev/docs/github-actions/runner-types",
+      "rep": 1
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45605952668",
+      "run_attempt": "1",
+      "sha": "1871a434024122205c0db9e1db925c968160a55b"
+    },
+    "started_at": "2026-11-25T11:36:39.282233+00:00",
+    "finished_at": "2026-11-25T11:38:47.233339+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M4 (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 9,
+        "available_cpus": 9,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 18253611008,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/runner/work/_temp",
+        "total_bytes": 423603732480,
+        "free_bytes": 190782828544,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.3.1",
+        "kernel": "25.3.0",
+        "image_os": null,
+        "image_version": null
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "54.146.244.120",
+        "city": "Ashburn",
+        "region": "Virginia",
+        "country": "US",
+        "org": "AS14618 Amazon.com, Inc."
+      },
+      "runner": {
+        "name": "depot-xpgbb32vjv",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.0.123.102)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 1.7933000409999948
+    },
+    "benchmarks": {
+      "apt_install": {
+        "error": "['env', 'HOMEBREW_NO_AUTO_UPDATE=1', 'HOMEBREW_NO_INSTALL_CLEANUP=1', 'HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1', 'brew', 'install', '--quiet', 'sysbench', 'fio'] exited 1: ✔︎ Bottle readline (8.3.6)\n✔︎ Bottle Manifest luajit (2.1.1795119671)\n✔︎ Bottle luajit (2.1.1795119671)\n✔︎ Bottle Manifest mariadb-connector-c (3.4.11_1)\n✔︎ Bottle Manifest lz4 (1.11.1)\n✔︎ Bottle Manifest xz (5.8.4)\n✔︎ Bottle Manifest xz (5.8.4)\n✔︎ Bottle Manifest zstd (1.6.0)\n✔︎ Bottle lz4 (1.11.1)\n✔︎ Bottle xz (5.8.4)\n✔︎ Bottle zstd (1.6.0)\n✔︎ Bottle mariadb-connector-c (3.4.11_1)\n✔︎ Bottle sysbench (1.0.20_7)\n✔︎ Bottle fio (3.43)\n✔︎ Bottle icu4c@79 (79.1)\n✔︎ Bottle libpq (19.0)\n✔︎ Bottle openssl@4 (4.1.0)\n::warning::The post-install step did not complete successfully\n::warning::The post-install step did not complete successfully\n::warning::The post-install step did not complete successfully",
+        "wall_seconds": 20.977466292000003
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 33685.69,
+        "wall_seconds": 15.013792166000002
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 364.241457,
+          "iops": 347.301419,
+          "p99_latency_us": 175112.192,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 6174.248644,
+          "iops": 5887.222555,
+          "p99_latency_us": 3391.488,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 146.172126,
+          "iops": 35685.554296,
+          "p99_latency_us": 1335.296,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 86.913237,
+          "iops": 21218.05213,
+          "p99_latency_us": 1597.44,
+          "direct": true
+        },
+        "wall_seconds": 72.31693433400001
+      },
+      "download_cloudflare": {
+        "mb_per_second": 245.956475,
+        "bytes": 50000000,
+        "seconds": 0.203288,
+        "connect_seconds": 0.008806,
+        "ttfb_seconds": 0.053759,
+        "wall_seconds": 0.21995141599998647
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 9,
+        "seconds": 16.57508224999998,
+        "github_download": {
+          "mb_per_second": 6.058168,
+          "bytes": 4780701,
+          "seconds": 0.789133,
+          "connect_seconds": 0.012407,
+          "ttfb_seconds": 0.186263
+        },
+        "wall_seconds": 17.628553791
+      }
+    },
+    "timing": {
+      "queue_seconds": 12.0,
+      "job_seconds": 141.0
+    }
+  }
+]

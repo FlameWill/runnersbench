@@ -1,0 +1,155 @@
+[
+  {
+    "schema_version": 1,
+    "benchmark_version": 1,
+    "spec": {
+      "provider": "luxor",
+      "name": "Luxor",
+      "label": "luxor-macos-26-small",
+      "arch": "arm64",
+      "os": "macos",
+      "vcpu": 4,
+      "memory_gb": 8,
+      "price_per_minute": 0.08,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "M4 Pro. $0.020 per vCPU-minute.",
+      "pricing_source": "https://luxor.ai/docs/pricing",
+      "rep": 1
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45605952668",
+      "run_attempt": "1",
+      "sha": "1871a434024122205c0db9e1db925c968160a55b"
+    },
+    "started_at": "2026-11-25T11:37:02.267439+00:00",
+    "finished_at": "2026-11-25T11:39:02.144500+00:00",
+    "system": {
+      "cpu": {
+        "model": "Apple M4 Pro (Virtual)",
+        "vendor": "Apple",
+        "arch": "arm64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": null,
+        "sockets": null,
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": null,
+        "cgroup_cpu_max": null,
+        "lscpu": {}
+      },
+      "memory": {
+        "total_bytes": 8589934592,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/Users/runner/actions-runner/_work/_temp",
+        "total_bytes": 449475674112,
+        "free_bytes": 174624022528,
+        "mount": null,
+        "devices": null
+      },
+      "os": {
+        "pretty_name": "macOS 26.7.3",
+        "kernel": "25.6.0",
+        "image_os": "macos26",
+        "image_version": "20261122.1"
+      },
+      "virtualization": "apple",
+      "dmi": {
+        "product_name": "VirtualMac2,1"
+      },
+      "network": {
+        "ip": "199.180.135.1",
+        "city": "Seattle",
+        "region": "Washington",
+        "country": "US",
+        "org": "AS19538 Luxor"
+      },
+      "runner": {
+        "name": "tenki-sandbox-fe045bd7-7f18-45b4-95e5-80005bf57b89",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": null,
+        "gcc": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 4.559204792000003
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "brew",
+        "seconds": 6.256791541999974,
+        "wall_seconds": 6.256795084000004
+      },
+      "cpu_single": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "cpu_multi": {
+        "skipped": "sysbench's CPU test doesn't do real work on macOS"
+      },
+      "memory": {
+        "mib_per_second": 33698.64,
+        "wall_seconds": 16.035115165999997
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 6155.080306,
+          "iops": 5868.942071,
+          "p99_latency_us": 7897.088,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 5011.719355,
+          "iops": 4778.548097,
+          "p99_latency_us": 4423.68,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 66.496584,
+          "iops": 16233.517765,
+          "p99_latency_us": 2179.072,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 27.62609,
+          "iops": 6743.65127,
+          "p99_latency_us": 5799.936,
+          "direct": true
+        },
+        "wall_seconds": 72.98056545799997
+      },
+      "download_cloudflare": {
+        "mb_per_second": 60.411061,
+        "bytes": 50000000,
+        "seconds": 0.827663,
+        "connect_seconds": 0.010132,
+        "ttfb_seconds": 0.068466,
+        "wall_seconds": 0.8394372920000137
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 18.47643925,
+        "github_download": {
+          "mb_per_second": 11.815869,
+          "bytes": 4780701,
+          "seconds": 0.4046,
+          "connect_seconds": 0.026042,
+          "ttfb_seconds": 0.27164
+        },
+        "wall_seconds": 19.205052041999977
+      }
+    },
+    "timing": {
+      "queue_seconds": 30.0,
+      "job_seconds": 140.0
+    }
+  }
+]
