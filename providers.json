@@ -114,7 +114,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.0024,
-      "enabled": true,
+      "enabled": false,
       "notes": "usejog.com. Ubuntu 24.04, billed per second. jog-max is a faster tier at twice the price.",
       "pricing_source": "https://usejog.com/#pricing"
     },
