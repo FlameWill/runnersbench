@@ -1,12 +1,13 @@
 # Runner benchmark report
 
-Benchmark version 1. 8 samples from 3 workflow run(s). Benchmark values are medians across samples; the best value in each column is bold.
+Benchmark version 1. 9 samples from 4 workflow run(s). Benchmark values are medians across samples; the best value in each column is bold.
 
 ## Runners
 
 | Provider | Label | CPU | vCPUs | Memory (GiB) | Disk (GB) | Virtualization | Location | Network | Samples |
 |---|---|---|---|---|---|---|---|---|---|
 | avrea | `avrea-ubuntu-24.04-4-vcpu` | AMD EPYC 4585PX 16-Core Processor | 4 | 14.7 | 156 | kvm | Roubaix, FR | AS16276 OVH SAS | 1 |
+| blacksmith | `blacksmith-4vcpu-ubuntu-2404` | AMD EPYC | 4 | 15.4 | 161 | kvm | Phoenix, US | AS20454 SECURED SERVERS LLC | 1 |
 | buildkite | `buildkite-linux-amd64-4x16` | AMD EPYC | 4 | 15.7 | 101 | docker | Ashburn, US | AS401483 Namespace Labs | 1 |
 | checklane | `checklane-4vcpu-ubuntu-2404` | AMD EPYC | 4 | 15.6 | 169 | kvm | London, GB | AS212027 PebbleHost Ltd | 1 |
 | depot | `depot-ubuntu-24.04-4` | Intel(R) Xeon(R) 6975P-C | 4 | 30.8 | 136 | amazon | Ashburn, US | AS14618 Amazon.com, Inc. | 1 |
@@ -20,7 +21,8 @@ Benchmark version 1. 8 samples from 3 workflow run(s). Benchmark values are medi
 | Provider | Label | Queue (s) | apt install (s) | CPU 1 thread (events/s) | CPU all threads (events/s) | Memory (MiB/s) | Seq read (MB/s) | Seq write (MB/s) | 4k rand read (IOPS) | 4k rand write (IOPS) | Download (MB/s) | Redis build (s) | $ per Redis build |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | avrea | `avrea-ubuntu-24.04-4-vcpu` | 7.0 | 7.1 | 6,795 | 27,017 | 42,332 | 18,155 | 10,815 | 89,046 | 133,862 | 139 | **22.9** | $0.0031 |
-| buildkite | `buildkite-linux-amd64-4x16` | 6.4 | 4.2 | 6,258 | 24,684 | 36,810 | 3,335 | 2,198 | **404,009** | **281,067** | **305** | 31.4 | $0.0084 |
+| blacksmith | `blacksmith-4vcpu-ubuntu-2404` | 7.0 | 9.6 | 6,534 | 25,584 | 40,472 | 6,247 | 1,795 | **615,990** | **426,474** | 110 | 25.9 | $0.0035 |
+| buildkite | `buildkite-linux-amd64-4x16` | 6.4 | 4.2 | 6,258 | 24,684 | 36,810 | 3,335 | 2,198 | 404,009 | 281,067 | **305** | 31.4 | $0.0084 |
 | checklane | `checklane-4vcpu-ubuntu-2404` | 8.0 | 3.4 | **6,963** | **27,057** | 42,234 | 5,295 | 3,843 | 96,953 | 92,981 | 263 | 24.1 | **$0.0016** |
 | depot | `depot-ubuntu-24.04-4` | **2.0** | 24.8 | 3,317 | 6,965 | 40,814 | 344 | 333 | 5,898 | 6,528 | 177 | 58.0 | $0.0116 |
 | github | `ubuntu-24.04` | 4.0 | 16.0 | 3,672 | 8,197 | 27,365 | 414 | 414 | 19,570 | 19,574 | 58.5 | 74.4 | $0.0149 |

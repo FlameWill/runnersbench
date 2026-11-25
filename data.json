@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25T09:28:07.654133+00:00",
- "sample_count": 8,
+ "generated_at": "2026-11-25T09:41:11.954290+00:00",
+ "sample_count": 9,
  "benchmark_versions": [
   1
  ],
@@ -16,6 +16,10 @@
   {
    "run_id": "45585210803",
    "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45585210803"
+  },
+  {
+   "run_id": "45587221223",
+   "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45587221223"
   }
  ],
  "metrics": [
@@ -113,6 +117,39 @@
    "sample_count": 1,
    "measured_at": "2026-11-24T20:07:09.888539+00:00",
    "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
+  },
+  {
+   "provider": "blacksmith",
+   "provider_name": "Blacksmith",
+   "label": "blacksmith-4vcpu-ubuntu-2404",
+   "arch": "x64",
+   "price_per_minute": 0.008,
+   "cpu_models": [
+    "AMD EPYC"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.4,
+   "disk_gb": 161,
+   "virtualization": "kvm",
+   "location": "Phoenix, US",
+   "network": "AS20454 SECURED SERVERS LLC",
+   "medians": {
+    "queue": 7.0,
+    "apt_install": 9.61086344,
+    "cpu_single": 6533.84,
+    "cpu_multi": 25584.22,
+    "memory": 40472.36,
+    "seq_read": 6247.069241,
+    "seq_write": 1795.262741,
+    "rand_read": 615990.200653,
+    "rand_write": 426474.168389,
+    "download": 110.132643,
+    "redis_build": 25.90236019400001,
+    "redis_cost": 0.003453648025866668
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T09:38:16.864975+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45587221223"
   },
   {
    "provider": "buildkite",
