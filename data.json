@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T05:21:45.856172+00:00",
+ "generated_at": "2026-11-25T05:25:47.559978+00:00",
  "sample_count": 8,
  "benchmark_versions": [
   1
@@ -8,6 +8,10 @@
   {
    "run_id": "45476966696",
    "url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
+  },
+  {
+   "run_id": "45553147564",
+   "url": "https://github.com/lockyer-labs/runners/actions/runs/45553147564"
   }
  ],
  "metrics": [
@@ -155,22 +159,22 @@
    "location": "London, GB",
    "network": "AS212027 PebbleHost Ltd",
    "medians": {
-    "queue": 100.0,
-    "apt_install": 4.846582783000002,
-    "cpu_single": 6992.31,
-    "cpu_multi": 27605.36,
-    "memory": 43503.22,
-    "seq_read": 6909.725096,
-    "seq_write": 4901.067011,
-    "rand_read": 87540.363976,
-    "rand_write": 85856.809546,
-    "download": 89.284598,
-    "redis_build": 23.32082882399999,
-    "redis_cost": 0.0015547219215999992
+    "queue": 8.0,
+    "apt_install": 3.424943486,
+    "cpu_single": 6963.17,
+    "cpu_multi": 27057.09,
+    "memory": 42234.37,
+    "seq_read": 5294.746101,
+    "seq_write": 3842.704954,
+    "rand_read": 96953.336444,
+    "rand_write": 92981.267915,
+    "download": 262.850774,
+    "redis_build": 24.08164589399999,
+    "redis_cost": 0.0016054430595999994
    },
    "sample_count": 1,
-   "measured_at": "2026-11-24T20:08:51.707180+00:00",
-   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45476966696"
+   "measured_at": "2026-11-25T05:23:04.408213+00:00",
+   "run_url": "https://github.com/lockyer-labs/runners/actions/runs/45553147564"
   },
   {
    "provider": "depot",
