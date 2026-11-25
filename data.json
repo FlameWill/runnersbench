@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25T13:24:18.108987+00:00",
- "sample_count": 65,
+ "generated_at": "2026-11-25T13:37:51.319403+00:00",
+ "sample_count": 68,
  "benchmark_versions": [
   3
  ],
@@ -8,6 +8,10 @@
   {
    "run_id": "45620389115",
    "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45620389115"
+  },
+  {
+   "run_id": "45624838539",
+   "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45624838539"
   }
  ],
  "metrics": [
@@ -1462,6 +1466,101 @@
    "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45620389115"
   },
   {
+   "provider": "celesto",
+   "provider_name": "Celesto",
+   "label": "celesto-large",
+   "arch": "x64",
+   "platform": "x64",
+   "price_per_minute": 0.00133333,
+   "billing": "per second",
+   "cpu_models": [
+    "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.6,
+   "disk_gb": 63,
+   "virtualization": "docker",
+   "location": "Ashburn, US",
+   "network": "AS14618 Amazon.com, Inc.",
+   "medians": {
+    "queue": 14.0,
+    "apt_install": 6.843864887999999,
+    "cpu_single": 2948.76,
+    "cpu_multi": 11718.06,
+    "memory": 21932.03,
+    "seq_read": 4957.16523,
+    "seq_write": 5572.206808,
+    "rand_read": 317840.74395,
+    "rand_write": 262005.932938,
+    "download": 249.264669,
+    "cache_save": 6.540796756744385,
+    "cache_restore": 4.1644721031188965,
+    "redis_build": 48.47722833899999,
+    "redis_cost": 0.0010888861666666666
+   },
+   "ranges": {
+    "queue": [
+     13.0,
+     14.0
+    ],
+    "apt_install": [
+     6.498113604,
+     7.162765604999997
+    ],
+    "cpu_single": [
+     2910.34,
+     2965.04
+    ],
+    "cpu_multi": [
+     11632.81,
+     11742.77
+    ],
+    "memory": [
+     20961.98,
+     25136.1
+    ],
+    "seq_read": [
+     4890.815121,
+     4995.185982
+    ],
+    "seq_write": [
+     4945.882465,
+     6042.014705
+    ],
+    "rand_read": [
+     305391.773882,
+     331979.134724
+    ],
+    "rand_write": [
+     244078.59476,
+     266686.087594
+    ],
+    "download": [
+     131.081183,
+     271.112918
+    ],
+    "cache_save": [
+     6.250042915344238,
+     6.722715854644775
+    ],
+    "cache_restore": [
+     3.661452054977417,
+     4.300533771514893
+    ],
+    "redis_build": [
+     47.859669456999995,
+     51.233689036000015
+    ],
+    "redis_cost": [
+     0.001066664,
+     0.0011555526666666668
+    ]
+   },
+   "sample_count": 3,
+   "measured_at": "2026-11-25T13:34:29.353834+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45624838539"
+  },
+  {
    "provider": "checklane",
    "provider_name": "Checklane",
    "label": "checklane-4vcpu-ubuntu-2404",
@@ -2134,13 +2233,14 @@
   "avrea": "#4269d0",
   "blacksmith": "#efb118",
   "buildkite": "#ff725c",
-  "checklane": "#6cc5b0",
-  "depot": "#3ca951",
-  "github": "#ff8ab7",
-  "groundbox": "#a463f2",
-  "luxor": "#97bbf5",
-  "namespace": "#9c6b4e",
-  "warpbuild": "#9498a0"
+  "celesto": "#6cc5b0",
+  "checklane": "#3ca951",
+  "depot": "#ff8ab7",
+  "github": "#a463f2",
+  "groundbox": "#97bbf5",
+  "luxor": "#9c6b4e",
+  "namespace": "#9498a0",
+  "warpbuild": "#4269d0"
  },
  "errors": [
   {

@@ -1,0 +1,683 @@
+[
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "celesto",
+      "name": "Celesto",
+      "label": "celesto-large",
+      "arch": "x64",
+      "price_per_minute": 0.00133333,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "Large is Celesto's 4 vCPU / 16 GB size on Ubuntu 24.04. Billed per second of runtime, which also includes runner preparation and cleanup.",
+      "pricing_source": "https://celesto.ai/docs/ci",
+      "rep": 1
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45624838539",
+      "run_attempt": "1",
+      "sha": "e35f202e264000eabccd74dc65a8d434cf281789"
+    },
+    "started_at": "2026-11-25T13:34:26.706006+00:00",
+    "finished_at": "2026-11-25T13:37:22.557764+00:00",
+    "system": {
+      "cpu": {
+        "model": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "vendor": "GenuineIntel",
+        "arch": "x86_64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "1",
+        "sockets": "1",
+        "max_mhz": null,
+        "l3_cache": "16 MiB (1 instance)",
+        "hypervisor": "KVM",
+        "flags": {
+          "avx2": true,
+          "avx512f": true,
+          "sha_ni": true,
+          "aes": true,
+          "vaes": true,
+          "asimd": false,
+          "sve": false,
+          "sve2": false,
+          "sha2": false
+        },
+        "cgroup_cpu_max": null,
+        "lscpu": {
+          "Architecture": "x86_64",
+          "CPU op-mode(s)": "32-bit, 64-bit",
+          "Address sizes": "46 bits physical, 57 bits virtual",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "GenuineIntel",
+          "Model name": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+          "CPU family": "6",
+          "Model": "106",
+          "Thread(s) per core": "1",
+          "Core(s) per socket": "4",
+          "Socket(s)": "1",
+          "Stepping": "6",
+          "BogoMIPS": "5799.91",
+          "Flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm arch_perfmon pebs bts rep_good nopl xtopology cpuid tsc_known_freq pni pclmulqdq dtes64 ssse3 fma cx16 pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid fsrm md_clear flush_l1d arch_capabilities",
+          "Hypervisor vendor": "KVM",
+          "Virtualization type": "full",
+          "L1d cache": "128 KiB (4 instances)",
+          "L1i cache": "128 KiB (4 instances)",
+          "L2 cache": "16 MiB (4 instances)",
+          "L3 cache": "16 MiB (1 instance)",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Unknown: Dependent on hypervisor status",
+          "Vulnerability Ghostwrite": "Not affected",
+          "Vulnerability Indirect target selection": "Mitigation; Aligned branch/return thunks",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+          "Vulnerability Old microcode": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Not affected",
+          "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+          "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI Vulnerable",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Mitigation; TSX disabled",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 16771747840,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/tmp/celesto-actions-runner/_work/_temp",
+        "total_bytes": 63292256256,
+        "free_bytes": 48996470784,
+        "mount": "/dev/vda ext4   rw,relatime",
+        "devices": [
+          {
+            "name": "vda",
+            "size": "60G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.5 LTS",
+        "kernel": "7.3.0",
+        "image_os": "ubuntu24",
+        "image_version": null
+      },
+      "virtualization": "docker",
+      "dmi": {
+        "sys_vendor": "Bochs",
+        "product_name": "Bochs",
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": "Bochs",
+        "chassis_vendor": "Bochs"
+      },
+      "network": {
+        "ip": "100.59.248.9",
+        "city": "Ashburn",
+        "region": "Virginia",
+        "country": "US",
+        "org": "AS14618 Amazon.com, Inc."
+      },
+      "runner": {
+        "name": "celesto-rs-7bfcf2eb513524d96192be8cd4d64f6a",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": "Docker version 29.1.3, build 29.1.3-0ubuntu3~24.04.2",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.13649603999999727
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 2.1690513970000005,
+        "seconds": 6.843864887999999,
+        "wall_seconds": 6.843870657000004
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 2910.34,
+        "wall_seconds": 15.016301946999995
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 11632.81,
+        "wall_seconds": 15.023865689000004
+      },
+      "memory": {
+        "mib_per_second": 21932.03,
+        "wall_seconds": 15.022455074999996
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 5572.206808,
+          "iops": 5313.070719,
+          "p99_latency_us": 3489.792,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 4890.815121,
+          "iops": 4663.244901,
+          "p99_latency_us": 4227.072,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 1359.795273,
+          "iops": 331979.134724,
+          "p99_latency_us": 177.152,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 1073.184765,
+          "iops": 262005.932938,
+          "p99_latency_us": 224.256,
+          "direct": true
+        },
+        "wall_seconds": 68.90352462899999
+      },
+      "download_cloudflare": {
+        "mb_per_second": 131.081183,
+        "bytes": 50000000,
+        "seconds": 0.381443,
+        "connect_seconds": 0.030551,
+        "ttfb_seconds": 0.096129,
+        "wall_seconds": 0.3879379120000124
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 48.47722833899999,
+        "github_download": {
+          "mb_per_second": 5.680706,
+          "bytes": 4780701,
+          "seconds": 0.841568,
+          "connect_seconds": 0.008294,
+          "ttfb_seconds": 0.202385
+        },
+        "wall_seconds": 49.505641674
+      },
+      "cache": {
+        "size_mb": 1024,
+        "save_seconds": 6.540796756744385,
+        "restore_seconds": 4.1644721031188965
+      }
+    },
+    "timing": {
+      "queue_seconds": 14.0,
+      "job_seconds": 201.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "celesto",
+      "name": "Celesto",
+      "label": "celesto-large",
+      "arch": "x64",
+      "price_per_minute": 0.00133333,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "Large is Celesto's 4 vCPU / 16 GB size on Ubuntu 24.04. Billed per second of runtime, which also includes runner preparation and cleanup.",
+      "pricing_source": "https://celesto.ai/docs/ci",
+      "rep": 2
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45624838539",
+      "run_attempt": "1",
+      "sha": "e35f202e264000eabccd74dc65a8d434cf281789"
+    },
+    "started_at": "2026-11-25T13:34:25.070867+00:00",
+    "finished_at": "2026-11-25T13:37:23.852699+00:00",
+    "system": {
+      "cpu": {
+        "model": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "vendor": "GenuineIntel",
+        "arch": "x86_64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "1",
+        "sockets": "1",
+        "max_mhz": null,
+        "l3_cache": "16 MiB (1 instance)",
+        "hypervisor": "KVM",
+        "flags": {
+          "avx2": true,
+          "avx512f": true,
+          "sha_ni": true,
+          "aes": true,
+          "vaes": true,
+          "asimd": false,
+          "sve": false,
+          "sve2": false,
+          "sha2": false
+        },
+        "cgroup_cpu_max": null,
+        "lscpu": {
+          "Architecture": "x86_64",
+          "CPU op-mode(s)": "32-bit, 64-bit",
+          "Address sizes": "46 bits physical, 57 bits virtual",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "GenuineIntel",
+          "Model name": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+          "CPU family": "6",
+          "Model": "106",
+          "Thread(s) per core": "1",
+          "Core(s) per socket": "4",
+          "Socket(s)": "1",
+          "Stepping": "6",
+          "BogoMIPS": "5799.88",
+          "Flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm arch_perfmon pebs bts rep_good nopl xtopology cpuid tsc_known_freq pni pclmulqdq dtes64 ssse3 fma cx16 pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid fsrm md_clear flush_l1d arch_capabilities",
+          "Hypervisor vendor": "KVM",
+          "Virtualization type": "full",
+          "L1d cache": "128 KiB (4 instances)",
+          "L1i cache": "128 KiB (4 instances)",
+          "L2 cache": "16 MiB (4 instances)",
+          "L3 cache": "16 MiB (1 instance)",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Unknown: Dependent on hypervisor status",
+          "Vulnerability Ghostwrite": "Not affected",
+          "Vulnerability Indirect target selection": "Mitigation; Aligned branch/return thunks",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+          "Vulnerability Old microcode": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Not affected",
+          "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+          "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI Vulnerable",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Mitigation; TSX disabled",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 16771756032,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/tmp/celesto-actions-runner/_work/_temp",
+        "total_bytes": 63292256256,
+        "free_bytes": 48996474880,
+        "mount": "/dev/vda ext4   rw,relatime",
+        "devices": [
+          {
+            "name": "vda",
+            "size": "60G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.5 LTS",
+        "kernel": "7.3.0",
+        "image_os": "ubuntu24",
+        "image_version": null
+      },
+      "virtualization": "docker",
+      "dmi": {
+        "sys_vendor": "Bochs",
+        "product_name": "Bochs",
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": "Bochs",
+        "chassis_vendor": "Bochs"
+      },
+      "network": {
+        "ip": "35.168.91.32",
+        "city": "Ashburn",
+        "region": "Virginia",
+        "country": "US",
+        "org": "AS14618 Amazon.com, Inc."
+      },
+      "runner": {
+        "name": "celesto-rs-34016a159d64c471e778f0c83388ba69",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": "Docker version 29.1.3, build 29.1.3-0ubuntu3~24.04.2",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.1468324470000013
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 2.2628885899999993,
+        "seconds": 7.162765604999997,
+        "wall_seconds": 7.162770765999998
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 2965.04,
+        "wall_seconds": 15.008697820999998
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 11718.06,
+        "wall_seconds": 15.008398932999995
+      },
+      "memory": {
+        "mib_per_second": 20961.98,
+        "wall_seconds": 15.010563916999999
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 6042.014705,
+          "iops": 5761.114444,
+          "p99_latency_us": 3784.704,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 4957.16523,
+          "iops": 4726.521362,
+          "p99_latency_us": 4489.216,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 1250.893443,
+          "iops": 305391.773882,
+          "p99_latency_us": 168.96,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 999.754661,
+          "iops": 244078.59476,
+          "p99_latency_us": 268.288,
+          "direct": true
+        },
+        "wall_seconds": 68.89517693199998
+      },
+      "download_cloudflare": {
+        "mb_per_second": 249.264669,
+        "bytes": 50000000,
+        "seconds": 0.20059,
+        "connect_seconds": 0.031404,
+        "ttfb_seconds": 0.090234,
+        "wall_seconds": 0.20688623999998867
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 51.233689036000015,
+        "github_download": {
+          "mb_per_second": 5.170466,
+          "bytes": 4780701,
+          "seconds": 0.924617,
+          "connect_seconds": 0.040251,
+          "ttfb_seconds": 0.257292
+        },
+        "wall_seconds": 52.331932803
+      },
+      "cache": {
+        "size_mb": 1024,
+        "save_seconds": 6.250042915344238,
+        "restore_seconds": 3.661452054977417
+      }
+    },
+    "timing": {
+      "queue_seconds": 13.0,
+      "job_seconds": 203.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "celesto",
+      "name": "Celesto",
+      "label": "celesto-large",
+      "arch": "x64",
+      "price_per_minute": 0.00133333,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "Large is Celesto's 4 vCPU / 16 GB size on Ubuntu 24.04. Billed per second of runtime, which also includes runner preparation and cleanup.",
+      "pricing_source": "https://celesto.ai/docs/ci",
+      "rep": 3
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45624838539",
+      "run_attempt": "1",
+      "sha": "e35f202e264000eabccd74dc65a8d434cf281789"
+    },
+    "started_at": "2026-11-25T13:34:29.353834+00:00",
+    "finished_at": "2026-11-25T13:37:23.282022+00:00",
+    "system": {
+      "cpu": {
+        "model": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "vendor": "GenuineIntel",
+        "arch": "x86_64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "1",
+        "sockets": "1",
+        "max_mhz": null,
+        "l3_cache": "16 MiB (1 instance)",
+        "hypervisor": "KVM",
+        "flags": {
+          "avx2": true,
+          "avx512f": true,
+          "sha_ni": true,
+          "aes": true,
+          "vaes": true,
+          "asimd": false,
+          "sve": false,
+          "sve2": false,
+          "sha2": false
+        },
+        "cgroup_cpu_max": null,
+        "lscpu": {
+          "Architecture": "x86_64",
+          "CPU op-mode(s)": "32-bit, 64-bit",
+          "Address sizes": "46 bits physical, 57 bits virtual",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "GenuineIntel",
+          "Model name": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+          "CPU family": "6",
+          "Model": "106",
+          "Thread(s) per core": "1",
+          "Core(s) per socket": "4",
+          "Socket(s)": "1",
+          "Stepping": "6",
+          "BogoMIPS": "5799.91",
+          "Flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm arch_perfmon pebs bts rep_good nopl xtopology cpuid tsc_known_freq pni pclmulqdq dtes64 ssse3 fma cx16 pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid fsrm md_clear flush_l1d arch_capabilities",
+          "Hypervisor vendor": "KVM",
+          "Virtualization type": "full",
+          "L1d cache": "128 KiB (4 instances)",
+          "L1i cache": "128 KiB (4 instances)",
+          "L2 cache": "16 MiB (4 instances)",
+          "L3 cache": "16 MiB (1 instance)",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Unknown: Dependent on hypervisor status",
+          "Vulnerability Ghostwrite": "Not affected",
+          "Vulnerability Indirect target selection": "Mitigation; Aligned branch/return thunks",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+          "Vulnerability Old microcode": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Not affected",
+          "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+          "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI Vulnerable",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Mitigation; TSX disabled",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 16771747840,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/tmp/celesto-actions-runner/_work/_temp",
+        "total_bytes": 63292256256,
+        "free_bytes": 48996474880,
+        "mount": "/dev/vda ext4   rw,relatime",
+        "devices": [
+          {
+            "name": "vda",
+            "size": "60G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.5 LTS",
+        "kernel": "7.3.0",
+        "image_os": "ubuntu24",
+        "image_version": null
+      },
+      "virtualization": "docker",
+      "dmi": {
+        "sys_vendor": "Bochs",
+        "product_name": "Bochs",
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": "Bochs",
+        "chassis_vendor": "Bochs"
+      },
+      "network": {
+        "ip": "100.59.248.9",
+        "city": "Ashburn",
+        "region": "Virginia",
+        "country": "US",
+        "org": "AS14618 Amazon.com, Inc."
+      },
+      "runner": {
+        "name": "celesto-rs-1fad62ecc7c4d80e4350954d6de1992f",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": "Docker version 29.1.3, build 29.1.3-0ubuntu3~24.04.2",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.10544722199999867
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 2.0260203069999996,
+        "seconds": 6.498113604,
+        "wall_seconds": 6.4981181029999995
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 2948.76,
+        "wall_seconds": 15.007520104999998
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 11742.77,
+        "wall_seconds": 15.007470234000003
+      },
+      "memory": {
+        "mib_per_second": 25136.1,
+        "wall_seconds": 15.010347169
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 4945.882465,
+          "iops": 4715.761413,
+          "p99_latency_us": 4816.896,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 4995.185982,
+          "iops": 4762.780777,
+          "p99_latency_us": 3784.704,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 1301.884424,
+          "iops": 317840.74395,
+          "p99_latency_us": 183.296,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 1092.354679,
+          "iops": 266686.087594,
+          "p99_latency_us": 205.824,
+          "direct": true
+        },
+        "wall_seconds": 68.892119291
+      },
+      "download_cloudflare": {
+        "mb_per_second": 271.112918,
+        "bytes": 50000000,
+        "seconds": 0.184425,
+        "connect_seconds": 0.012265,
+        "ttfb_seconds": 0.0671,
+        "wall_seconds": 0.19207765400000198
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 47.859669456999995,
+        "github_download": {
+          "mb_per_second": 26.330085,
+          "bytes": 4780701,
+          "seconds": 0.181568,
+          "connect_seconds": 0.022823,
+          "ttfb_seconds": 0.151415
+        },
+        "wall_seconds": 48.20478566100002
+      },
+      "cache": {
+        "size_mb": 1024,
+        "save_seconds": 6.722715854644775,
+        "restore_seconds": 4.300533771514893
+      }
+    },
+    "timing": {
+      "queue_seconds": 14.0,
+      "job_seconds": 202.0
+    }
+  }
+]
