@@ -80,10 +80,8 @@ function renderStats(data) {
 function renderTables(data) {
   const { runners, metrics } = data;
   const bests = Object.fromEntries(metrics.map((m) => [m.key, best(runners, m)]));
-  document.getElementById("benchmarks-caption").append(
-    `${runners.length} runners · ${metrics.length} metrics · benchmark v${data.benchmark_versions.join(", ")}`,
-    el("span", { className: "shortcut", textContent: " · shift+click a provider, metric or cell to highlight it, esc to clear" }),
-  );
+  document.getElementById("benchmarks-caption").textContent =
+    `${runners.length} runners · ${metrics.length} metrics · benchmark v${data.benchmark_versions.join(", ")}`;
   const benchmarks = document.getElementById("benchmarks");
   table(
     benchmarks,
