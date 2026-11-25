@@ -1,0 +1,1244 @@
+[
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "buildkite",
+      "name": "Buildkite",
+      "label": "buildkite-linux-amd64-4x16",
+      "arch": "x64",
+      "price_per_minute": 0.016,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "Buildkite hosted agent (Medium). Runs .buildkite/pipeline.yml, started by the bench-buildkite job. Needs a paid or trial plan.",
+      "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",
+      "buildkite": {
+        "organization": "daniel-lockyer",
+        "pipeline": "runners",
+        "queue": "linux-medium"
+      },
+      "rep": 1
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45620389115",
+      "run_attempt": "1",
+      "sha": "ed05531d135a6957434933885f8c3d4585f38285"
+    },
+    "started_at": "2026-11-25T13:08:00.011800+00:00",
+    "finished_at": "2026-11-25T13:10:25.171564+00:00",
+    "system": {
+      "cpu": {
+        "model": "AMD EPYC",
+        "vendor": "AuthenticAMD",
+        "arch": "x86_64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "2",
+        "sockets": "1",
+        "max_mhz": null,
+        "l3_cache": "32 MiB (1 instance)",
+        "hypervisor": "KVM",
+        "flags": {
+          "avx2": true,
+          "avx512f": true,
+          "sha_ni": true,
+          "aes": true,
+          "vaes": true,
+          "asimd": false,
+          "sve": false,
+          "sve2": false,
+          "sha2": false
+        },
+        "cgroup_cpu_max": "max 100000",
+        "lscpu": {
+          "Architecture": "x86_64",
+          "CPU op-mode(s)": "32-bit, 64-bit",
+          "Address sizes": "48 bits physical, 48 bits virtual",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "AuthenticAMD",
+          "Model name": "AMD EPYC",
+          "CPU family": "26",
+          "Model": "68",
+          "Thread(s) per core": "2",
+          "Core(s) per socket": "2",
+          "Socket(s)": "1",
+          "Stepping": "0",
+          "BogoMIPS": "8583.82",
+          "Flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 clzero xsaveerptr wbnoinvd arat npt lbrv nrip_save tsc_scale vmcb_clean flushbyasid pausefilter pfthreshold vgif vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect flush_l1d",
+          "Virtualization": "AMD-V",
+          "Hypervisor vendor": "KVM",
+          "Virtualization type": "full",
+          "L1d cache": "96 KiB (2 instances)",
+          "L1i cache": "64 KiB (2 instances)",
+          "L2 cache": "2 MiB (2 instances)",
+          "L3 cache": "32 MiB (1 instance)",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Not affected",
+          "Vulnerability Ghostwrite": "Not affected",
+          "Vulnerability Indirect target selection": "Not affected",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Not affected",
+          "Vulnerability Old microcode": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Mitigation; IBPB on VMEXIT only",
+          "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+          "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Not affected",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 16833269760,
+        "cgroup_max": "max"
+      },
+      "disk": {
+        "workdir": "/buildkite/builds/v90mvb3eamogi-1/daniel-lockyer/runners/.bench-work",
+        "total_bytes": 101376720896,
+        "free_bytes": 100990058496,
+        "mount": "overlay overlay rw,relatime,lowerdir=/disk/extra0,upperdir=/namespace/containers/rootfs/pgtlphun9konm/fs,workdir=/namespace/containers/rootfs/pgtlphun9konm/work,uuid=on",
+        "devices": [
+          {
+            "name": "nbd0",
+            "size": "170.3M",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd1",
+            "size": "2.8G",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd2",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd3",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd4",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd5",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd6",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd7",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "zram0",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "vda",
+            "size": "96G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdb",
+            "size": "752.7M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdc",
+            "size": "467.8M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdd",
+            "size": "151.5M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vde",
+            "size": "256M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdf",
+            "size": "920.8M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdg",
+            "size": "471.8M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdh",
+            "size": "688.2M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdi",
+            "size": "64G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdj",
+            "size": "50G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "nbd8",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd9",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd10",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd11",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd12",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd13",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd14",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd15",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.5 LTS",
+        "kernel": "7.1.4",
+        "image_os": null,
+        "image_version": null
+      },
+      "virtualization": "docker",
+      "dmi": {
+        "sys_vendor": null,
+        "product_name": null,
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": null,
+        "chassis_vendor": null
+      },
+      "network": {
+        "ip": "216.176.227.208",
+        "city": "Ashburn",
+        "region": "Virginia",
+        "country": "US",
+        "org": "AS401483 Namespace Labs"
+      },
+      "runner": {
+        "name": "v90mvb3eamogi-1",
+        "environment": "buildkite"
+      },
+      "tools": {
+        "docker": "Docker version 29.9.1, build dfc520d",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.3"
+      },
+      "wall_seconds": 0.10519744600000003
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 1.8680225230000005,
+        "seconds": 3.328887658,
+        "wall_seconds": 3.3288908870000005
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 6890.26,
+        "wall_seconds": 15.003830610999998
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 27204.05,
+        "wall_seconds": 15.004316461999998
+      },
+      "memory": {
+        "mib_per_second": 42406.18,
+        "wall_seconds": 15.004068826999998
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 4393.590059,
+          "iops": 4188.987401,
+          "p99_latency_us": 4816.896,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 5900.083623,
+          "iops": 5625.691621,
+          "p99_latency_us": 3620.864,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 2758.500771,
+          "iops": 673459.969335,
+          "p99_latency_us": 81.408,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 2365.919882,
+          "iops": 577615.092327,
+          "p99_latency_us": 76.288,
+          "direct": true
+        },
+        "wall_seconds": 69.21331348199999
+      },
+      "download_cloudflare": {
+        "mb_per_second": 210.731279,
+        "bytes": 50000000,
+        "seconds": 0.237269,
+        "connect_seconds": 0.00899,
+        "ttfb_seconds": 0.050774,
+        "wall_seconds": 0.24421537199999932
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 22.020862584000014,
+        "github_download": {
+          "mb_per_second": 35.870412,
+          "bytes": 4780701,
+          "seconds": 0.133277,
+          "connect_seconds": 0.00317,
+          "ttfb_seconds": 0.113135
+        },
+        "wall_seconds": 22.251268347999996
+      }
+    },
+    "timing": {
+      "queue_seconds": 4.76,
+      "job_seconds": 145.929
+    },
+    "buildkite": {
+      "build_url": "https://buildkite.com/daniel-lockyer/runners/builds/9",
+      "job_url": "https://buildkite.com/daniel-lockyer/runners/builds/9#01a212d1-de52-4cdb-bd2d-e94b64304294"
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "buildkite",
+      "name": "Buildkite",
+      "label": "buildkite-linux-amd64-4x16",
+      "arch": "x64",
+      "price_per_minute": 0.016,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "Buildkite hosted agent (Medium). Runs .buildkite/pipeline.yml, started by the bench-buildkite job. Needs a paid or trial plan.",
+      "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",
+      "buildkite": {
+        "organization": "daniel-lockyer",
+        "pipeline": "runners",
+        "queue": "linux-medium"
+      },
+      "rep": 2
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45620389115",
+      "run_attempt": "1",
+      "sha": "ed05531d135a6957434933885f8c3d4585f38285"
+    },
+    "started_at": "2026-11-25T13:08:00.810058+00:00",
+    "finished_at": "2026-11-25T13:10:30.620236+00:00",
+    "system": {
+      "cpu": {
+        "model": "AMD EPYC",
+        "vendor": "AuthenticAMD",
+        "arch": "x86_64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "2",
+        "sockets": "1",
+        "max_mhz": null,
+        "l3_cache": "32 MiB (1 instance)",
+        "hypervisor": "KVM",
+        "flags": {
+          "avx2": true,
+          "avx512f": true,
+          "sha_ni": true,
+          "aes": true,
+          "vaes": true,
+          "asimd": false,
+          "sve": false,
+          "sve2": false,
+          "sha2": false
+        },
+        "cgroup_cpu_max": "max 100000",
+        "lscpu": {
+          "Architecture": "x86_64",
+          "CPU op-mode(s)": "32-bit, 64-bit",
+          "Address sizes": "48 bits physical, 48 bits virtual",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "AuthenticAMD",
+          "Model name": "AMD EPYC",
+          "CPU family": "26",
+          "Model": "68",
+          "Thread(s) per core": "2",
+          "Core(s) per socket": "2",
+          "Socket(s)": "1",
+          "Stepping": "0",
+          "BogoMIPS": "8583.82",
+          "Flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 clzero xsaveerptr wbnoinvd arat npt lbrv nrip_save tsc_scale vmcb_clean flushbyasid pausefilter pfthreshold vgif vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect flush_l1d",
+          "Virtualization": "AMD-V",
+          "Hypervisor vendor": "KVM",
+          "Virtualization type": "full",
+          "L1d cache": "96 KiB (2 instances)",
+          "L1i cache": "64 KiB (2 instances)",
+          "L2 cache": "2 MiB (2 instances)",
+          "L3 cache": "32 MiB (1 instance)",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Not affected",
+          "Vulnerability Ghostwrite": "Not affected",
+          "Vulnerability Indirect target selection": "Not affected",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Not affected",
+          "Vulnerability Old microcode": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Mitigation; IBPB on VMEXIT only",
+          "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+          "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Not affected",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 16833269760,
+        "cgroup_max": "max"
+      },
+      "disk": {
+        "workdir": "/buildkite/builds/mc5mnn4ji49nk-1/daniel-lockyer/runners/.bench-work",
+        "total_bytes": 101376720896,
+        "free_bytes": 100990058496,
+        "mount": "overlay overlay rw,relatime,lowerdir=/disk/extra0,upperdir=/namespace/containers/rootfs/7l7oimrkrtc2k/fs,workdir=/namespace/containers/rootfs/7l7oimrkrtc2k/work,uuid=on",
+        "devices": [
+          {
+            "name": "nbd0",
+            "size": "170.3M",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd1",
+            "size": "2.8G",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd2",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd3",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd4",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd5",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd6",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd7",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "zram0",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "vda",
+            "size": "96G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdb",
+            "size": "752.7M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdc",
+            "size": "467.8M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdd",
+            "size": "151.5M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vde",
+            "size": "256M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdf",
+            "size": "920.8M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdg",
+            "size": "471.8M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdh",
+            "size": "688.2M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdi",
+            "size": "64G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdj",
+            "size": "50G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "nbd8",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd9",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd10",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd11",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd12",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd13",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd14",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd15",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.5 LTS",
+        "kernel": "7.1.4",
+        "image_os": null,
+        "image_version": null
+      },
+      "virtualization": "docker",
+      "dmi": {
+        "sys_vendor": null,
+        "product_name": null,
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": null,
+        "chassis_vendor": null
+      },
+      "network": {
+        "ip": "216.176.224.194",
+        "city": "Ashburn",
+        "region": "Virginia",
+        "country": "US",
+        "org": "AS401483 Namespace Labs"
+      },
+      "runner": {
+        "name": "mc5mnn4ji49nk-1",
+        "environment": "buildkite"
+      },
+      "tools": {
+        "docker": "Docker version 29.9.1, build dfc520d",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.3"
+      },
+      "wall_seconds": 0.14082538200000005
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 1.704576459,
+        "seconds": 3.2036737850000003,
+        "wall_seconds": 3.203678187
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 6769.26,
+        "wall_seconds": 15.00377573
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 26324.16,
+        "wall_seconds": 15.003820701000002
+      },
+      "memory": {
+        "mib_per_second": 41492.9,
+        "wall_seconds": 15.003943381
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 3848.157186,
+          "iops": 3668.822079,
+          "p99_latency_us": 5603.328,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 5019.757902,
+          "iops": 4786.14759,
+          "p99_latency_us": 4358.144,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 2742.850726,
+          "iops": 669639.15739,
+          "p99_latency_us": 84.48,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 1933.862192,
+          "iops": 472132.257849,
+          "p99_latency_us": 144.384,
+          "direct": true
+        },
+        "wall_seconds": 69.237039598
+      },
+      "download_cloudflare": {
+        "mb_per_second": 17.442777,
+        "bytes": 50000000,
+        "seconds": 2.866516,
+        "connect_seconds": 0.00827,
+        "ttfb_seconds": 0.667562,
+        "wall_seconds": 2.874549436999999
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 24.18631594599998,
+        "github_download": {
+          "mb_per_second": 100.510911,
+          "bytes": 4780701,
+          "seconds": 0.047564,
+          "connect_seconds": 0.003589,
+          "ttfb_seconds": 0.030414
+        },
+        "wall_seconds": 24.337750805000013
+      }
+    },
+    "timing": {
+      "queue_seconds": 5.179,
+      "job_seconds": 150.678
+    },
+    "buildkite": {
+      "build_url": "https://buildkite.com/daniel-lockyer/runners/builds/11",
+      "job_url": "https://buildkite.com/daniel-lockyer/runners/builds/11#01a212d1-df3d-4404-9394-4ad6e4a26980"
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "buildkite",
+      "name": "Buildkite",
+      "label": "buildkite-linux-amd64-4x16",
+      "arch": "x64",
+      "price_per_minute": 0.016,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "notes": "Buildkite hosted agent (Medium). Runs .buildkite/pipeline.yml, started by the bench-buildkite job. Needs a paid or trial plan.",
+      "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",
+      "buildkite": {
+        "organization": "daniel-lockyer",
+        "pipeline": "runners",
+        "queue": "linux-medium"
+      },
+      "rep": 3
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45620389115",
+      "run_attempt": "1",
+      "sha": "ed05531d135a6957434933885f8c3d4585f38285"
+    },
+    "started_at": "2026-11-25T13:07:59.845289+00:00",
+    "finished_at": "2026-11-25T13:10:26.452080+00:00",
+    "system": {
+      "cpu": {
+        "model": "AMD EPYC",
+        "vendor": "AuthenticAMD",
+        "arch": "x86_64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "2",
+        "sockets": "1",
+        "max_mhz": null,
+        "l3_cache": "32 MiB (1 instance)",
+        "hypervisor": "KVM",
+        "flags": {
+          "avx2": true,
+          "avx512f": true,
+          "sha_ni": true,
+          "aes": true,
+          "vaes": true,
+          "asimd": false,
+          "sve": false,
+          "sve2": false,
+          "sha2": false
+        },
+        "cgroup_cpu_max": "max 100000",
+        "lscpu": {
+          "Architecture": "x86_64",
+          "CPU op-mode(s)": "32-bit, 64-bit",
+          "Address sizes": "48 bits physical, 48 bits virtual",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "AuthenticAMD",
+          "Model name": "AMD EPYC",
+          "CPU family": "26",
+          "Model": "68",
+          "Thread(s) per core": "2",
+          "Core(s) per socket": "2",
+          "Socket(s)": "1",
+          "Stepping": "0",
+          "BogoMIPS": "8583.83",
+          "Flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 clzero xsaveerptr wbnoinvd arat npt lbrv nrip_save tsc_scale vmcb_clean flushbyasid pausefilter pfthreshold vgif vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect flush_l1d",
+          "Virtualization": "AMD-V",
+          "Hypervisor vendor": "KVM",
+          "Virtualization type": "full",
+          "L1d cache": "96 KiB (2 instances)",
+          "L1i cache": "64 KiB (2 instances)",
+          "L2 cache": "2 MiB (2 instances)",
+          "L3 cache": "32 MiB (1 instance)",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Not affected",
+          "Vulnerability Ghostwrite": "Not affected",
+          "Vulnerability Indirect target selection": "Not affected",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Not affected",
+          "Vulnerability Old microcode": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Mitigation; IBPB on VMEXIT only",
+          "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+          "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Not affected",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 16833269760,
+        "cgroup_max": "max"
+      },
+      "disk": {
+        "workdir": "/buildkite/builds/vb396fjus8fqi-1/daniel-lockyer/runners/.bench-work",
+        "total_bytes": 101376720896,
+        "free_bytes": 100990058496,
+        "mount": "overlay overlay rw,relatime,lowerdir=/disk/extra0,upperdir=/namespace/containers/rootfs/3fhhce1jvunu6/fs,workdir=/namespace/containers/rootfs/3fhhce1jvunu6/work,uuid=on",
+        "devices": [
+          {
+            "name": "nbd0",
+            "size": "170.3M",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd1",
+            "size": "2.8G",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd2",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd3",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd4",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd5",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd6",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd7",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "zram0",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "vda",
+            "size": "96G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdb",
+            "size": "752.7M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdc",
+            "size": "467.8M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdd",
+            "size": "151.5M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vde",
+            "size": "256M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdf",
+            "size": "920.8M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdg",
+            "size": "471.8M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdh",
+            "size": "688.2M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdi",
+            "size": "64G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdj",
+            "size": "50G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "nbd8",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd9",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd10",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd11",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd12",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd13",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd14",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd15",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.5 LTS",
+        "kernel": "7.1.4",
+        "image_os": null,
+        "image_version": null
+      },
+      "virtualization": "docker",
+      "dmi": {
+        "sys_vendor": null,
+        "product_name": null,
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": null,
+        "chassis_vendor": null
+      },
+      "network": {
+        "ip": "216.176.224.194",
+        "city": "Ashburn",
+        "region": "Virginia",
+        "country": "US",
+        "org": "AS401483 Namespace Labs"
+      },
+      "runner": {
+        "name": "vb396fjus8fqi-1",
+        "environment": "buildkite"
+      },
+      "tools": {
+        "docker": "Docker version 29.9.1, build dfc520d",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.3"
+      },
+      "wall_seconds": 0.23731259100000024
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 1.9565767250000001,
+        "seconds": 3.4916850609999996,
+        "wall_seconds": 3.49168823
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 6898.87,
+        "wall_seconds": 15.003814826000001
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 27041.3,
+        "wall_seconds": 15.003792831000002
+      },
+      "memory": {
+        "mib_per_second": 42020.43,
+        "wall_seconds": 15.004022845000001
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 3915.611078,
+          "iops": 3733.151123,
+          "p99_latency_us": 5406.72,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 5189.68579,
+          "iops": 4948.203453,
+          "p99_latency_us": 4079.616,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 2855.310923,
+          "iops": 697095.260316,
+          "p99_latency_us": 83.456,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 1815.292262,
+          "iops": 443184.521032,
+          "p99_latency_us": 148.48,
+          "direct": true
+        },
+        "wall_seconds": 69.240321871
+      },
+      "download_cloudflare": {
+        "mb_per_second": 133.375302,
+        "bytes": 50000000,
+        "seconds": 0.374882,
+        "connect_seconds": 0.002462,
+        "ttfb_seconds": 0.187691,
+        "wall_seconds": 0.3825226520000058
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 23.083589114000006,
+        "github_download": {
+          "mb_per_second": 88.147893,
+          "bytes": 4780701,
+          "seconds": 0.054235,
+          "connect_seconds": 0.002987,
+          "ttfb_seconds": 0.029447
+        },
+        "wall_seconds": 23.238700473999984
+      }
+    },
+    "timing": {
+      "queue_seconds": 4.757,
+      "job_seconds": 147.36
+    },
+    "buildkite": {
+      "build_url": "https://buildkite.com/daniel-lockyer/runners/builds/10",
+      "job_url": "https://buildkite.com/daniel-lockyer/runners/builds/10#01a212d1-ddb6-412e-922f-9a30a0bdeb18"
+    }
+  }
+]

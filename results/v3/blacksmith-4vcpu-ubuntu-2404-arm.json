@@ -1,0 +1,1262 @@
+[
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "blacksmith",
+      "name": "Blacksmith",
+      "label": "blacksmith-4vcpu-ubuntu-2404-arm",
+      "arch": "arm64",
+      "price_per_minute": 0.005,
+      "billing": {
+        "increment_seconds": 60
+      },
+      "enabled": true,
+      "pricing_source": "https://www.blacksmith.sh/pricing",
+      "rep": 1
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45620389115",
+      "run_attempt": "1",
+      "sha": "ed05531d135a6957434933885f8c3d4585f38285"
+    },
+    "started_at": "2026-11-25T13:08:09.763621+00:00",
+    "finished_at": "2026-11-25T13:11:16.568168+00:00",
+    "system": {
+      "cpu": {
+        "model": "Ampere-1a",
+        "vendor": "Ampere",
+        "arch": "aarch64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "1",
+        "sockets": "-",
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": {
+          "avx2": false,
+          "avx512f": false,
+          "sha_ni": false,
+          "aes": true,
+          "vaes": false,
+          "asimd": true,
+          "sve": false,
+          "sve2": false,
+          "sha2": true
+        },
+        "cgroup_cpu_max": null,
+        "lscpu": {
+          "Architecture": "aarch64",
+          "CPU op-mode(s)": "64-bit",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "Ampere",
+          "Model name": "Ampere-1a",
+          "Model": "0",
+          "Thread(s) per core": "1",
+          "Core(s) per cluster": "4",
+          "Socket(s)": "-",
+          "Cluster(s)": "1",
+          "Stepping": "0x0",
+          "BogoMIPS": "2000.00",
+          "Flags": "fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb dcpodp flagm2 frint i8mm bf16 rng bti ecv",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Not affected",
+          "Vulnerability Indirect target selection": "Not affected",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Not affected",
+          "Vulnerability Spec store bypass": "Vulnerable",
+          "Vulnerability Spectre v1": "Mitigation; __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; CSV2, but not BHB",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Not affected",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 12519018496,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/home/runner/_work/_temp",
+        "total_bytes": 132587253760,
+        "free_bytes": 67059605504,
+        "mount": "/dev/vda ext4   rw,relatime,journal_async_commit,nobarrier,noinit_itable,data=writeback",
+        "devices": [
+          {
+            "name": "loop0",
+            "size": "24.3M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop1",
+            "size": "69M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop2",
+            "size": "43.4M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "nbd0",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd1",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd2",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd3",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd4",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd5",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd6",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd7",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "vda",
+            "size": "126G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdb",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdc",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdd",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vde",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdf",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdg",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdh",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdi",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdj",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdk",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "nbd8",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd9",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd10",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd11",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd12",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd13",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd14",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd15",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.4 LTS",
+        "kernel": "6.6.141",
+        "image_os": "ubuntu24",
+        "image_version": "20260819_202427"
+      },
+      "virtualization": null,
+      "dmi": {
+        "sys_vendor": null,
+        "product_name": null,
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": null,
+        "chassis_vendor": null
+      },
+      "network": {
+        "ip": "192.240.237.183",
+        "city": "Phoenix",
+        "region": "Arizona",
+        "country": "US",
+        "org": "AS20454 SECURED SERVERS LLC"
+      },
+      "runner": {
+        "name": "blacksmith-4vcpu-ubuntu-2404-arm-j3s4nyktugi6z5ys",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": "Docker version 28.0.4, build b8034c0",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.2981619259999988
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 9.771713983000001,
+        "seconds": 14.806319538999997,
+        "wall_seconds": 14.806324658999998
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 928.69,
+        "wall_seconds": 15.010335062000003
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 3658.61,
+        "wall_seconds": 15.010812771000005
+      },
+      "memory": {
+        "mib_per_second": 26212.86,
+        "wall_seconds": 15.010133238999998
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 763.611038,
+          "iops": 727.169711,
+          "p99_latency_us": 33816.576,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 1502.089838,
+          "iops": 1431.437904,
+          "p99_latency_us": 11599.872,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 930.820573,
+          "iops": 227249.050063,
+          "p99_latency_us": 195.584,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 375.533927,
+          "iops": 91681.021265,
+          "p99_latency_us": 7110.656,
+          "direct": true
+        },
+        "wall_seconds": 69.359701547
+      },
+      "download_cloudflare": {
+        "mb_per_second": 121.719951,
+        "bytes": 50000000,
+        "seconds": 0.410779,
+        "connect_seconds": 0.034656,
+        "ttfb_seconds": 0.102066,
+        "wall_seconds": 0.4197931619999906
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 50.859673448999985,
+        "github_download": {
+          "mb_per_second": 5.677279,
+          "bytes": 4780701,
+          "seconds": 0.842076,
+          "connect_seconds": 0.135286,
+          "ttfb_seconds": 0.382787
+        },
+        "wall_seconds": 51.866596856
+      },
+      "cache": {
+        "size_mb": 1024,
+        "save_seconds": 4.099917650222778,
+        "restore_seconds": 4.921152591705322
+      }
+    },
+    "timing": {
+      "queue_seconds": 10.0,
+      "job_seconds": 211.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "blacksmith",
+      "name": "Blacksmith",
+      "label": "blacksmith-4vcpu-ubuntu-2404-arm",
+      "arch": "arm64",
+      "price_per_minute": 0.005,
+      "billing": {
+        "increment_seconds": 60
+      },
+      "enabled": true,
+      "pricing_source": "https://www.blacksmith.sh/pricing",
+      "rep": 2
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45620389115",
+      "run_attempt": "1",
+      "sha": "ed05531d135a6957434933885f8c3d4585f38285"
+    },
+    "started_at": "2026-11-25T13:08:10.349126+00:00",
+    "finished_at": "2026-11-25T13:11:13.661116+00:00",
+    "system": {
+      "cpu": {
+        "model": "Ampere-1a",
+        "vendor": "Ampere",
+        "arch": "aarch64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "1",
+        "sockets": "-",
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": {
+          "avx2": false,
+          "avx512f": false,
+          "sha_ni": false,
+          "aes": true,
+          "vaes": false,
+          "asimd": true,
+          "sve": false,
+          "sve2": false,
+          "sha2": true
+        },
+        "cgroup_cpu_max": null,
+        "lscpu": {
+          "Architecture": "aarch64",
+          "CPU op-mode(s)": "64-bit",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "Ampere",
+          "Model name": "Ampere-1a",
+          "Model": "0",
+          "Thread(s) per core": "1",
+          "Core(s) per cluster": "4",
+          "Socket(s)": "-",
+          "Cluster(s)": "1",
+          "Stepping": "0x0",
+          "BogoMIPS": "2000.00",
+          "Flags": "fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb dcpodp flagm2 frint i8mm bf16 rng bti ecv",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Not affected",
+          "Vulnerability Indirect target selection": "Not affected",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Not affected",
+          "Vulnerability Spec store bypass": "Vulnerable",
+          "Vulnerability Spectre v1": "Mitigation; __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; CSV2, but not BHB",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Not affected",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 12519018496,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/home/runner/_work/_temp",
+        "total_bytes": 132587253760,
+        "free_bytes": 67059040256,
+        "mount": "/dev/vda ext4   rw,relatime,journal_async_commit,nobarrier,noinit_itable,data=writeback",
+        "devices": [
+          {
+            "name": "loop0",
+            "size": "69M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop1",
+            "size": "24.3M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop2",
+            "size": "43.4M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "nbd0",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd1",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd2",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd3",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd4",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd5",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd6",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd7",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "vda",
+            "size": "126G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdb",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdc",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdd",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vde",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdf",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdg",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdh",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdi",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdj",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdk",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "nbd8",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd9",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd10",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd11",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd12",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd13",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd14",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd15",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.4 LTS",
+        "kernel": "6.6.141",
+        "image_os": "ubuntu24",
+        "image_version": "20260819_202427"
+      },
+      "virtualization": null,
+      "dmi": {
+        "sys_vendor": null,
+        "product_name": null,
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": null,
+        "chassis_vendor": null
+      },
+      "network": {
+        "ip": "192.240.255.240",
+        "city": "Phoenix",
+        "region": "Arizona",
+        "country": "US",
+        "org": "AS20454 SECURED SERVERS LLC"
+      },
+      "runner": {
+        "name": "blacksmith-4vcpu-ubuntu-2404-arm-dzriw7yphtgmz2lr",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": "Docker version 28.0.4, build b8034c0",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.28839350099999805
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 6.1813071980000025,
+        "seconds": 11.529583962,
+        "wall_seconds": 11.529589661999996
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 928.44,
+        "wall_seconds": 15.009596469999998
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 3644.04,
+        "wall_seconds": 15.010269408000006
+      },
+      "memory": {
+        "mib_per_second": 26288.53,
+        "wall_seconds": 15.009910422000004
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 883.191637,
+          "iops": 841.210586,
+          "p99_latency_us": 27394.048,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 1506.423663,
+          "iops": 1435.570962,
+          "p99_latency_us": 12124.16,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 903.925299,
+          "iops": 220682.821145,
+          "p99_latency_us": 183.296,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 377.884999,
+          "iops": 92254.947691,
+          "p99_latency_us": 6914.048,
+          "direct": true
+        },
+        "wall_seconds": 69.391641705
+      },
+      "download_cloudflare": {
+        "mb_per_second": 268.632339,
+        "bytes": 50000000,
+        "seconds": 0.186128,
+        "connect_seconds": 0.022389,
+        "ttfb_seconds": 0.075322,
+        "wall_seconds": 0.1949073270000099
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 50.787719482,
+        "github_download": {
+          "mb_per_second": 5.251019,
+          "bytes": 4780701,
+          "seconds": 0.910433,
+          "connect_seconds": 0.132622,
+          "ttfb_seconds": 0.452566
+        },
+        "wall_seconds": 51.863033175
+      },
+      "cache": {
+        "size_mb": 1024,
+        "save_seconds": 4.025746822357178,
+        "restore_seconds": 5.344330787658691
+      }
+    },
+    "timing": {
+      "queue_seconds": 9.0,
+      "job_seconds": 208.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "blacksmith",
+      "name": "Blacksmith",
+      "label": "blacksmith-4vcpu-ubuntu-2404-arm",
+      "arch": "arm64",
+      "price_per_minute": 0.005,
+      "billing": {
+        "increment_seconds": 60
+      },
+      "enabled": true,
+      "pricing_source": "https://www.blacksmith.sh/pricing",
+      "rep": 3
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45620389115",
+      "run_attempt": "1",
+      "sha": "ed05531d135a6957434933885f8c3d4585f38285"
+    },
+    "started_at": "2026-11-25T13:08:09.642896+00:00",
+    "finished_at": "2026-11-25T13:11:15.137530+00:00",
+    "system": {
+      "cpu": {
+        "model": "Ampere-1a",
+        "vendor": "Ampere",
+        "arch": "aarch64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "1",
+        "sockets": "-",
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": {
+          "avx2": false,
+          "avx512f": false,
+          "sha_ni": false,
+          "aes": true,
+          "vaes": false,
+          "asimd": true,
+          "sve": false,
+          "sve2": false,
+          "sha2": true
+        },
+        "cgroup_cpu_max": null,
+        "lscpu": {
+          "Architecture": "aarch64",
+          "CPU op-mode(s)": "64-bit",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "Ampere",
+          "Model name": "Ampere-1a",
+          "Model": "0",
+          "Thread(s) per core": "1",
+          "Core(s) per cluster": "4",
+          "Socket(s)": "-",
+          "Cluster(s)": "1",
+          "Stepping": "0x0",
+          "BogoMIPS": "2000.00",
+          "Flags": "fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb dcpodp flagm2 frint i8mm bf16 rng bti ecv",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Not affected",
+          "Vulnerability Indirect target selection": "Not affected",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Not affected",
+          "Vulnerability Spec store bypass": "Vulnerable",
+          "Vulnerability Spectre v1": "Mitigation; __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; CSV2, but not BHB",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Not affected",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 12519018496,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/home/runner/_work/_temp",
+        "total_bytes": 132587253760,
+        "free_bytes": 67059929088,
+        "mount": "/dev/vda ext4   rw,relatime,journal_async_commit,nobarrier,noinit_itable,data=writeback",
+        "devices": [
+          {
+            "name": "loop0",
+            "size": "24.3M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop1",
+            "size": "69M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop2",
+            "size": "43.4M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "nbd0",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd1",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd2",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd3",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd4",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd5",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd6",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd7",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "vda",
+            "size": "126G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdb",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdc",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdd",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vde",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdf",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdg",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdh",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdi",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdj",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdk",
+            "size": "0B",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "nbd8",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd9",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd10",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd11",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd12",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd13",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd14",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          },
+          {
+            "name": "nbd15",
+            "size": "0B",
+            "type": "disk",
+            "rota": false,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.4 LTS",
+        "kernel": "6.6.141",
+        "image_os": "ubuntu24",
+        "image_version": "20260819_202427"
+      },
+      "virtualization": null,
+      "dmi": {
+        "sys_vendor": null,
+        "product_name": null,
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": null,
+        "chassis_vendor": null
+      },
+      "network": {
+        "ip": "192.240.255.236",
+        "city": "Phoenix",
+        "region": "Arizona",
+        "country": "US",
+        "org": "AS20454 SECURED SERVERS LLC"
+      },
+      "runner": {
+        "name": "blacksmith-4vcpu-ubuntu-2404-arm-g52g6ilhx7ynewid",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": "Docker version 28.0.4, build b8034c0",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.297782827999999
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 8.044483075000002,
+        "seconds": 13.014573431999999,
+        "wall_seconds": 13.014579812000001
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 930.56,
+        "wall_seconds": 15.010144384
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 3665.94,
+        "wall_seconds": 15.010513418000002
+      },
+      "memory": {
+        "mib_per_second": 26285.2,
+        "wall_seconds": 15.010464310000003
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 887.380235,
+          "iops": 845.205571,
+          "p99_latency_us": 29753.344,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 1561.994486,
+          "iops": 1488.567429,
+          "p99_latency_us": 11206.656,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 963.614786,
+          "iops": 235255.382974,
+          "p99_latency_us": 168.96,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 378.943483,
+          "iops": 92513.432438,
+          "p99_latency_us": 6717.44,
+          "direct": true
+        },
+        "wall_seconds": 69.394496913
+      },
+      "download_cloudflare": {
+        "mb_per_second": 122.854348,
+        "bytes": 50000000,
+        "seconds": 0.406986,
+        "connect_seconds": 0.039767,
+        "ttfb_seconds": 0.114853,
+        "wall_seconds": 0.41598369000001867
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 51.248211241999996,
+        "github_download": {
+          "mb_per_second": 5.257186,
+          "bytes": 4780701,
+          "seconds": 0.909365,
+          "connect_seconds": 0.120735,
+          "ttfb_seconds": 0.450665
+        },
+        "wall_seconds": 52.32221147999999
+      },
+      "cache": {
+        "size_mb": 1024,
+        "save_seconds": 3.6869122982025146,
+        "restore_seconds": 5.32651948928833
+      }
+    },
+    "timing": {
+      "queue_seconds": 10.0,
+      "job_seconds": 209.0
+    }
+  }
+]

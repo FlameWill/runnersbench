@@ -1,0 +1,905 @@
+[
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "depot",
+      "name": "Depot",
+      "label": "depot-ubuntu-24.04-arm-4",
+      "arch": "arm64",
+      "price_per_minute": 0.012,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "pricing_source": "https://depot.dev/docs/github-actions/runner-types",
+      "rep": 1
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45620389115",
+      "run_attempt": "1",
+      "sha": "ed05531d135a6957434933885f8c3d4585f38285"
+    },
+    "started_at": "2026-11-25T13:08:11.961176+00:00",
+    "finished_at": "2026-11-25T13:10:55.066926+00:00",
+    "system": {
+      "cpu": {
+        "model": "Neoverse-V2",
+        "vendor": "ARM",
+        "arch": "aarch64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "1",
+        "sockets": "-",
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": {
+          "avx2": false,
+          "avx512f": false,
+          "sha_ni": false,
+          "aes": true,
+          "vaes": false,
+          "asimd": true,
+          "sve": true,
+          "sve2": true,
+          "sha2": true
+        },
+        "cgroup_cpu_max": null,
+        "lscpu": {
+          "Architecture": "aarch64",
+          "CPU op-mode(s)": "64-bit",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "ARM",
+          "Model name": "Neoverse-V2",
+          "Model": "1",
+          "Thread(s) per core": "1",
+          "Core(s) per cluster": "4",
+          "Socket(s)": "-",
+          "Cluster(s)": "1",
+          "Stepping": "r0p1",
+          "BogoMIPS": "2000.00",
+          "Flags": "fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm sb dcpodp sve2 sveaes svepmull svebitperm svesha3 flagm2 frint svei8mm svebf16 i8mm bf16 dgh rng bti",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Not affected",
+          "Vulnerability Indirect target selection": "Not affected",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Not affected",
+          "Vulnerability Spec store bypass": "Vulnerable",
+          "Vulnerability Spectre v1": "Mitigation; __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; CSV2, but not BHB",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Not affected",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 16753938432,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/home/runner/work/_temp",
+        "total_bytes": 155959910400,
+        "free_bytes": 118886719488,
+        "mount": "/dev/mapper/root ext4   rw,noatime,lazytime,nobarrier,noinit_itable",
+        "devices": [
+          {
+            "name": "loop0",
+            "size": "4K",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop1",
+            "size": "69.1M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop2",
+            "size": "186.8M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop3",
+            "size": "46.8M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop4",
+            "size": "54.7M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop5",
+            "size": "468.9M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop6",
+            "size": "91.7M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop7",
+            "size": "97.6M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop8",
+            "size": "27.9M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vda",
+            "size": "300M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdb",
+            "size": "150G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdc",
+            "size": "150G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdd",
+            "size": "4G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.5 LTS",
+        "kernel": "6.12.115+",
+        "image_os": "ubuntu24",
+        "image_version": "dev"
+      },
+      "virtualization": "qemu",
+      "dmi": {
+        "sys_vendor": null,
+        "product_name": null,
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": null,
+        "chassis_vendor": null
+      },
+      "network": {
+        "ip": "44.215.29.35",
+        "city": "Ashburn",
+        "region": "Virginia",
+        "country": "US",
+        "org": "AS14618 Amazon.com, Inc."
+      },
+      "runner": {
+        "name": "depot-8bg90s1x3h",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": "Docker version 28.0.4, build b8034c0",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.0984922509999997
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 1.8511054560000026,
+        "seconds": 4.220337843000003,
+        "wall_seconds": 4.220341490000003
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 3329.53,
+        "wall_seconds": 15.005455988000001
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 13043.34,
+        "wall_seconds": 15.005304315000004
+      },
+      "memory": {
+        "mib_per_second": 26554.75,
+        "wall_seconds": 15.005224791999993
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 14599.39893,
+          "iops": 13922.0052,
+          "p99_latency_us": 4554.752,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 1367.328008,
+          "iops": 1302.98587,
+          "p99_latency_us": 25559.04,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 299.123226,
+          "iops": 73026.064929,
+          "p99_latency_us": 1056.768,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 809.616271,
+          "iops": 197658.089461,
+          "p99_latency_us": 350.208,
+          "direct": true
+        },
+        "wall_seconds": 69.19251722700001
+      },
+      "download_cloudflare": {
+        "mb_per_second": 83.412436,
+        "bytes": 50000000,
+        "seconds": 0.599431,
+        "connect_seconds": 0.011331,
+        "ttfb_seconds": 0.357055,
+        "wall_seconds": 0.6043243150000137
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 38.73777904799999,
+        "github_download": {
+          "mb_per_second": 58.020328,
+          "bytes": 4780701,
+          "seconds": 0.082397,
+          "connect_seconds": 0.015526,
+          "ttfb_seconds": 0.065569
+        },
+        "wall_seconds": 38.96681998400001
+      },
+      "cache": {
+        "size_mb": 1024,
+        "save_seconds": 12.441445589065552,
+        "restore_seconds": 3.906001091003418
+      }
+    },
+    "timing": {
+      "queue_seconds": 2.0,
+      "job_seconds": 194.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "depot",
+      "name": "Depot",
+      "label": "depot-ubuntu-24.04-arm-4",
+      "arch": "arm64",
+      "price_per_minute": 0.012,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "pricing_source": "https://depot.dev/docs/github-actions/runner-types",
+      "rep": 2
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45620389115",
+      "run_attempt": "1",
+      "sha": "ed05531d135a6957434933885f8c3d4585f38285"
+    },
+    "started_at": "2026-11-25T13:08:10.938751+00:00",
+    "finished_at": "2026-11-25T13:10:55.078340+00:00",
+    "system": {
+      "cpu": {
+        "model": "Neoverse-V2",
+        "vendor": "ARM",
+        "arch": "aarch64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "1",
+        "sockets": "-",
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": {
+          "avx2": false,
+          "avx512f": false,
+          "sha_ni": false,
+          "aes": true,
+          "vaes": false,
+          "asimd": true,
+          "sve": true,
+          "sve2": true,
+          "sha2": true
+        },
+        "cgroup_cpu_max": null,
+        "lscpu": {
+          "Architecture": "aarch64",
+          "CPU op-mode(s)": "64-bit",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "ARM",
+          "Model name": "Neoverse-V2",
+          "Model": "1",
+          "Thread(s) per core": "1",
+          "Core(s) per cluster": "4",
+          "Socket(s)": "-",
+          "Cluster(s)": "1",
+          "Stepping": "r0p1",
+          "BogoMIPS": "2000.00",
+          "Flags": "fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm sb dcpodp sve2 sveaes svepmull svebitperm svesha3 flagm2 frint svei8mm svebf16 i8mm bf16 dgh rng bti",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Not affected",
+          "Vulnerability Indirect target selection": "Not affected",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Not affected",
+          "Vulnerability Spec store bypass": "Vulnerable",
+          "Vulnerability Spectre v1": "Mitigation; __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; CSV2, but not BHB",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Not affected",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 16753938432,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/home/runner/work/_temp",
+        "total_bytes": 155959910400,
+        "free_bytes": 118886715392,
+        "mount": "/dev/mapper/root ext4   rw,noatime,lazytime,nobarrier,noinit_itable",
+        "devices": [
+          {
+            "name": "loop0",
+            "size": "4K",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop1",
+            "size": "186.8M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop2",
+            "size": "69.1M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop3",
+            "size": "46.8M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop4",
+            "size": "54.7M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop5",
+            "size": "468.9M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop6",
+            "size": "91.7M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop7",
+            "size": "97.6M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop8",
+            "size": "27.9M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vda",
+            "size": "300M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdb",
+            "size": "150G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdc",
+            "size": "180G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdd",
+            "size": "4G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.5 LTS",
+        "kernel": "6.12.115+",
+        "image_os": "ubuntu24",
+        "image_version": "dev"
+      },
+      "virtualization": "qemu",
+      "dmi": {
+        "sys_vendor": null,
+        "product_name": null,
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": null,
+        "chassis_vendor": null
+      },
+      "network": {
+        "ip": "34.237.72.165",
+        "city": "Ashburn",
+        "region": "Virginia",
+        "country": "US",
+        "org": "AS14618 Amazon.com, Inc."
+      },
+      "runner": {
+        "name": "depot-hkz78hlq82",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": "Docker version 28.0.4, build b8034c0",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.10296361500000017
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 1.8443155749999995,
+        "seconds": 5.118720399000001,
+        "wall_seconds": 5.118724177000001
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 3204.57,
+        "wall_seconds": 15.005486728000001
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 13085.01,
+        "wall_seconds": 15.005618667999997
+      },
+      "memory": {
+        "mib_per_second": 26687.73,
+        "wall_seconds": 15.005485936
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 15793.437676,
+          "iops": 15060.795947,
+          "p99_latency_us": 4177.92,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 2127.334891,
+          "iops": 2027.785181,
+          "p99_latency_us": 18743.296,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 354.086789,
+          "iops": 86444.903673,
+          "p99_latency_us": 954.368,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 749.919959,
+          "iops": 183083.794414,
+          "p99_latency_us": 452.608,
+          "direct": true
+        },
+        "wall_seconds": 69.21876076199999
+      },
+      "download_cloudflare": {
+        "mb_per_second": 228.828762,
+        "bytes": 50000000,
+        "seconds": 0.218504,
+        "connect_seconds": 0.013787,
+        "ttfb_seconds": 0.066142,
+        "wall_seconds": 0.22480991199998357
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 39.14165590600001,
+        "github_download": {
+          "mb_per_second": 29.840774,
+          "bytes": 4780701,
+          "seconds": 0.160207,
+          "connect_seconds": 0.012051,
+          "ttfb_seconds": 0.128916
+        },
+        "wall_seconds": 39.450672188
+      },
+      "cache": {
+        "size_mb": 1024,
+        "save_seconds": 11.841303825378418,
+        "restore_seconds": 3.5769362449645996
+      }
+    },
+    "timing": {
+      "queue_seconds": 1.0,
+      "job_seconds": 195.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "benchmark_version": 3,
+    "spec": {
+      "provider": "depot",
+      "name": "Depot",
+      "label": "depot-ubuntu-24.04-arm-4",
+      "arch": "arm64",
+      "price_per_minute": 0.012,
+      "billing": {
+        "increment_seconds": 1
+      },
+      "enabled": true,
+      "pricing_source": "https://depot.dev/docs/github-actions/runner-types",
+      "rep": 3
+    },
+    "github": {
+      "repository": "lockyer-labs/runnersbench",
+      "run_id": "45620389115",
+      "run_attempt": "1",
+      "sha": "ed05531d135a6957434933885f8c3d4585f38285"
+    },
+    "started_at": "2026-11-25T13:08:11.027646+00:00",
+    "finished_at": "2026-11-25T13:10:54.010039+00:00",
+    "system": {
+      "cpu": {
+        "model": "Neoverse-V2",
+        "vendor": "ARM",
+        "arch": "aarch64",
+        "logical_cpus": 4,
+        "available_cpus": 4,
+        "threads_per_core": "1",
+        "sockets": "-",
+        "max_mhz": null,
+        "l3_cache": null,
+        "hypervisor": null,
+        "flags": {
+          "avx2": false,
+          "avx512f": false,
+          "sha_ni": false,
+          "aes": true,
+          "vaes": false,
+          "asimd": true,
+          "sve": true,
+          "sve2": true,
+          "sha2": true
+        },
+        "cgroup_cpu_max": null,
+        "lscpu": {
+          "Architecture": "aarch64",
+          "CPU op-mode(s)": "64-bit",
+          "Byte Order": "Little Endian",
+          "CPU(s)": "4",
+          "On-line CPU(s) list": "0-3",
+          "Vendor ID": "ARM",
+          "Model name": "Neoverse-V2",
+          "Model": "1",
+          "Thread(s) per core": "1",
+          "Core(s) per cluster": "4",
+          "Socket(s)": "-",
+          "Cluster(s)": "1",
+          "Stepping": "r0p1",
+          "BogoMIPS": "2000.00",
+          "Flags": "fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm sb dcpodp sve2 sveaes svepmull svebitperm svesha3 flagm2 frint svei8mm svebf16 i8mm bf16 dgh rng bti",
+          "NUMA node(s)": "1",
+          "NUMA node0 CPU(s)": "0-3",
+          "Vulnerability Gather data sampling": "Not affected",
+          "Vulnerability Indirect target selection": "Not affected",
+          "Vulnerability Itlb multihit": "Not affected",
+          "Vulnerability L1tf": "Not affected",
+          "Vulnerability Mds": "Not affected",
+          "Vulnerability Meltdown": "Not affected",
+          "Vulnerability Mmio stale data": "Not affected",
+          "Vulnerability Reg file data sampling": "Not affected",
+          "Vulnerability Retbleed": "Not affected",
+          "Vulnerability Spec rstack overflow": "Not affected",
+          "Vulnerability Spec store bypass": "Vulnerable",
+          "Vulnerability Spectre v1": "Mitigation; __user pointer sanitization",
+          "Vulnerability Spectre v2": "Mitigation; CSV2, but not BHB",
+          "Vulnerability Srbds": "Not affected",
+          "Vulnerability Tsa": "Not affected",
+          "Vulnerability Tsx async abort": "Not affected",
+          "Vulnerability Vmscape": "Not affected"
+        }
+      },
+      "memory": {
+        "total_bytes": 16753938432,
+        "cgroup_max": null
+      },
+      "disk": {
+        "workdir": "/home/runner/work/_temp",
+        "total_bytes": 155959910400,
+        "free_bytes": 118886727680,
+        "mount": "/dev/mapper/root ext4   rw,noatime,lazytime,nobarrier,noinit_itable",
+        "devices": [
+          {
+            "name": "loop0",
+            "size": "4K",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop1",
+            "size": "186.8M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop2",
+            "size": "69.1M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop3",
+            "size": "54.7M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop4",
+            "size": "46.8M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop5",
+            "size": "468.9M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop6",
+            "size": "91.7M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop7",
+            "size": "97.6M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "loop8",
+            "size": "27.9M",
+            "type": "loop",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vda",
+            "size": "300M",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdb",
+            "size": "150G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdc",
+            "size": "150G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          },
+          {
+            "name": "vdd",
+            "size": "4G",
+            "type": "disk",
+            "rota": true,
+            "model": null
+          }
+        ]
+      },
+      "os": {
+        "pretty_name": "Ubuntu 24.04.5 LTS",
+        "kernel": "6.12.115+",
+        "image_os": "ubuntu24",
+        "image_version": "dev"
+      },
+      "virtualization": "qemu",
+      "dmi": {
+        "sys_vendor": null,
+        "product_name": null,
+        "product_version": null,
+        "board_vendor": null,
+        "bios_vendor": null,
+        "chassis_vendor": null
+      },
+      "network": {
+        "ip": "34.199.88.116",
+        "city": "Ashburn",
+        "region": "Virginia",
+        "country": "US",
+        "org": "AS14618 Amazon.com, Inc."
+      },
+      "runner": {
+        "name": "depot-qr8s16s1nn",
+        "environment": "self-hosted"
+      },
+      "tools": {
+        "docker": "Docker version 28.0.4, build b8034c0",
+        "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "python": "3.12.16"
+      },
+      "wall_seconds": 0.10636817600000015
+    },
+    "benchmarks": {
+      "apt_install": {
+        "manager": "apt",
+        "update_seconds": 1.78138796,
+        "seconds": 4.979638157,
+        "wall_seconds": 4.979642164999998
+      },
+      "cpu_single": {
+        "threads": 1,
+        "events_per_second": 3337.95,
+        "wall_seconds": 15.005335365999997
+      },
+      "cpu_multi": {
+        "threads": 4,
+        "events_per_second": 13181.8,
+        "wall_seconds": 15.005467370999995
+      },
+      "memory": {
+        "mib_per_second": 26689.66,
+        "wall_seconds": 15.005182954000006
+      },
+      "disk": {
+        "seq_write": {
+          "mb_per_second": 14180.485793,
+          "iops": 13522.565162,
+          "p99_latency_us": 4145.152,
+          "direct": true
+        },
+        "seq_read": {
+          "mb_per_second": 1165.402752,
+          "iops": 1110.41514,
+          "p99_latency_us": 56360.96,
+          "direct": true
+        },
+        "rand_read": {
+          "mb_per_second": 299.177836,
+          "iops": 73039.397374,
+          "p99_latency_us": 1073.152,
+          "direct": true
+        },
+        "rand_write": {
+          "mb_per_second": 820.480597,
+          "iops": 200310.512632,
+          "p99_latency_us": 301.056,
+          "direct": true
+        },
+        "wall_seconds": 69.260081833
+      },
+      "download_cloudflare": {
+        "mb_per_second": 169.914872,
+        "bytes": 50000000,
+        "seconds": 0.294265,
+        "connect_seconds": 0.029965,
+        "ttfb_seconds": 0.130697,
+        "wall_seconds": 0.3000949180000134
+      },
+      "compile_redis": {
+        "version": "8.10.3",
+        "jobs": 4,
+        "seconds": 38.06993930099998,
+        "github_download": {
+          "mb_per_second": 49.804156,
+          "bytes": 4780701,
+          "seconds": 0.09599,
+          "connect_seconds": 0.030263,
+          "ttfb_seconds": 0.077683
+        },
+        "wall_seconds": 38.313606050999994
+      },
+      "cache": {
+        "size_mb": 1024,
+        "save_seconds": 12.043895721435547,
+        "restore_seconds": 3.6496331691741943
+      }
+    },
+    "timing": {
+      "queue_seconds": 2.0,
+      "job_seconds": 192.0
+    }
+  }
+]
