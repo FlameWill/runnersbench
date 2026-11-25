@@ -75,6 +75,18 @@ code { font-family: var(--mono); font-size: 0.85em; }
 .button:hover { background: var(--p2); }
 .actions { display: flex; gap: 10px; }
 h1 { font: 500 64px/1.05 var(--display); letter-spacing: -0.02em; margin: 0 0 40px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: -16px 0 28px; }
+.tab {
+  font: 500 14px var(--mono);
+  color: var(--p3);
+  background: transparent;
+  border: 1px solid var(--p6);
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.tab:hover { color: var(--on-accent); border-color: var(--p4); }
+.tab[aria-selected="true"] { color: var(--p7); background: var(--on-accent); border-color: var(--on-accent); }
+.tab .count { margin-left: 8px; opacity: 0.6; }
 .meta { font: 13px var(--mono); color: var(--p3); margin: 24px 0 0; padding-bottom: 48px; }
 
 .stats {

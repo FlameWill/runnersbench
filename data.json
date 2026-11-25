@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25T10:31:40.693961+00:00",
- "sample_count": 10,
+ "generated_at": "2026-11-25T10:52:59.457027+00:00",
+ "sample_count": 15,
  "benchmark_versions": [
   1
  ],
@@ -24,6 +24,10 @@
   {
    "run_id": "45593986337",
    "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45593986337"
+  },
+  {
+   "run_id": "45598079480",
+   "url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45598079480"
   }
  ],
  "metrics": [
@@ -89,6 +93,171 @@
   }
  ],
  "runners": [
+  {
+   "provider": "avrea",
+   "provider_name": "Avrea",
+   "label": "avrea-ubuntu-24.04-arm-4-vcpu",
+   "arch": "arm64",
+   "price_per_minute": 0.024,
+   "cpu_models": [
+    "-"
+   ],
+   "vcpus": 4,
+   "memory_gib": 14.7,
+   "disk_gb": 155,
+   "virtualization": "vm-other",
+   "location": "Helsinki, FI",
+   "network": "AS209378 Inios Oy",
+   "medians": {
+    "queue": 14.0,
+    "apt_install": 8.991930754000002,
+    "cpu_single": 11661.98,
+    "cpu_multi": 46244.65,
+    "memory": 46793.39,
+    "seq_read": 24666.385594,
+    "seq_write": 19028.568297,
+    "rand_read": 93186.654223,
+    "rand_write": 121282.381175,
+    "download": 298.407696,
+    "redis_build": 23.26850598500002,
+    "redis_cost": 0.009307402394000009
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T10:46:30.379664+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45598079480"
+  },
+  {
+   "provider": "blacksmith",
+   "provider_name": "Blacksmith",
+   "label": "blacksmith-4vcpu-ubuntu-2404-arm",
+   "arch": "arm64",
+   "price_per_minute": 0.005,
+   "cpu_models": [
+    "Ampere-1a"
+   ],
+   "vcpus": 4,
+   "memory_gib": 11.7,
+   "disk_gb": 133,
+   "virtualization": null,
+   "location": "Phoenix, US",
+   "network": "AS20454 SECURED SERVERS LLC",
+   "medians": {
+    "queue": 10.0,
+    "apt_install": 11.516409359,
+    "cpu_single": 930.54,
+    "cpu_multi": 3676.8,
+    "memory": 26321.78,
+    "seq_read": 1567.656419,
+    "seq_write": 899.478432,
+    "rand_read": 228880.607959,
+    "rand_write": 94214.719019,
+    "download": 180.783443,
+    "redis_build": 51.57127793499998,
+    "redis_cost": 0.004297606494583332
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T10:46:24.639628+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45598079480"
+  },
+  {
+   "provider": "depot",
+   "provider_name": "Depot",
+   "label": "depot-ubuntu-24.04-arm-4",
+   "arch": "arm64",
+   "price_per_minute": 0.012,
+   "cpu_models": [
+    "Neoverse-V2"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.6,
+   "disk_gb": 156,
+   "virtualization": "qemu",
+   "location": "Ashburn, US",
+   "network": "AS14618 Amazon.com, Inc.",
+   "medians": {
+    "queue": 14.0,
+    "apt_install": 5.185354286999999,
+    "cpu_single": 3332.28,
+    "cpu_multi": 13126.6,
+    "memory": 26508.45,
+    "seq_read": 4957.235121,
+    "seq_write": 14733.817412,
+    "rand_read": 184048.330111,
+    "rand_write": 193758.616092,
+    "download": 202.45128,
+    "redis_build": 38.913000358999994,
+    "redis_cost": 0.007782600071799999
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T10:46:27.343842+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45598079480"
+  },
+  {
+   "provider": "github",
+   "provider_name": "GitHub",
+   "label": "ubuntu-24.04-arm",
+   "arch": "arm64",
+   "price_per_minute": 0.008,
+   "cpu_models": [
+    "Neoverse-N2"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.6,
+   "disk_gb": 155,
+   "virtualization": "microsoft",
+   "location": "San Jose, US",
+   "network": "AS8075 Microsoft Corporation",
+   "medians": {
+    "queue": 6.0,
+    "apt_install": 19.30560173300003,
+    "cpu_single": 3957.97,
+    "cpu_multi": 15748.34,
+    "memory": 27831.78,
+    "seq_read": 421.075662,
+    "seq_write": 351.221381,
+    "rand_read": 19634.157723,
+    "rand_write": 19566.526751,
+    "download": 312.199507,
+    "redis_build": 55.181378499999994,
+    "redis_cost": 0.007357517133333333
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T10:46:19.430543+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45598079480"
+  },
+  {
+   "provider": "warpbuild",
+   "provider_name": "WarpBuild",
+   "label": "warp-ubuntu-2404-arm64-4x",
+   "arch": "arm64",
+   "price_per_minute": 0.006,
+   "cpu_models": [
+    "Neoverse-V2"
+   ],
+   "vcpus": 4,
+   "memory_gib": 15.3,
+   "disk_gb": 155,
+   "virtualization": "amazon",
+   "location": "Ashburn, US",
+   "network": "AS14618 Amazon.com, Inc.",
+   "medians": {
+    "queue": 46.0,
+    "apt_install": 30.188664972999995,
+    "cpu_single": 3331.98,
+    "cpu_multi": 13262.01,
+    "memory": 26650.74,
+    "seq_read": 315.360155,
+    "seq_write": 315.227637,
+    "rand_read": 4197.894456,
+    "rand_write": 4197.761194,
+    "download": 121.638815,
+    "redis_build": 44.343213520999996,
+    "redis_cost": 0.004434321352099999
+   },
+   "sample_count": 1,
+   "measured_at": "2026-11-25T10:46:59.645929+00:00",
+   "run_url": "https://github.com/lockyer-labs/runnersbench/actions/runs/45598079480"
+  },
   {
    "provider": "avrea",
    "provider_name": "Avrea",

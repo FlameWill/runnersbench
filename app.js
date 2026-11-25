@@ -1,6 +1,11 @@
 const COLORS = ["#4269d0", "#efb118", "#ff725c", "#6cc5b0", "#3ca951", "#ff8ab7", "#a463f2", "#97bbf5", "#9c6b4e", "#9498a0"];
 let color = () => COLORS[0];
 
+const ARCHES = [
+  ["x64", "Linux x64"],
+  ["arm64", "Linux arm64"],
+];
+
 const HEADLINES = [
   ["redis_build", "fastest redis build"],
   ["redis_cost", "cheapest redis build"],
@@ -109,14 +114,13 @@ function renderTables(data) {
       ];
     }),
   );
-  enableHighlighting(benchmarks);
 
   document.getElementById("runners-caption").textContent = `${runners.length} runners · as reported by each machine`;
   table(
     document.getElementById("runners"),
-    ["Provider", "Label", "Arch", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Virtualization", "Location", "Network", "Samples", "Measured"],
+    ["Provider", "Label", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Virtualization", "Location", "Network", "Samples", "Measured"],
     runners.map((r) => [
-      el("td", {}, swatch(r), r.provider_name), el("td", {}, el("code", { textContent: r.label })), textCell(r.arch),
+      el("td", {}, swatch(r), r.provider_name), el("td", {}, el("code", { textContent: r.label })),
       textCell(r.cpu_models.join(", ")), textCell(r.vcpus, "num"), textCell(r.memory_gib, "num"), textCell(r.disk_gb, "num"),
       textCell(r.price_per_minute === null ? null : `$${r.price_per_minute}`, "num"), textCell(r.virtualization),
       textCell(r.location), textCell(r.network), textCell(r.sample_count, "num"),
@@ -169,13 +173,16 @@ function enableHighlighting(node) {
     else toggle(cols, col);
     update();
   });
-  document.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape") return;
+  const reset = () => {
     rows.clear();
     cols.clear();
     cells.clear();
     update();
+  };
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") reset();
   });
+  return reset;
 }
 
 function renderBoards(data) {
@@ -201,22 +208,55 @@ function renderBoards(data) {
 }
 
 function renderErrors(data) {
-  if (!data.errors.length) return;
-  document.getElementById("errors-section").hidden = false;
+  document.getElementById("errors-section").hidden = !data.errors.length;
   document.getElementById("errors").append(...data.errors.map((e) =>
     el("li", {}, el("code", { textContent: e.label }), ` ${e.benchmark} (run ${e.run_id}): ${e.error}`)));
+}
+
+function render(data, arch, resetHighlights) {
+  const runners = data.runners.filter((r) => r.arch === arch);
+  const labels = new Set(runners.map((r) => r.label));
+  const view = { ...data, runners, errors: data.errors.filter((e) => labels.has(e.label)) };
+  for (const id of ["stats", "benchmarks", "runners", "boards", "errors"]) {
+    document.getElementById(id).replaceChildren();
+  }
+  document.getElementById("meta").textContent =
+    `benchmark v${data.benchmark_versions.join(", ")} · ${runners.length} runners · updated ${new Date(data.generated_at).toLocaleDateString()}`;
+  renderStats(view);
+  renderTables(view);
+  renderBoards(view);
+  renderErrors(view);
+  resetHighlights();
+}
+
+function renderTabs(data, onSelect) {
+  const container = document.getElementById("tabs");
+  const arches = ARCHES.filter(([arch]) => data.runners.some((r) => r.arch === arch));
+  const select = (arch) => {
+    for (const tab of container.children) tab.setAttribute("aria-selected", tab.dataset.arch === arch);
+    onSelect(arch);
+  };
+  for (const [arch, label] of arches) {
+    const count = data.runners.filter((r) => r.arch === arch).length;
+    const tab = el("button", { type: "button", className: "tab", textContent: label }, el("span", { className: "count", textContent: count }));
+    tab.setAttribute("role", "tab");
+    tab.dataset.arch = arch;
+    tab.addEventListener("click", () => {
+      history.replaceState(null, "", arch === ARCHES[0][0] ? location.pathname : `#${arch}`);
+      select(arch);
+    });
+    container.append(tab);
+  }
+  const fromHash = location.hash.slice(1);
+  select(arches.some(([arch]) => arch === fromHash) ? fromHash : arches[0][0]);
 }
 
 async function main() {
   const data = await (await fetch("data.json", { cache: "no-cache" })).json();
   const providers = [...new Set(data.runners.map((r) => r.provider))].sort();
   color = (provider) => COLORS[providers.indexOf(provider) % COLORS.length];
-  document.getElementById("meta").textContent =
-    `benchmark v${data.benchmark_versions.join(", ")} · ${data.runners.length} runners · updated ${new Date(data.generated_at).toLocaleDateString()}`;
-  renderStats(data);
-  renderTables(data);
-  renderBoards(data);
-  renderErrors(data);
+  const resetHighlights = enableHighlighting(document.getElementById("benchmarks"));
+  renderTabs(data, (arch) => render(data, arch, resetHighlights));
 }
 
 main();
