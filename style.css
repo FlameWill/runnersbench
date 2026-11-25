@@ -75,6 +75,7 @@ code { font-family: var(--mono); font-size: 0.85em; }
 .button:hover { background: var(--p2); }
 .actions { display: flex; gap: 10px; }
 h1 { font: 500 64px/1.05 var(--display); letter-spacing: -0.02em; margin: 0 0 40px; }
+.lede { color: var(--p3); max-width: 66ch; margin: -20px 0 40px; }
 .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: -16px 0 28px; }
 .tab {
   font: 500 14px var(--mono);
@@ -117,6 +118,12 @@ section { margin: 72px 0; }
 h2 { font: 500 40px/1.1 var(--display); letter-spacing: -0.015em; margin: 0 0 8px; }
 .note { color: var(--muted); margin: 0 0 24px; max-width: 70ch; }
 .caption { font: 12px var(--mono); color: var(--muted); margin: 0 0 6px; }
+
+/* Questions */
+
+.faq { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(460px, 100%), 1fr)); gap: 8px 48px; margin-top: 24px; }
+.faq h3 { font: 500 19px/1.3 var(--body); margin: 16px 0 6px; }
+.faq p { color: var(--muted); margin: 0; max-width: 62ch; }
 
 /* Tables */
 
