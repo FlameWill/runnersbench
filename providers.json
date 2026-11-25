@@ -102,7 +102,7 @@
       "vcpu": 4,
       "memory_gb": 8,
       "price_per_minute": 0.008,
-      "enabled": false,
+      "enabled": true,
       "notes": "4x8 is Namespace's standard 4 vCPU shape. $0.002 per compute-unit minute (1 vCPU, 2 GB).",
       "pricing_source": "https://namespace.so/pricing"
     },
