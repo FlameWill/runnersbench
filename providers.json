@@ -8,6 +8,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.012,
+      "billing": {"increment_seconds": 60},
       "enabled": true,
       "notes": "Baseline. 4 vCPU / 16 GB on public repos, where it's free; priced at GitHub's 4-core larger runner rate, the paid equivalent.",
       "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing"
@@ -20,6 +21,7 @@
       "vcpu": 4,
       "memory_gb": 8,
       "price_per_minute": 0.008,
+      "billing": {"increment_seconds": 1},
       "enabled": true,
       "notes": "luxor.ai (formerly Tenki). $0.002 per vCPU-minute.",
       "pricing_source": "https://luxor.ai/docs/pricing"
@@ -32,6 +34,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.008,
+      "billing": {"increment_seconds": 1},
       "enabled": true,
       "notes": "Pinned to Ubuntu 24.04 to match GitHub. Billed per second.",
       "pricing_source": "https://avrea.com/pricing"
@@ -44,6 +47,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.012,
+      "billing": {"increment_seconds": 1},
       "enabled": true,
       "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
     },
@@ -55,6 +59,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.008,
+      "billing": {"increment_seconds": 60},
       "enabled": true,
       "notes": "Pinned to Ubuntu 24.04 to match GitHub.",
       "pricing_source": "https://www.warpbuild.com/pricing"
@@ -67,6 +72,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.004,
+      "billing": {"increment_seconds": 1},
       "enabled": true,
       "notes": "Pinned to Ubuntu 24.04 to match GitHub; the bare label runs 26.04. $0.001 per vCPU-minute, billed per second.",
       "pricing_source": "https://checklane.sh/pricing"
@@ -79,6 +85,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.006,
+      "billing": {"increment_seconds": 1},
       "enabled": true,
       "notes": "groundbox.dev. Ubuntu 24.04, one Firecracker microVM per job. $0.0015 per vCPU-minute.",
       "pricing_source": "https://groundbox.dev/pricing"
@@ -91,6 +98,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.008,
+      "billing": {"increment_seconds": 60},
       "enabled": true,
       "pricing_source": "https://www.blacksmith.sh/pricing"
     },
@@ -102,6 +110,7 @@
       "vcpu": 4,
       "memory_gb": 8,
       "price_per_minute": 0.008,
+      "billing": {"increment_seconds": 60, "minimum_seconds": 60, "grace_seconds": 15},
       "enabled": true,
       "notes": "4x8 is Namespace's standard 4 vCPU shape. $0.002 per compute-unit minute (1 vCPU, 2 GB).",
       "pricing_source": "https://namespace.so/pricing"
@@ -114,6 +123,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.0024,
+      "billing": {"increment_seconds": 1},
       "enabled": false,
       "notes": "usejog.com. Ubuntu 24.04, billed per second. jog-max is a faster tier at twice the price.",
       "pricing_source": "https://usejog.com/#pricing"
@@ -126,6 +136,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.008,
+      "billing": {"increment_seconds": 60},
       "enabled": true,
       "notes": "4 vCPU / 16 GB on public repos, where it is free; priced at the 4-core arm64 larger runner rate.",
       "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing"
@@ -138,6 +149,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.024,
+      "billing": {"increment_seconds": 1},
       "enabled": true,
       "notes": "Runs on Apple M5 Max hardware. Pinned to Ubuntu 24.04.",
       "pricing_source": "https://avrea.com/pricing"
@@ -150,6 +162,7 @@
       "vcpu": 4,
       "memory_gb": 12,
       "price_per_minute": 0.005,
+      "billing": {"increment_seconds": 60},
       "enabled": true,
       "pricing_source": "https://www.blacksmith.sh/pricing"
     },
@@ -161,6 +174,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.012,
+      "billing": {"increment_seconds": 1},
       "enabled": true,
       "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
     },
@@ -172,6 +186,7 @@
       "vcpu": 4,
       "memory_gb": 8,
       "price_per_minute": 0.008,
+      "billing": {"increment_seconds": 60, "minimum_seconds": 60, "grace_seconds": 15},
       "enabled": false,
       "notes": "Uses the default-arm64 runner profile configured in Namespace; its shape is set there.",
       "pricing_source": "https://namespace.so/pricing"
@@ -184,6 +199,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.006,
+      "billing": {"increment_seconds": 60},
       "enabled": true,
       "pricing_source": "https://www.warpbuild.com/pricing"
     },
@@ -195,6 +211,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": 0.016,
+      "billing": {"increment_seconds": 1},
       "enabled": true,
       "notes": "Buildkite hosted agent (Medium). Runs .buildkite/pipeline.yml, started by the bench-buildkite job. Needs a paid or trial plan.",
       "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",
@@ -212,6 +229,7 @@
       "vcpu": 4,
       "memory_gb": 16,
       "price_per_minute": null,
+      "billing": {"increment_seconds": 1},
       "enabled": false,
       "notes": "Buildkite hosted agent (Medium ARM64). Needs a hosted queue with the LINUX_ARM64_4X16 shape and key linux-arm-medium.",
       "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",

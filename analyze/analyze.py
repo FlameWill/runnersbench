@@ -8,6 +8,7 @@ of the same runner label are reduced to their median.
 
 import argparse
 import json
+import math
 import os
 import statistics
 import subprocess
@@ -82,9 +83,33 @@ def get(obj, *path):
     return obj
 
 
+def billed_seconds(seconds, billing):
+    """What a job of this length is charged for: `grace_seconds` past a boundary are free, then the
+    remainder rounds up to a whole `increment_seconds`, with at least `minimum_seconds` charged."""
+    increment = billing.get("increment_seconds", 1)
+    chargeable = max(seconds - billing.get("grace_seconds", 0), 0)
+    return max(math.ceil(chargeable / increment) * increment, billing.get("minimum_seconds", 0))
+
+
+def billing_label(billing):
+    if not billing:
+        return None
+    if billing.get("increment_seconds", 1) == 1:
+        parts = ["per second"]
+    elif billing.get("grace_seconds"):
+        parts = [f"per minute, rounded up after {billing['grace_seconds']} s"]
+    else:
+        parts = ["per minute, rounded up"]
+    if billing.get("minimum_seconds"):
+        parts.append(f"{billing['minimum_seconds'] // 60} min minimum")
+    return ", ".join(parts)
+
+
 def cost_per_build(r):
     price, seconds = get(r, "spec", "price_per_minute"), get(r, "benchmarks", "compile_redis", "seconds")
-    return price * seconds / 60 if price is not None and seconds is not None else None
+    if price is None or seconds is None:
+        return None
+    return price * billed_seconds(seconds, get(r, "spec", "billing") or {}) / 60
 
 
 # (key, column header, extractor, higher_is_better)
@@ -143,6 +168,7 @@ def summarise(results):
             "label": label,
             "arch": spec.get("arch"),
             "price_per_minute": spec.get("price_per_minute"),
+            "billing": billing_label(spec.get("billing")),
             "cpu_models": sorted({get(r, "system", "cpu", "model") or "?" for r in samples}),
             "vcpus": get(system, "cpu", "available_cpus"),
             "memory_gib": round(mem / 2**30, 1) if mem else None,

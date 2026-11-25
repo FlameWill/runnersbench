@@ -33,7 +33,7 @@ itself lives in `site/`; `analyze.py --summary` produces the `data.json` it read
 | Memory | `sysbench memory`, single-thread bandwidth |
 | Disk | `fio` sequential read/write (1M blocks) and 4k random read/write IOPS on the runner's work disk |
 | Network | 50 MB download from Cloudflare, Redis source download from GitHub |
-| Real build | `make -j$(nproc)` of Redis, plus the cost of that build at the runner's list price |
+| Real build | `make -j$(nproc)` of Redis, plus what a job of that length costs at the runner's list price and billing granularity (see below) |
 
 ## Running
 
@@ -80,6 +80,7 @@ python analyze/analyze.py combined
      "vcpu": 4,
      "memory_gb": 16,
      "price_per_minute": 0.008,
+     "billing": {"increment_seconds": 60},
      "enabled": true,
      "pricing_source": "https://example.com/pricing"
    }
@@ -89,6 +90,12 @@ python analyze/analyze.py combined
    `label` is the `runs-on` value. Pick the provider's 4 vCPU size so every
    runner is compared at the same core count. `price_per_minute` may be `null`
    if unknown.
+   `billing` describes how the provider rounds each job's duration, which
+   matters because most jobs are short: `increment_seconds` is `1` for
+   per-second billing or `60` for per-minute billing rounded up, and optional
+   `minimum_seconds` and `grace_seconds` (seconds past a minute that aren't
+   charged) cover rules like Namespace's. The Redis build cost is charged as if
+   the build were its own job.
    Set `enabled: false` to stop running a runner without losing its entry.
 
 ### Buildkite
