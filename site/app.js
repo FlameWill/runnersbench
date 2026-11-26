@@ -88,7 +88,7 @@ function caveat(runner, metric) {
 function renderCaveats(runners) {
   const flagged = runners.filter((r) => r.pricing_caveat);
   for (const node of document.querySelectorAll(".pricing-notes")) {
-    node.replaceChildren(...(flagged.length ? ["* Not plain pay-as-you-go, so costs here leave out: ",
+    node.replaceChildren(...(flagged.length ? ["* Extra costs apply. These costs cover compute only and leave out: ",
       ...flagged.flatMap((r, i) => [i ? " " : "", el("strong", { textContent: r.provider_name }), ` ${r.pricing_caveat}`])] : []));
     node.hidden = !flagged.length;
   }
@@ -116,10 +116,23 @@ function eligible(runner, metric) {
   return !(metric.key === "redis_cost" && runner.pricing_caveat);
 }
 
+// The lowest value overall when it belongs to a runner with extra costs, so it can be flagged rather than ranked.
+function lowestWithFees(runners, metric) {
+  const first = ranked(runners, metric)[0];
+  return first && !eligible(first, metric) ? first : null;
+}
+
 function best(runners, metric) {
   const order = ranked(runners, metric);
   const top = order.find((r) => eligible(r, metric));
   return order.length > 1 && top ? top.medians[metric.key] : null;
+}
+
+function feesLine(runners, metric) {
+  const r = lowestWithFees(runners, metric);
+  if (!r) return null;
+  return el("div", { className: "who fees", title: r.pricing_caveat },
+    `${fmt(r.medians[metric.key], metric)} `, swatch(r), r.provider_name, " · ", el("span", { className: "nowrap", textContent: "extra costs apply" }));
 }
 
 function renderStats(data) {
@@ -133,13 +146,15 @@ function renderStats(data) {
       el("div", { className: "label", textContent: label }),
       el("div", { className: "value" }, fmt(winner.medians[key], metric), ...winners.map((r) => caveat(r, metric)),
         el("span", { className: "unit", textContent: metric.label.startsWith("$") ? "" : unit(metric) })),
-      el("div", { className: "who" }, ...winners.flatMap((r, i) => [i ? ", " : "", swatch(r), r.provider_name]))));
+      el("div", { className: "who" }, ...winners.flatMap((r, i) => [i ? ", " : "", swatch(r), r.provider_name])),
+      feesLine(data.runners, metric)));
   }
 }
 
 function renderTables(data) {
   const { runners, metrics } = data;
   const bests = Object.fromEntries(metrics.map((m) => [m.key, best(runners, m)]));
+  const withFees = Object.fromEntries(metrics.map((m) => [m.key, lowestWithFees(runners, m)]));
   document.getElementById("benchmarks-caption").textContent =
     `${runners.length} runners · ${metrics.length} metrics · median of ${Math.max(...runners.map((r) => r.sample_count))} runs · benchmark v${data.benchmark_versions.join(", ")}`;
   const benchmarks = document.getElementById("benchmarks");
@@ -161,7 +176,8 @@ function renderTables(data) {
         ...runners.map((r) => {
           const value = r.medians[m.key];
           const isBest = value !== null && value === bests[m.key] && eligible(r, m);
-          const cell = textCell(compact(value, m), isBest ? "num best" : eligible(r, m) ? "num" : "num caveated");
+          const className = isBest ? "num best" : withFees[m.key] === r ? "num lowest-fees" : eligible(r, m) ? "num" : "num caveated";
+          const cell = textCell(compact(value, m), className);
           if (value !== null) cell.append(caveat(r, m) ?? "");
           cell.title = rangeText(r, m);
           cell.dataset.row = m.key;
@@ -267,11 +283,14 @@ function renderBoards(data) {
           track.append(whisker);
         }
         const pct = spread(r, metric);
-        const rowClass = !eligible(r, metric) ? "row caveated" : value === top ? "row best" : "row";
+        const rowClass = r === lowestWithFees(data.runners, metric) ? "row lowest-fees"
+          : !eligible(r, metric) ? "row caveated" : value === top ? "row best" : "row";
         return el("div", { className: rowClass, title: `${r.label} · ${rangeText(r, metric)}` },
           el("span", { className: "name" }, swatch(r), r.provider_name),
           track,
-          el("span", { className: "val" }, fmt(value, metric), caveat(r, metric), pct === null ? null : el("span", { className: "spread", textContent: `±${pct}%` })));
+          el("span", { className: "val" }, fmt(value, metric), caveat(r, metric), rowClass === "row lowest-fees"
+            ? el("span", { className: "spread", textContent: "+ fees" })
+            : pct === null ? null : el("span", { className: "spread", textContent: `±${pct}%` })));
       })));
   }
 }

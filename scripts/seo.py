@@ -53,6 +53,9 @@ def questions(data):
             cheapest.append(f"On {label}, {plain[0]['provider_name']} was the cheapest pay-as-you-go runner at "
                             f"${plain[0]['medians']['redis_cost']:.4f} per Redis build, against "
                             f"${order[-1]['medians']['redis_cost']:.4f} for {order[-1]['provider_name']}.")
+            if order[0] is not plain[0]:
+                cheapest.append(f"{order[0]['provider_name']}'s compute cost was lower, at "
+                                f"${order[0]['medians']['redis_cost']:.4f}, but extra costs apply: {order[0]['pricing_caveat']}")
         covered.append(f"{label}: {join(sorted({r['provider_name'] for r in runners}))}.")
     per_minute = sorted({r["provider_name"] for r in data["runners"] if (r.get("billing") or "").startswith("per minute")})
 
