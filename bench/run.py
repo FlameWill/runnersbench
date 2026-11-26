@@ -73,6 +73,40 @@ def sysctl(name):
     return try_sh(["sysctl", "-n", name])
 
 
+def cpu_counters():
+    """Clock, hypervisor steal and cgroup CPU counters, to diff around a workload.
+
+    Adapted from Buildkite's CPU steal probe. Steal is only reported by some hypervisors (KVM, Firecracker;
+    not Hyper-V), and macOS has none of these files, so missing counters are left out.
+    """
+    counters = {"wall": time.monotonic()}
+    stat = re.search(r"^cpu\s+(.+)$", read("/proc/stat") or "", re.M)
+    fields = [int(x) for x in stat.group(1).split()] if stat else []
+    if len(fields) >= 8:
+        counters["steal"], counters["total"] = fields[7], sum(fields)
+    cgroup = read("/sys/fs/cgroup/cpu.stat") or read("/sys/fs/cgroup/cpu/cpu.stat") or ""
+    for key, pattern, scale in [("usage_usec", r"usage_usec", 1), ("nr_throttled", r"nr_throttled", 1),
+                                ("throttled_usec", r"throttled_usec", 1), ("throttled_usec", r"throttled_time", 1 / 1000)]:
+        m = re.search(rf"^{pattern}\s+(\d+)", cgroup, re.M)
+        if m and key not in counters:
+            counters[key] = int(m.group(1)) * scale
+    return counters
+
+
+def cpu_accounting(start, end):
+    wall = end["wall"] - start["wall"]
+    out = {"wall_seconds": wall}
+    if "total" in start and end["total"] > start["total"]:
+        out["steal_pct"] = (end["steal"] - start["steal"]) / (end["total"] - start["total"]) * 100
+    if "usage_usec" in start:
+        out["cpu_per_wall"] = (end["usage_usec"] - start["usage_usec"]) / 1e6 / wall
+    if "nr_throttled" in start:
+        out["nr_throttled"] = end["nr_throttled"] - start["nr_throttled"]
+    if "throttled_usec" in start:
+        out["throttled_ms"] = (end["throttled_usec"] - start["throttled_usec"]) / 1000
+    return out
+
+
 def flatten_lscpu(entries, out):
     for entry in entries:
         out[entry["field"].rstrip(":")] = entry.get("data")
@@ -252,12 +286,14 @@ def bench_compile_redis(workdir):
     sh(["tar", "xzf", tarball, "-C", workdir])
     src = os.path.join(workdir, f"redis-{REDIS_VERSION}")
     jobs = cpu_count()
-    start = time.monotonic()
+    start, counters = time.monotonic(), cpu_counters()
     # The top-level Makefile's module wrapper is broken in release tarballs; build the core directly.
     sh(["make", "-C", "src", f"-j{jobs}", "MALLOC=libc", "BUILD_TLS=no"], cwd=src)
     seconds = time.monotonic() - start
+    accounting = cpu_accounting(counters, cpu_counters())
     shutil.rmtree(src, ignore_errors=True)
-    return {"version": REDIS_VERSION, "jobs": jobs, "seconds": seconds, "github_download": download}
+    return {"version": REDIS_VERSION, "jobs": jobs, "seconds": seconds, "github_download": download,
+            "cpu_accounting": accounting}
 
 
 def run(name, fn, *args):
@@ -281,6 +317,7 @@ def main():
     args = parser.parse_args()
     os.makedirs(args.workdir, exist_ok=True)
     started_at = datetime.now(timezone.utc).isoformat()
+    run_counters = cpu_counters()
 
     system = run("system info", system_info, args.workdir)
     cpus = cpu_count()
@@ -293,7 +330,9 @@ def main():
     else:
         run("sysbench cpu warm-up", bench_sysbench_cpu, cpus, WARMUP)
         benchmarks["cpu_single"] = run("sysbench cpu (1 thread)", bench_sysbench_cpu, 1)
+        counters = cpu_counters()
         benchmarks["cpu_multi"] = run(f"sysbench cpu ({cpus} threads)", bench_sysbench_cpu, cpus)
+        benchmarks["cpu_multi"]["cpu_accounting"] = cpu_accounting(counters, cpu_counters())
     benchmarks["memory"] = run("sysbench memory", bench_sysbench_memory)
     benchmarks["disk"] = run("fio", bench_fio, args.workdir)
     benchmarks["download_cloudflare"] = run("download from Cloudflare", curl, CLOUDFLARE_URL)
@@ -317,6 +356,7 @@ def main():
         "finished_at": datetime.now(timezone.utc).isoformat(),
         "system": system,
         "benchmarks": benchmarks,
+        "cpu_accounting": cpu_accounting(run_counters, cpu_counters()),
     }
     os.makedirs(os.path.dirname(os.path.abspath(args.output)), exist_ok=True)
     with open(args.output, "w") as f:
