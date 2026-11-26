@@ -1,0 +1,7 @@
+name: pr-refusal-test
+on: pull_request
+jobs:
+  probe:
+    runs-on: flamewill-4vcpu-16gb-ubuntu-2404
+    steps:
+      - run: echo "this job must never run on FlameWill"
