@@ -226,7 +226,9 @@ def report(summary):
     for x in runners:
         cells = [x["provider"], f"`{x['label']}`"]
         for key, header, _, higher_is_better in METRICS:
-            column = [y["medians"][key] for y in runners if y["medians"][key] is not None]
+            # Costs that leave out a plan or other fees are shown, but can't be the cheapest.
+            column = [y["medians"][key] for y in runners
+                      if y["medians"][key] is not None and not (key == "redis_cost" and y["pricing_caveat"])]
             best = (max if higher_is_better else min)(column) if len(column) > 1 else None
             value = x["medians"][key]
             text = fmt(value, header)
@@ -234,7 +236,8 @@ def report(summary):
                 text += f" ({' to '.join(fmt(v, header) for v in x['ranges'][key])})"
             if key == "redis_cost" and value is not None and x["pricing_caveat"]:
                 text += "\\*"
-            cells.append(f"**{text}**" if value is not None and value == best else text)
+            caveated = key == "redis_cost" and x["pricing_caveat"]
+            cells.append(f"**{text}**" if value is not None and value == best and not caveated else text)
         bench_rows.append(cells)
 
     sections = [
