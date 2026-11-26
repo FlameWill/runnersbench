@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-26T12:43:48.789260+00:00",
+ "generated_at": "2026-11-26T12:52:39.517508+00:00",
  "sample_count": 74,
  "benchmark_versions": [
   3
  ],
  "runs": [
   {
-   "run_id": "45821349622",
-   "url": "https://github.com/FlameWill/runnersbench/actions/runs/45821349622"
+   "run_id": "45822957259",
+   "url": "https://github.com/FlameWill/runnersbench/actions/runs/45822957259"
   },
   {
    "run_id": "45620389115",
@@ -393,82 +393,83 @@
    "billing": "per minute, rounded up",
    "pricing_caveat": null,
    "cpu_models": [
-    "Neoverse-V1"
+    "Neoverse-V1",
+    "Neoverse-V2"
    ],
    "vcpus": 4,
    "memory_gib": 15.3,
    "disk_gb": 190,
    "virtualization": null,
-   "location": "Stockholm, SE",
+   "location": "Columbus, US",
    "network": "AS16509 Amazon.com, Inc.",
    "medians": {
-    "queue": 112.0,
-    "apt_install": 14.403081192999998,
-    "cpu_single": 3013.66,
-    "cpu_multi": 11992.54,
-    "memory": 20424.5,
+    "queue": 39.0,
+    "apt_install": 16.893779338999998,
+    "cpu_single": 3015.79,
+    "cpu_multi": 11993.5,
+    "memory": 20441.67,
     "seq_read": 314.809656,
-    "seq_write": 150.629932,
-    "rand_read": 69703.219785,
-    "rand_write": 33539.29738,
-    "download": 272.537487,
-    "cache_save": 6.503232002258301,
-    "cache_restore": 5.654511213302612,
-    "redis_build": 55.00669177099999,
+    "seq_write": 150.619575,
+    "rand_read": 69571.495234,
+    "rand_write": 33539.497367,
+    "download": 253.941166,
+    "cache_save": 7.1700499057769775,
+    "cache_restore": 5.904238700866699,
+    "redis_build": 54.28392302500001,
     "redis_cost": 0.0022
    },
    "ranges": {
     "queue": [
-     47.0,
-     119.0
+     38.0,
+     48.0
     ],
     "apt_install": [
-     14.162834928999999,
-     18.450176695000003
+     13.710949825999997,
+     19.984568900999996
     ],
     "cpu_single": [
-     3012.93,
-     3016.58
+     3015.79,
+     3329.61
     ],
     "cpu_multi": [
-     11979.54,
-     11996.5
+     11977.33,
+     13302.02
     ],
     "memory": [
-     20411.33,
-     20438.18
+     20421.47,
+     26623.66
     ],
     "seq_read": [
      314.809656,
-     314.809656
+     472.396251
     ],
     "seq_write": [
-     150.619956,
-     150.629932
+     150.580067,
+     225.77861
     ],
     "rand_read": [
-     69702.553163,
-     69707.286181
+     67091.527232,
+     69691.220585
     ],
     "rand_write": [
-     33539.230718,
-     33539.430705
+     33537.364176,
+     33545.363642
     ],
     "download": [
-     219.652772,
-     277.071246
+     253.308205,
+     266.628272
     ],
     "cache_save": [
-     5.822617530822754,
-     7.322875499725342
+     6.2167580127716064,
+     7.341039657592773
     ],
     "cache_restore": [
-     5.064382314682007,
-     5.667102813720703
+     4.292654037475586,
+     6.299316167831421
     ],
     "redis_build": [
-     53.208024983,
-     55.17026112299999
+     42.045586735,
+     54.93280968299999
     ],
     "redis_cost": [
      0.0022,
@@ -476,8 +477,8 @@
     ]
    },
    "sample_count": 3,
-   "measured_at": "2026-11-26T12:40:05.084751+00:00",
-   "run_url": "https://github.com/FlameWill/runnersbench/actions/runs/45821349622"
+   "measured_at": "2026-11-26T12:48:59.446140+00:00",
+   "run_url": "https://github.com/FlameWill/runnersbench/actions/runs/45822957259"
   },
   {
    "provider": "github",
