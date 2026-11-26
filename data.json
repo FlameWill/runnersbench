@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T07:56:59.092415+00:00",
+ "generated_at": "2026-11-26T08:12:51.482746+00:00",
  "sample_count": 71,
  "benchmark_versions": [
   3
@@ -99,6 +99,7 @@
    "platform": "arm64",
    "price_per_minute": 0.024,
    "billing": "per second",
+   "pricing_caveat": null,
    "cpu_models": [
     "-"
    ],
@@ -194,6 +195,7 @@
    "platform": "arm64",
    "price_per_minute": 0.005,
    "billing": "per minute, rounded up",
+   "pricing_caveat": null,
    "cpu_models": [
     "Ampere-1a"
    ],
@@ -289,6 +291,7 @@
    "platform": "arm64",
    "price_per_minute": 0.012,
    "billing": "per second",
+   "pricing_caveat": "Needs a plan: Developer is $20 a month with 2,000 minutes included.",
    "cpu_models": [
     "Neoverse-V2"
    ],
@@ -384,6 +387,7 @@
    "platform": "arm64",
    "price_per_minute": 0.008,
    "billing": "per minute, rounded up",
+   "pricing_caveat": "Free on public repos. This is GitHub's 4-core larger runner rate, which needs a GitHub Team ($4 per user a month) or Enterprise Cloud plan.",
    "cpu_models": [
     "Neoverse-N2"
    ],
@@ -479,6 +483,7 @@
    "platform": "arm64",
    "price_per_minute": 0.006,
    "billing": "per minute, rounded up",
+   "pricing_caveat": null,
    "cpu_models": [
     "Neoverse-V2"
    ],
@@ -574,6 +579,7 @@
    "platform": "macos",
    "price_per_minute": 0.08,
    "billing": "per second",
+   "pricing_caveat": null,
    "cpu_models": [
     "Apple M5 Max (Virtual)"
    ],
@@ -663,6 +669,7 @@
    "platform": "macos",
    "price_per_minute": 0.08,
    "billing": "per minute, rounded up",
+   "pricing_caveat": null,
    "cpu_models": [
     "Apple M5 Max (Virtual)"
    ],
@@ -752,6 +759,7 @@
    "platform": "macos",
    "price_per_minute": 0.08,
    "billing": "per second",
+   "pricing_caveat": "Needs a plan: Developer is $20 a month with 2,000 minutes included.",
    "cpu_models": [
     "Apple M4 (Virtual)"
    ],
@@ -841,6 +849,7 @@
    "platform": "macos",
    "price_per_minute": 0.062,
    "billing": "per minute, rounded up",
+   "pricing_caveat": null,
    "cpu_models": [
     "Apple M1 (Virtual)"
    ],
@@ -930,6 +939,7 @@
    "platform": "macos",
    "price_per_minute": 0.05,
    "billing": "per second",
+   "pricing_caveat": null,
    "cpu_models": [
     "Apple M6 (Virtual)"
    ],
@@ -1019,6 +1029,7 @@
    "platform": "macos",
    "price_per_minute": 0.08,
    "billing": "per second",
+   "pricing_caveat": null,
    "cpu_models": [
     "Apple M4 Pro (Virtual)"
    ],
@@ -1108,6 +1119,7 @@
    "platform": "macos",
    "price_per_minute": 0.08,
    "billing": "per minute, rounded up",
+   "pricing_caveat": null,
    "cpu_models": [
     "Apple M5 Pro (Virtual)"
    ],
@@ -1197,6 +1209,7 @@
    "platform": "x64",
    "price_per_minute": 0.008,
    "billing": "per second",
+   "pricing_caveat": null,
    "cpu_models": [
     "AMD EPYC 4585PX 16-Core Processor"
    ],
@@ -1292,6 +1305,7 @@
    "platform": "x64",
    "price_per_minute": 0.008,
    "billing": "per minute, rounded up",
+   "pricing_caveat": null,
    "cpu_models": [
     "AMD EPYC",
     "Intel(R) Xeon(R) Processor"
@@ -1388,6 +1402,7 @@
    "platform": "x64",
    "price_per_minute": 0.0006,
    "billing": "per second",
+   "pricing_caveat": "Needs a plan from $20 a month, which comes back as VM time. Job starts above the plan's included number cost $0.03-0.07 each.",
    "cpu_models": [
     "AMD EPYC 4585PX 16-Core Processor"
    ],
@@ -1483,6 +1498,7 @@
    "platform": "x64",
    "price_per_minute": 0.016,
    "billing": "per second",
+   "pricing_caveat": "4 vCPU hosted agents need the Pro plan, $30 per active user a month.",
    "cpu_models": [
     "AMD EPYC"
    ],
@@ -1572,6 +1588,7 @@
    "platform": "x64",
    "price_per_minute": 0.00133333,
    "billing": "per second",
+   "pricing_caveat": null,
    "cpu_models": [
     "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz"
    ],
@@ -1667,6 +1684,7 @@
    "platform": "x64",
    "price_per_minute": 0.004,
    "billing": "per second",
+   "pricing_caveat": null,
    "cpu_models": [
     "AMD EPYC"
    ],
@@ -1762,6 +1780,7 @@
    "platform": "x64",
    "price_per_minute": 0.012,
    "billing": "per second",
+   "pricing_caveat": "Needs a plan: Developer is $20 a month with 2,000 minutes included.",
    "cpu_models": [
     "AMD EPYC 9R45 96-Core Processor"
    ],
@@ -1857,6 +1876,7 @@
    "platform": "x64",
    "price_per_minute": 0.012,
    "billing": "per minute, rounded up",
+   "pricing_caveat": "Free on public repos. This is GitHub's 4-core larger runner rate, which needs a GitHub Team ($4 per user a month) or Enterprise Cloud plan.",
    "cpu_models": [
     "AMD EPYC 7763 64-Core Processor",
     "AMD EPYC 9V74 80-Core Processor",
@@ -1954,6 +1974,7 @@
    "platform": "x64",
    "price_per_minute": 0.006,
    "billing": "per second",
+   "pricing_caveat": null,
    "cpu_models": [
     "AMD EPYC"
    ],
@@ -2049,6 +2070,7 @@
    "platform": "x64",
    "price_per_minute": 0.008,
    "billing": "per second",
+   "pricing_caveat": null,
    "cpu_models": [
     "AMD Ryzen 9 9950X 16-Core Processor"
    ],
@@ -2144,6 +2166,7 @@
    "platform": "x64",
    "price_per_minute": 0.008,
    "billing": "per minute, rounded up after 15 s, 1 min minimum",
+   "pricing_caveat": null,
    "cpu_models": [
     "AMD EPYC"
    ],
@@ -2239,6 +2262,7 @@
    "platform": "x64",
    "price_per_minute": 0.008,
    "billing": "per minute, rounded up",
+   "pricing_caveat": null,
    "cpu_models": [
     "AMD Ryzen 9 7950X3D 16-Core Processor",
     "AMD Ryzen 9 9950X 16-Core Processor"

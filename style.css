@@ -131,6 +131,9 @@ h2 { font: 500 40px/1.1 var(--display); letter-spacing: -0.015em; margin: 0 0 8p
 .scroll.more { mask-image: linear-gradient(to left, transparent, #000 48px); }
 #runners th, #runners td { padding: 7px 10px; }
 #runners td { vertical-align: top; }
+.caveat { cursor: help; margin-left: 1px; font-size: 0.75em; }
+.pricing-notes { max-width: 110ch; margin-top: 10px; line-height: 1.6; white-space: normal; }
+.pricing-notes strong { font-weight: 600; }
 #runners .sub { display: block; font-size: 12px; color: var(--muted); white-space: normal; max-width: 24ch; }
 #runners .provider .sub { font: 12px var(--mono); white-space: nowrap; max-width: none; }
 /* Lets a wide table use the window's width beyond the 1144px content column, up to 1600px. */

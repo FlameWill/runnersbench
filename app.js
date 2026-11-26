@@ -78,6 +78,22 @@ function showOverflow(scroller) {
   update();
 }
 
+function caveat(runner, metric) {
+  if (!runner.pricing_caveat || (metric && metric.key !== "redis_cost")) return null;
+  const mark = el("sup", { className: "caveat", textContent: "*", title: runner.pricing_caveat });
+  mark.setAttribute("aria-label", runner.pricing_caveat);
+  return mark;
+}
+
+function renderCaveats(runners) {
+  const flagged = runners.filter((r) => r.pricing_caveat);
+  for (const node of document.querySelectorAll(".pricing-notes")) {
+    node.replaceChildren(...(flagged.length ? ["* Not plain pay-as-you-go, so costs here leave out: ",
+      ...flagged.flatMap((r, i) => [i ? " " : "", el("strong", { textContent: r.provider_name }), ` ${r.pricing_caveat}`])] : []));
+    node.hidden = !flagged.length;
+  }
+}
+
 function swatch(runner) {
   return el("span", { className: "swatch", style: `background:${color(runner.provider)}` });
 }
@@ -109,7 +125,7 @@ function renderStats(data) {
     const winners = ranked(data.runners, metric).filter((r) => r.medians[key] === winner.medians[key]);
     container.append(el("div", { className: "stat" },
       el("div", { className: "label", textContent: label }),
-      el("div", { className: "value" }, fmt(winner.medians[key], metric),
+      el("div", { className: "value" }, fmt(winner.medians[key], metric), ...winners.map((r) => caveat(r, metric)),
         el("span", { className: "unit", textContent: metric.label.startsWith("$") ? "" : unit(metric) })),
       el("div", { className: "who" }, ...winners.flatMap((r, i) => [i ? ", " : "", swatch(r), r.provider_name]))));
   }
@@ -139,6 +155,7 @@ function renderTables(data) {
         ...runners.map((r) => {
           const value = r.medians[m.key];
           const cell = textCell(compact(value, m), value !== null && value === bests[m.key] ? "num best" : "num");
+          if (value !== null) cell.append(caveat(r, m) ?? "");
           cell.title = rangeText(r, m);
           cell.dataset.row = m.key;
           cell.dataset.col = r.label;
@@ -156,7 +173,7 @@ function renderTables(data) {
       stacked([swatch(r), r.provider_name], r.label, "provider"),
       truncate(r.cpu_models.join(", ")),
       textCell([r.vcpus, r.memory_gib && `${r.memory_gib} GiB`, r.disk_gb && `${r.disk_gb} GB`].filter(Boolean).join(" · ") || null),
-      stacked(r.price_per_minute === null ? "–" : `$${r.price_per_minute}/min`, r.billing),
+      stacked([r.price_per_minute === null ? "–" : `$${r.price_per_minute}/min`, caveat(r) ?? ""], r.billing),
       textCell(r.virtualization),
       stacked(r.location ?? "–", r.network?.replace(/^AS\d+\s+/, "")),
       el("td", {}, el("a", { href: r.run_url, textContent: new Date(r.measured_at).toLocaleDateString() })),
@@ -246,7 +263,7 @@ function renderBoards(data) {
         return el("div", { className: value === top ? "row best" : "row", title: `${r.label} · ${rangeText(r, metric)}` },
           el("span", { className: "name" }, swatch(r), r.provider_name),
           track,
-          el("span", { className: "val" }, fmt(value, metric), pct === null ? null : el("span", { className: "spread", textContent: `±${pct}%` })));
+          el("span", { className: "val" }, fmt(value, metric), caveat(r, metric), pct === null ? null : el("span", { className: "spread", textContent: `±${pct}%` })));
       })));
   }
 }
@@ -270,6 +287,7 @@ function render(data, platform, resetHighlights) {
   renderTables(view);
   renderBoards(view);
   renderErrors(view);
+  renderCaveats(runners);
   resetHighlights();
 }
 
