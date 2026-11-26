@@ -177,6 +177,7 @@ def summarise(results):
             "platform": "macos" if spec.get("os") == "macos" else spec.get("arch"),
             "price_per_minute": spec.get("price_per_minute"),
             "billing": billing_label(spec.get("billing")),
+            "pricing_caveat": spec.get("pricing_caveat"),
             "cpu_models": sorted({get(r, "system", "cpu", "model") or "?" for r in samples}),
             "vcpus": get(system, "cpu", "available_cpus"),
             "memory_gib": round(mem / 2**30, 1) if mem else None,
@@ -231,6 +232,8 @@ def report(summary):
             text = fmt(value, header)
             if x["ranges"][key] and x["ranges"][key][0] != x["ranges"][key][1]:
                 text += f" ({' to '.join(fmt(v, header) for v in x['ranges'][key])})"
+            if key == "redis_cost" and value is not None and x["pricing_caveat"]:
+                text += "\\*"
             cells.append(f"**{text}**" if value is not None and value == best else text)
         bench_rows.append(cells)
 
@@ -246,6 +249,10 @@ def report(summary):
         "## Benchmarks",
         table(["Provider", "Label"] + [h for _, h, _, _ in METRICS], bench_rows),
     ]
+    caveats = [x for x in runners if x["pricing_caveat"]]
+    if caveats:
+        sections.append("\\* Not plain pay-as-you-go, so the cost above leaves out:\n\n"
+                        + "\n".join(f"- `{x['label']}`: {x['pricing_caveat']}" for x in caveats))
     if summary["errors"]:
         sections += ["## Errors", "\n".join(f"- `{e['label']}` {e['benchmark']}: {e['error']}" for e in summary["errors"])]
     return "\n\n".join(sections) + "\n"

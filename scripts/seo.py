@@ -49,8 +49,10 @@ def questions(data):
                            f"{order[0]['medians']['redis_build']:.1f} s" + (f", ahead of {runner_up}." if runner_up else "."))
         order = ranked(runners, "redis_cost")
         if order:
+            note = (f", though it isn't plain pay-as-you-go: {order[0]['pricing_caveat'][0].lower()}{order[0]['pricing_caveat'][1:].rstrip('.')};"
+                    if order[0].get("pricing_caveat") else ",")
             cheapest.append(f"On {label}, {order[0]['provider_name']} was cheapest at "
-                            f"${order[0]['medians']['redis_cost']:.4f} per Redis build, against "
+                            f"${order[0]['medians']['redis_cost']:.4f} per Redis build{note} against "
                             f"${order[-1]['medians']['redis_cost']:.4f} for {order[-1]['provider_name']}.")
         covered.append(f"{label}: {join(sorted({r['provider_name'] for r in runners}))}.")
     per_minute = sorted({r["provider_name"] for r in data["runners"] if (r.get("billing") or "").startswith("per minute")})

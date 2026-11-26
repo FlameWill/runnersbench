@@ -7,6 +7,7 @@
       "arch": "x64",
       "price_per_minute": 0.012,
       "billing": {"increment_seconds": 60},
+      "pricing_caveat": "Free on public repos. This is GitHub's 4-core larger runner rate, which needs a GitHub Team ($4 per user a month) or Enterprise Cloud plan.",
       "enabled": true,
       "notes": "Baseline. 4 vCPU / 16 GB on public repos, where it's free; priced at GitHub's 4-core larger runner rate, the paid equivalent.",
       "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing"
@@ -40,6 +41,7 @@
       "arch": "x64",
       "price_per_minute": 0.012,
       "billing": {"increment_seconds": 1},
+      "pricing_caveat": "Needs a plan: Developer is $20 a month with 2,000 minutes included.",
       "enabled": true,
       "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
     },
@@ -137,6 +139,7 @@
       "arch": "x64",
       "price_per_minute": 0.0006,
       "billing": {"increment_seconds": 1},
+      "pricing_caveat": "Needs a plan from $20 a month, which comes back as VM time. Job starts above the plan's included number cost $0.03-0.07 each.",
       "enabled": true,
       "notes": "boat.dev. Ubuntu 24.04, one fresh VM per job, billed per second. Needs a plan from $20/month; the plan amount comes back as VM time. Starts above the plan's included count cost $0.03-0.07 each.",
       "pricing_source": "https://docs.boat.dev/pricing"
@@ -148,6 +151,7 @@
       "arch": "arm64",
       "price_per_minute": 0.008,
       "billing": {"increment_seconds": 60},
+      "pricing_caveat": "Free on public repos. This is GitHub's 4-core larger runner rate, which needs a GitHub Team ($4 per user a month) or Enterprise Cloud plan.",
       "enabled": true,
       "notes": "4 vCPU / 16 GB on public repos, where it is free; priced at the 4-core arm64 larger runner rate.",
       "pricing_source": "https://docs.github.com/en/billing/reference/actions-runner-pricing"
@@ -180,6 +184,7 @@
       "arch": "arm64",
       "price_per_minute": 0.012,
       "billing": {"increment_seconds": 1},
+      "pricing_caveat": "Needs a plan: Developer is $20 a month with 2,000 minutes included.",
       "enabled": true,
       "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
     },
@@ -211,6 +216,7 @@
       "arch": "x64",
       "price_per_minute": 0.016,
       "billing": {"increment_seconds": 1},
+      "pricing_caveat": "4 vCPU hosted agents need the Pro plan, $30 per active user a month.",
       "enabled": true,
       "notes": "Buildkite hosted agent (Medium). Runs .buildkite/pipeline.yml, started by the bench-buildkite job. Needs a paid or trial plan.",
       "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",
@@ -227,6 +233,7 @@
       "arch": "arm64",
       "price_per_minute": null,
       "billing": {"increment_seconds": 1},
+      "pricing_caveat": "4 vCPU hosted agents need the Pro plan, $30 per active user a month.",
       "enabled": false,
       "notes": "Buildkite hosted agent (Medium ARM64). Needs a hosted queue with the LINUX_ARM64_4X16 shape and key linux-arm-medium.",
       "pricing_source": "https://buildkite.com/platform/pipelines/hosting-options/linux-hosted-agents/",
@@ -280,6 +287,7 @@
       "os": "macos",
       "price_per_minute": 0.08,
       "billing": {"increment_seconds": 1},
+      "pricing_caveat": "Needs a plan: Developer is $20 a month with 2,000 minutes included.",
       "enabled": true,
       "notes": "M4 host with 10 cores; the job gets 9.",
       "pricing_source": "https://depot.dev/docs/github-actions/runner-types"
