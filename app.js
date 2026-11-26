@@ -111,18 +111,24 @@ function ranked(runners, metric) {
     .sort((a, b) => (b.medians[metric.key] - a.medians[metric.key]) * (metric.higher_is_better ? 1 : -1));
 }
 
+// Costs that leave out a plan or other fees are shown, but can't be the cheapest.
+function eligible(runner, metric) {
+  return !(metric.key === "redis_cost" && runner.pricing_caveat);
+}
+
 function best(runners, metric) {
   const order = ranked(runners, metric);
-  return order.length > 1 ? order[0].medians[metric.key] : null;
+  const top = order.find((r) => eligible(r, metric));
+  return order.length > 1 && top ? top.medians[metric.key] : null;
 }
 
 function renderStats(data) {
   const container = document.getElementById("stats");
   for (const [key, label] of HEADLINES) {
     const metric = data.metrics.find((m) => m.key === key);
-    const winner = metric && ranked(data.runners, metric)[0];
+    const winner = metric && ranked(data.runners, metric).find((r) => eligible(r, metric));
     if (!winner) continue;
-    const winners = ranked(data.runners, metric).filter((r) => r.medians[key] === winner.medians[key]);
+    const winners = ranked(data.runners, metric).filter((r) => eligible(r, metric) && r.medians[key] === winner.medians[key]);
     container.append(el("div", { className: "stat" },
       el("div", { className: "label", textContent: label }),
       el("div", { className: "value" }, fmt(winner.medians[key], metric), ...winners.map((r) => caveat(r, metric)),
@@ -154,7 +160,8 @@ function renderTables(data) {
         label,
         ...runners.map((r) => {
           const value = r.medians[m.key];
-          const cell = textCell(compact(value, m), value !== null && value === bests[m.key] ? "num best" : "num");
+          const isBest = value !== null && value === bests[m.key] && eligible(r, m);
+          const cell = textCell(compact(value, m), isBest ? "num best" : eligible(r, m) ? "num" : "num caveated");
           if (value !== null) cell.append(caveat(r, m) ?? "");
           cell.title = rangeText(r, m);
           cell.dataset.row = m.key;
@@ -260,7 +267,8 @@ function renderBoards(data) {
           track.append(whisker);
         }
         const pct = spread(r, metric);
-        return el("div", { className: value === top ? "row best" : "row", title: `${r.label} · ${rangeText(r, metric)}` },
+        const rowClass = !eligible(r, metric) ? "row caveated" : value === top ? "row best" : "row";
+        return el("div", { className: rowClass, title: `${r.label} · ${rangeText(r, metric)}` },
           el("span", { className: "name" }, swatch(r), r.provider_name),
           track,
           el("span", { className: "val" }, fmt(value, metric), caveat(r, metric), pct === null ? null : el("span", { className: "spread", textContent: `±${pct}%` })));
