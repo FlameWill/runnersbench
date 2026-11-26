@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T16:36:19.761904+00:00",
+ "generated_at": "2026-11-26T07:56:59.092415+00:00",
  "sample_count": 71,
  "benchmark_versions": [
   3
@@ -2339,8 +2339,8 @@
   "github": "#97bbf5",
   "groundbox": "#9c6b4e",
   "luxor": "#9498a0",
-  "namespace": "#4269d0",
-  "warpbuild": "#efb118"
+  "namespace": "#2f4b7c",
+  "warpbuild": "#d6336c"
  },
  "errors": [
   {

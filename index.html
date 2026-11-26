@@ -52,7 +52,7 @@
     "name": "Daniel Lockyer",
     "url": "https://x.com/daniellockyer"
    },
-   "dateModified": "2026-11-25T16:36:19.761904+00:00",
+   "dateModified": "2026-11-26T07:56:59.092415+00:00",
    "isAccessibleForFree": true,
    "sameAs": "https://github.com/lockyer-labs/runnersbench",
    "keywords": [
@@ -155,7 +155,7 @@
      "name": "How often are the results updated?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The benchmark runs weekly on GitHub Actions and the code is open source. These results were updated on 25 November 2026, covering 12 providers."
+      "text": "The benchmark runs weekly on GitHub Actions and the code is open source. These results were updated on 26 November 2026, covering 12 providers."
      }
     }
    ]
@@ -166,8 +166,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="style.css?v=45654935956">
-  <script src="app.js?v=45654935956" defer></script>
+  <link rel="stylesheet" href="style.css?v=1795679819">
+  <script src="app.js?v=1795679819" defer></script>
 </head>
 <body>
   <header class="hero">
@@ -212,7 +212,7 @@
         <div><h3>Which runner providers are compared?</h3><p>Linux x64: Avrea, Blacksmith, Buildkite, Celesto, Checklane, Depot, GitHub, Groundbox, Luxor, Namespace, WarpBuild and boat. Linux arm64: Avrea, Blacksmith, Depot, GitHub and WarpBuild. macOS: Avrea, Blacksmith, Depot, GitHub, Groundbox, Luxor and WarpBuild. Linux runners are each provider&#x27;s 4 vCPU size on Ubuntu 24.04; Macs are each provider&#x27;s smallest Apple Silicon size on macOS 26.</p></div>
         <div><h3>How are the runners benchmarked?</h3><p>Every runner runs the same script at the same moment, three times: sysbench CPU and memory tests after a warm-up, fio sequential and 4k random disk tests, a download from Cloudflare, package installs, a 1 GB actions/cache save and restore, and a Redis build. Queue time comes from the GitHub API. The site shows each metric&#x27;s median and the spread across runs.</p></div>
         <div><h3>Why do some runners cost more for short jobs?</h3><p>Blacksmith, GitHub, Namespace and WarpBuild bill by the minute, rounding every job up, so a 25-second job is charged as a full minute. Per-second providers charge only for the time used, which makes a large difference for short jobs.</p></div>
-        <div><h3>How often are the results updated?</h3><p>The benchmark runs weekly on GitHub Actions and the code is open source. These results were updated on 25 November 2026, covering 12 providers.</p></div>
+        <div><h3>How often are the results updated?</h3><p>The benchmark runs weekly on GitHub Actions and the code is open source. These results were updated on 26 November 2026, covering 12 providers.</p></div>
       </div>
     </section>
     <section id="errors-section" hidden>
