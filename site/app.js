@@ -58,6 +58,26 @@ function textCell(text, className = "") {
   return el("td", { className, textContent: text ?? "–" });
 }
 
+function truncate(text, max = 30) {
+  const cell = el("td", { textContent: text.length > max ? `${text.slice(0, max - 1).trimEnd()}…` : text });
+  if (text.length > max) cell.title = text;
+  return cell;
+}
+
+function stacked(main, sub, className = "") {
+  return el("td", { className }, ...[].concat(main), sub ? el("span", { className: "sub", textContent: sub }) : null);
+}
+
+function showOverflow(scroller) {
+  const update = () => {
+    const more = scroller.scrollWidth - scroller.clientWidth - scroller.scrollLeft > 1;
+    scroller.classList.toggle("more", more);
+  };
+  scroller.addEventListener("scroll", update, { passive: true });
+  new ResizeObserver(update).observe(scroller);
+  update();
+}
+
 function swatch(runner) {
   return el("span", { className: "swatch", style: `background:${color(runner.provider)}` });
 }
@@ -131,12 +151,14 @@ function renderTables(data) {
   document.getElementById("runners-caption").textContent = `${runners.length} runners · as reported by each machine`;
   table(
     document.getElementById("runners"),
-    ["Provider", "Label", "CPU", "vCPUs", "Memory (GiB)", "Disk (GB)", "$/min", "Billed", "Virtualization", "Location", "Network", "Samples", "Measured"],
+    ["Provider", "CPU", "vCPU · RAM · Disk", "Price", "Virtualization", "Location", "Measured"],
     runners.map((r) => [
-      el("td", {}, swatch(r), r.provider_name), el("td", {}, el("code", { textContent: r.label })),
-      textCell(r.cpu_models.join(", ")), textCell(r.vcpus, "num"), textCell(r.memory_gib, "num"), textCell(r.disk_gb, "num"),
-      textCell(r.price_per_minute === null ? null : `$${r.price_per_minute}`, "num"), textCell(r.billing), textCell(r.virtualization),
-      textCell(r.location), textCell(r.network), textCell(r.sample_count, "num"),
+      stacked([swatch(r), r.provider_name], r.label, "provider"),
+      truncate(r.cpu_models.join(", ")),
+      textCell([r.vcpus, r.memory_gib && `${r.memory_gib} GiB`, r.disk_gb && `${r.disk_gb} GB`].filter(Boolean).join(" · ") || null),
+      stacked(r.price_per_minute === null ? "–" : `$${r.price_per_minute}/min`, r.billing),
+      textCell(r.virtualization),
+      stacked(r.location ?? "–", r.network?.replace(/^AS\d+\s+/, "")),
       el("td", {}, el("a", { href: r.run_url, textContent: new Date(r.measured_at).toLocaleDateString() })),
     ]),
   );
@@ -277,6 +299,7 @@ async function main() {
   const data = await (await fetch("data.json", { cache: "no-cache" })).json();
   color = (provider) => data.colors[provider];
   const resetHighlights = enableHighlighting(document.getElementById("benchmarks"));
+  document.querySelectorAll(".scroll").forEach(showOverflow);
   renderTabs(data, (platform) => render(data, platform, resetHighlights));
 }
 

@@ -113,7 +113,8 @@ def cost_per_build(r):
 
 
 # Assigned to providers in alphabetical order; the site and README both read them from data.json.
-COLORS = ["#4269d0", "#efb118", "#ff725c", "#6cc5b0", "#3ca951", "#ff8ab7", "#a463f2", "#97bbf5", "#9c6b4e", "#9498a0"]
+COLORS = ["#4269d0", "#efb118", "#ff725c", "#6cc5b0", "#3ca951", "#ff8ab7", "#a463f2", "#97bbf5", "#9c6b4e", "#9498a0",
+          "#2f4b7c", "#d6336c", "#8c8c1a", "#00a3a3"]
 
 # (key, column header, extractor, higher_is_better)
 METRICS = [
